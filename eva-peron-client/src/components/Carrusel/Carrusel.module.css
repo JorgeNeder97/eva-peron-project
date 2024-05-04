@@ -1,0 +1,190 @@
+/* Movile & Tablet Version */
+
+/* Imagen no cargada */
+.imageUnloaded {
+    width: 100%;
+    min-height: 40vh;
+    max-height: 40vh;
+    opacity: 0;
+    transition: 1s all;
+    height: auto;
+}
+
+/* Imagen cargada */
+.imageLoaded {
+    width: 100%;
+    min-height: 40vh;
+    max-height: 40vh;
+    opacity: 1;
+    transition: 1s all;
+    height: auto;
+}
+
+/* Contenedor de imagen con fondo negro */
+.imageContainer {
+    position: relative;
+    width: 100%;
+    max-height: 40vh;
+    background-color: #000;
+    padding: 0px;
+}
+
+/* Filtro para atenuar la imagen */
+.filtro {
+    position: absolute;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .3);
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+
+/* Botones */
+
+.buttonLeft {
+    display: none;
+}
+
+.buttonRight {
+    display: none;
+}
+
+
+/* Desktop Version */
+
+@media (min-width: 992px) {
+    /* Imagenes */
+
+    /* Imagen no cargada */
+    .imageUnloaded {
+        min-height: 490px;
+        max-height: 490px;
+    }
+
+    /* Imagen cargada */
+    .imageLoaded {
+        min-height: 490px;
+        max-height: 490px;
+    }
+
+    /* Contenedor de imagen con fondo negro */
+    .imageContainer {
+        max-height: 490px;
+    }
+
+
+    /* Botones */
+
+    .buttonLeft {
+        display: inline-block;
+        position: absolute;
+        top: 50;
+        left: 0;
+        right: 100;
+        bottom: 50;
+        z-index: 10;
+        height: 100%;
+        width: 15%;
+        background: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, .4));
+        border: none;
+        color: #888;
+        padding: 0;
+    }
+
+    .buttonRight {
+        display: inline-block;
+        position: absolute;
+        top: 50;
+        left: 100;
+        right: 0;
+        bottom: 50;
+        z-index: 10;
+        height: 100%;
+        width: 15%;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, .4));
+        border: none;
+        color: #888;
+        padding: 0;
+    }
+
+    /* Botones Hover */
+
+    .buttonLeft:hover {
+        color: #FFF;
+        transition: .5s all;
+    }
+
+    .buttonLeft:not(:hover) {
+        color: #888;
+        transition: .5s all;
+    }
+
+    .buttonRight:hover {
+        color: #FFF;
+        transition: .5s all;
+    }
+
+    .buttonRight:not(:hover) {
+        color: #888;
+        transition: .5s all;
+    }
+
+    /* Boton de leer mas */
+
+    .navLink {
+        width: 90px;
+        
+        background: #ffc107;
+        position: absolute;
+        display: inline-block;
+        bottom: 15%;
+        right: 46%;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        color: #FFF;
+        font-family: 'Lucida sans', 'sans-serif';
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        z-index: 10;
+    }
+
+    .navLink:hover {
+        color: var(--color-verde-fuente);
+        box-shadow: 0 0 10px #333;
+        transition: .3s all;
+    }
+
+    .navLink:not(:hover) {
+        color: #FFF;
+        box-shadow: 0 0 0 0;
+        transition: .3s all;
+    }
+
+
+    /* Texto */
+    .titleContainer {
+        width: 400px;
+        height: 200px;
+        position: absolute;
+        bottom: 29%;
+        right: 35%;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+    }
+
+    .title {
+        font-family: 'Lucida Sans', 'sans-serif';
+        font-size: 3rem;
+        color: #FFF;
+        text-align: center;
+        margin: 0;
+    }
+
+
+}
