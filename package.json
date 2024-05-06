@@ -1,0 +1,22 @@
+{
+  "name": "eva-peron-project",
+  "version": "1.0.0",
+  "description": "Sitio Web Escuela Eva Peron",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JorgeNeder97/eva-peron-project.git"
+  },
+  "author": "JorgeNeder97",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/JorgeNeder97/eva-peron-project/issues"
+  },
+  "homepage": "https://github.com/JorgeNeder97/eva-peron-project#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

@@ -134,12 +134,13 @@
 
     .navLink {
         width: 90px;
-        
         background: #ffc107;
         position: absolute;
         display: inline-block;
         bottom: 15%;
-        right: 46%;
+        right: 0;
+        left: 0;
+        margin: auto;
         padding: 10px 20px;
         border-radius: 5px;
         border: none;
@@ -170,8 +171,9 @@
         height: 200px;
         position: absolute;
         bottom: 29%;
-        right: 35%;
-        margin: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
         display: flex;
         align-items: center;
         justify-content: center;
