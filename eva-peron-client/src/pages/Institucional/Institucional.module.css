@@ -1,0 +1,12 @@
+
+
+.unloaded {
+    opacity: 0;
+    transition: 1s all;
+}
+
+.mainContainer {
+    width: 100%;
+    opacity: 1;
+    transition: 1s opacity;
+}

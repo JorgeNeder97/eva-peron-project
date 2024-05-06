@@ -1,0 +1,17 @@
+:root {
+    --color-verde-logo: #1A5900;
+    --color-amarillo-logo: #C8BE39;
+    --color-amarillo: #ffc107;
+    --color-verde-fuente: #1d6100;
+}
+
+
+.mainContainer {
+    width: 100%;
+    height: 80px;
+    background: radial-gradient(circle, #277406, #1D6100);
+    font-family: 'Anek Devanagari', 'sans-serif';
+    color: #FFF;
+    padding: 20px 50px;
+    box-shadow: 0px 0px 10px #777;
+}
