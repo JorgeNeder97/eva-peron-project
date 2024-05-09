@@ -31,7 +31,7 @@ module.exports = {
         },
         allowNull: false,
         onDelete: 'CASCADE'
-      }
+      },
     });
   },
   async down(queryInterface, Sequelize) {

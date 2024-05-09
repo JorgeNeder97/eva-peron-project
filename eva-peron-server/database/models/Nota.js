@@ -1,0 +1,53 @@
+module.exports = (sequelize, DataTypes) => {
+    let alias = 'Nota';
+    let cols = {
+        id: {
+            type: DataTypes.INTEGER.UNSIGNED,
+            primaryKey: true,
+            autoIncrement: true,
+            allowNull: false,
+        },
+        nota: {
+            type: DataTypes.TINYINT(10).UNSIGNED,
+            allowNull: false,
+        },
+        alumno_id: {
+            type: DataTypes.INTEGER.UNSIGNED,
+            references: {
+                model: {
+                    tableName: 'alumnos',
+                },
+                key: 'id',
+            },
+            allowNull: false,
+            onDelete: 'CASCADE',
+        },
+        materia_id: {
+            type: DataTypes.INTEGER.UNSIGNED,
+            references: {
+                model: {
+                    tableName: 'materias',
+                },
+                key: 'id',
+            },
+            allowNull: false,
+            onDelete: 'CASCADE',
+        },
+        createdAt: {
+            type: DataTypes.DATE,
+        },
+        updatedAt: {
+            type: DataTypes.DATE,
+        },
+    };
+    let config = {
+        tableName: 'notas',
+        timestamps: true,
+    };
+
+    const Nota = sequelize.define(alias, cols, config);
+
+
+
+    return Nota;
+}
