@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    let alias = 'Materia';
+    let alias = "Materia";
     let cols = {
         id: {
             type: DataTypes.INTEGER.UNSIGNED,
@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.TINYINT(3).UNSIGNED,
             allowNull: false,
         },
-        resolucion: {
+        propuesta_academica: {
             type: DataTypes.TINYINT(1).UNSIGNED,
             allowNull: false,
         },
@@ -27,13 +27,30 @@ module.exports = (sequelize, DataTypes) => {
         },
     };
     let config = {
-        tableName: 'materias',
+        tableName: "materias",
         timestamps: true,
     };
 
     const Materia = sequelize.define(alias, cols, config);
+    Materia.associate = (models) => {
+        Materia.belongsToMany(models.Curso, {
+            as: "materia_curso",
+            through: "materias_cursos",
+            foreignKey: "materia_id",
+            otherKey: "curso_id",
+            timestamps: false,
+        });
 
+        Materia.hasMany(models.Nota, {
+            as: 'nota_materia',
+            foreignKey: 'materia_id',
+        });
 
+        Materia.hasMany(models.Examen, {
+            as: 'examen_materia',
+            foreignKey: 'materia_id',
+        });
+    };
 
     return Materia;
-}
+};

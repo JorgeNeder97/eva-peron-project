@@ -47,7 +47,17 @@ module.exports = (sequelize, DataTypes) => {
 
     const Nota = sequelize.define(alias, cols, config);
 
+    Nota.associate = (models) => {
+        Nota.belongsTo(models.Alumno, {
+            as: 'nota_alumno',
+            foreignKey: 'alumno_id'
+        });
 
+        Nota.belongsTo(models.Materia, {
+            as: 'nota_materia',
+            foreignKey: 'materia_id',
+        });
+    } 
 
     return Nota;
 }

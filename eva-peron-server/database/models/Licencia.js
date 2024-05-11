@@ -44,6 +44,12 @@ module.exports = (sequelize, DataTypes) => {
 
     const Licencia = sequelize.define(alias, cols, config);
 
+    Licencia.associate = (models) => {
+        Licencia.belongsTo(models.Usuario, {
+            as: 'licencia_usuario',
+            foreignKey: 'usuario_id',
+        });
+    }
 
     return Licencia;
 }

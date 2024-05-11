@@ -16,7 +16,6 @@ module.exports = (sequelize, DataTypes) => {
                 key: 'id',
             },
             allowNull: false,
-            onDelete: 'CASCADE',
         },
         curso_id: {
             type: DataTypes.INTEGER.UNSIGNED,
@@ -27,7 +26,6 @@ module.exports = (sequelize, DataTypes) => {
                 key: 'id',
             },
             allowNull: false,
-            onDelete: 'CASCADE',
         },
         createdAt: {
             type: DataTypes.DATE,
@@ -42,8 +40,5 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     const Materia_Curso = sequelize.define(alias, cols, config);
-
-
-
     return Materia_Curso;
 }

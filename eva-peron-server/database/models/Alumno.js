@@ -68,6 +68,27 @@ module.exports = (sequelize, DataTypes) => {
 
   const Alumno = sequelize.define(alias, cols, config);
 
+  Alumno.associate = (models) => {
+    Alumno.belongsTo(models.Curso, {
+      as: 'curso_alumno',
+      foreignKey: 'curso_id',
+    });
+
+    Alumno.belongsTo(models.Sexo, {
+      as: 'sexo_alumno',
+      foreignKey: 'sexo_id',
+    });
+
+    Alumno.hasMany(models.Nota, {
+      as: 'nota_alumno',
+      foreignKey: 'alumno_id',
+    });
+
+    Alumno.hasMany(models.Examen, {
+      as: 'examen_alumno',
+      foreignKey: 'alumno_id',
+    });
+  }
 
   return Alumno;
 }

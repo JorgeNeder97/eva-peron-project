@@ -18,6 +18,11 @@ module.exports = {
         type: DataTypes.TINYINT(3).UNSIGNED,
         allowNull: false,
       },
+      // propuesta_academica 0 = PCTBI, propuesta_academica 1 = FORMACION PROFESIONAL
+      propuesta_academica: {
+        type: DataTypes.TINYINT(1).UNSIGNED,
+        allowNull: false,
+      },
     });
   },
   async down(queryInterface, Sequelize) {

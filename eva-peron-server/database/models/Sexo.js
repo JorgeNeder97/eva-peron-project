@@ -19,7 +19,17 @@ module.exports = (sequelize, DataTypes) => {
 
     const Sexo = sequelize.define(alias, cols, config);
 
-
+    Sexo.associate = (models) => {
+        Sexo.hasMany(models.Usuario, {
+            as: 'sexo_usuario',
+            foreignKey: 'sexo_id',
+        });
+        
+        Sexo.hasMany(models.Alumno, {
+            as: 'sexo_alumno',
+            foreignKey: 'sexo_id',
+        });
+    }
 
     return Sexo;
 }

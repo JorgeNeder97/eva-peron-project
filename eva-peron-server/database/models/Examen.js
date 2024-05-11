@@ -70,7 +70,22 @@ module.exports = (sequelize, DataTypes) => {
 
   const Examen = sequelize.define(alias, cols, config);
 
+  Examen.associate = (models) => {
+    Examen.belongsTo(models.Alumno, {
+      as: 'examen_alumno',
+      foreignKey: 'alumno_id'
+    });
 
+    Examen.belongsTo(models.Materia, {
+      as: 'examen_materia',
+      foreignKey: 'materia_id',
+    });
+
+    Examen.belongsTo(models.Curso, {
+      as: 'examen_curso',
+      foreignKey: 'curso_id',
+    });
+  }
 
   return Examen;
 }

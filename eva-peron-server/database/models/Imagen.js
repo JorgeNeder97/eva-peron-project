@@ -25,7 +25,14 @@ module.exports = (sequelize, DataTypes) => {
 
     const Imagen = sequelize.define(alias, cols, config);
 
-
+    Imagen.associate = (models) => {
+        Imagen.belongsToMany(models.Noticia, {
+            as: 'noticia_imagen',
+            through: 'noticias_imagenes',
+            foreignKey: 'imagen_id',
+            otherKey: 'noticia_id',
+        });
+    }
 
     return Imagen;
 }

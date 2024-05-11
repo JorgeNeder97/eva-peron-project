@@ -19,6 +19,12 @@ module.exports = (sequelize, DataTypes) => {
 
     const Rol = sequelize.define(alias, cols, config);
     
+    Rol.associate = (models) => {
+        Rol.hasMany(models.Usuario, {
+            as: 'rol_usuario',
+            foreignKey: 'rol_id',
+        });
+    }
 
     return Rol;
 }
