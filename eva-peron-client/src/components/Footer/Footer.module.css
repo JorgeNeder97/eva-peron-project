@@ -5,13 +5,148 @@
     --color-verde-fuente: #1d6100;
 }
 
-
 .mainContainer {
     width: 100%;
-    height: 80px;
-    background: radial-gradient(circle, #277406, #1D6100);
+    max-height: 300px;
+    background: radial-gradient(circle, #32910a, #277c02);
     font-family: 'Anek Devanagari', 'sans-serif';
     color: #FFF;
-    padding: 20px 50px;
+    padding: 10px 0px;
     box-shadow: 0px 0px 10px #777;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.logosContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.logoEscuela {
+    max-width: 300px;
+    width: 100%;
+}
+
+.logosSecundarios {
+    display: none;
+}
+
+
+.infoContactoContainer {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 5px;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.emailContacto, .telefonoContacto {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.emailContacto a, .telefonoContacto a {
+    margin: 0;
+    text-decoration: none;
+    color: #CFC;
+}
+
+.emailContacto {
+    align-self: flex-end;
+    letter-spacing: 1.3px;
+}
+
+.telefonoContacto {
+    letter-spacing: 1.5px;
+}
+
+.redesContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.redesContainer p {
+    font-size: 1.3rem;
+}
+
+.redes {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.redes a {
+    color: #ADA;
+}
+
+.redes a:hover {
+    color: #FFF;
+    transition: .3s all;
+}
+
+.redes a:not(:hover) {
+    color: #ADA;
+    transition: .3s all;
+}
+
+
+@media (min-width: 992px) {
+    .mainContainer {
+        max-width: 100%;
+        height: 120px;
+        padding: 20px 0px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .logosContainer {
+        padding-left: 20px;
+    }
+
+    .logoEscuela {
+        width: 300px;
+    }
+    
+    .logosSecundarios {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        gap: 5px;
+    }
+    
+    .logoSecretaria, .logoSeccionAlumnos, .logoAsesoriaPedagogica {
+        width: 140px;
+    }
+    
+    .infoContactoContainer {
+        padding-left: 60px;
+    }
+
+    .emailContacto a:hover {
+        color: #FFF;
+        transition: .3s all;
+    }
+
+    .emailContacto a:not(:hover) {
+        color: #ADA;
+        transition: .3s all;
+    }
+
+    .telefonoContacto a:hover {
+        color: #FFF;
+        transition: .3s all;
+    }
+
+    .telefonoContacto a:not(:hover) {
+        color: #ADA;
+        transition: .3s all;
+    }
+
+    .redesContainer {
+        padding-right: 60px;
+    }
 }

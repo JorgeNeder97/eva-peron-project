@@ -1,17 +1,19 @@
 import React from 'react'
-import { Carrusel } from '../../components/Carrusel/Carrusel'
-import { Noticias } from '../../components/News/Noticias'
-import { Maps } from '../../components/Maps/Maps';
 import styles from './HomePage.module.css'
+import { NavBar } from '../../components/NavBar/NavBar';
+import { Carrusel } from '../../components/Carrusel/Carrusel'
+import { Noticia } from '../../components/News/Noticia'
+import { Maps } from '../../components/Maps/Maps';
 
 export const HomePage = () => {
 
 
   return (
     <>
+      <NavBar />
       <div>
         <Carrusel />
-        <Noticias />
+        <Noticia />
         <Maps />
       </div>
     </>

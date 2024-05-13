@@ -19,10 +19,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.TEXT,
             allowNull: false,
         },
-        fecha_creacion: {
-            type: DataTypes.DATEONLY,
-            allowNull: false,
-        },
         createdAt: {
             type: DataTypes.DATE,
         },

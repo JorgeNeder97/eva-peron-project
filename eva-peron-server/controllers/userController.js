@@ -1,6 +1,6 @@
 const mainController = {
-    saludar: (req, res) => {
-        res.send('Hola');
+    log: (req, res) => {
+        res.send('Hola desde el back!');
     }
 }
 

@@ -23,6 +23,10 @@ module.exports = {
         type: DataTypes.TINYINT(1).UNSIGNED,
         allowNull: false,
       },
+      año: {
+        type: DataTypes.INTEGER(4).UNSIGNED,
+        allowNull: false,
+      },
     });
   },
   async down(queryInterface, Sequelize) {

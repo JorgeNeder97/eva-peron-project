@@ -23,10 +23,6 @@ module.exports = {
         type: DataTypes.TEXT,
         allowNull: false,
       },
-      fecha_creacion: {
-        type: DataTypes.DATEONLY,
-        allowNull: false,
-      },
     });
   },
   async down(queryInterface, Sequelize) {

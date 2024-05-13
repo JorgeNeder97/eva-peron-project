@@ -1,23 +1,24 @@
+require('dotenv').config({path: './../../.env'});
 module.exports = {
   "development": {
-    "username": "root",
+    "username": 'root',
     "password": null,
-    "database": "eva-peron-db",
-    "host": "127.0.0.1",
+    "database": 'eva-peron-db',
+    "host": '127.0.0.1',
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
+    "username": 'root',
     "password": null,
-    "database": "eva-peron-db",
-    "host": "127.0.0.1",
+    "database": 'eva-peron-db',
+    "host": '127.0.0.1',
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
+    "username": 'root',
     "password": null,
-    "database": "eva-peron-db",
-    "host": "127.0.0.1",
+    "database": 'eva-peron-db',
+    "host": '127.0.0.1',
     "dialect": "mysql"
   }
 }

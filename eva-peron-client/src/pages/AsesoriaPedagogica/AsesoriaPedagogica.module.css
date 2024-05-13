@@ -125,7 +125,7 @@
         flex-direction: row;
         max-width: 1200px;
         padding: 0;
-        margin: 20px auto;
+        margin: 50px auto;
         opacity: 1;
         transition: opacity 1s;
     }

@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from './Noticias.module.css'
+import styles from './Noticia.module.css'
 import { Link } from 'react-router-dom'
 
-export const Noticias = () => {
+export const Noticia = () => {
     // Crear un estado de la noticia, traer las noticias de la base de datos y guardarlas en el estado como array.
     // mapear debajo las ultimas 6 noticias.
 

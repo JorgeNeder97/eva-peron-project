@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from './SeccionAlumnos.module.css'
+import { NavBar } from '../../components/NavBar/NavBar'
 import { useSlowLoad } from '../../hooks/useSlowLoad'
 import video from '../../assets/SeccionAlumnosLogin.mp4'
 import logoSeccionAlumnos from '../../assets/logoSeccionAlumnos.png'
@@ -23,6 +24,7 @@ export const SeccionAlumnosPage = () => {
 
     return (
         <>
+            <NavBar />
             <div className={isLoaded ? styles.mainContainer : styles.unloaded}>
                 <div className={styles.videoContainer}>
                     <video autoPlay loop muted className={styles.video}>

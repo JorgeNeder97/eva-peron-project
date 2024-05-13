@@ -15,8 +15,6 @@ export const NavBar = () => {
     window.scrollY > 200 ? setFix(true) : setFix(false);
   }
 
-  console.log(window.scrollY);
-
 
   window.addEventListener('scroll', setFixed);
 
@@ -29,6 +27,7 @@ export const NavBar = () => {
         <div className={fix ? styles.scrolled : styles.linksContainer}>
           <Link to="/" className={styles.links}>INICIO</Link>
           <Link to="/institucional" className={styles.links}>INSTITUCIONAL</Link>
+          <Link to="/noticias" className={styles.links}>NOTICIAS</Link>
           <Link to="/secretaria" className={styles.links}>SECRETARIA</Link>
           <Link to="/alumnos" className={styles.links}>ALUMNOS</Link>
           <Link to="/asesoria-pedagogica" className={styles.links}>ASESORIA PEDAGOGICA</Link>
