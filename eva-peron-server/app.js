@@ -9,8 +9,9 @@ var cors = require("cors");
 // Falta multer, method_override y algun que otro mas.
 // No te olvides de hacer los middleWares.
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/users");
+const noticiasRouter = require('./routes/noticias');
 
 var app = express();
 
@@ -21,8 +22,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cors({ origin: "http://localhost:5173" }));
 
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/api/saludar", indexRouter);
+app.use("/api/users", usersRouter);
+app.use("/api/noticias", noticiasRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

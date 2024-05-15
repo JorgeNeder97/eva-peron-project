@@ -30,6 +30,12 @@ module.exports = {
                 },
                 allowNull: false,
             },
+            createdAt: {
+                type: DataTypes.DATE,
+            },
+            updatedAt: {
+                type: DataTypes.DATE,
+            },
         });
     },
     async down(queryInterface, Sequelize) {

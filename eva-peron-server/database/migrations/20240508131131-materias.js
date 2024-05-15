@@ -22,6 +22,12 @@ module.exports = {
                 type: DataTypes.TINYINT(1).UNSIGNED,
                 allowNull: false,
             },
+            createdAt: {
+                type: DataTypes.DATE,
+            },
+            updatedAt: {
+                type: DataTypes.DATE,
+            },
         });
     },
     async down(queryInterface, Sequelize) {

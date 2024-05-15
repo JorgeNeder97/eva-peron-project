@@ -11,8 +11,7 @@ export const Noticia = () => {
         {/* Debe ser una galeria grid */}
         <div className={styles.mainContainer}>
             <div className={styles.card}>
-                <p>FECHA, debe estar sobre la imagen en una esquina</p>
-                <img src="" alt="" />
+                <img src="" width="" />
                 <div>
                     <Link><h3>titulo</h3></Link>
                     <p>adelanto</p>

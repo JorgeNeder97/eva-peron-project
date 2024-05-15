@@ -24,12 +24,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER(4).UNSIGNED,
             allowNull: false,
         },
-        createdAt: {
-            type: DataTypes.DATE,
-        },
-        updatedAt: {
-            type: DataTypes.DATE,
-        },
     };
     let config = {
         tableName: "cursos",

@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    let alias = 'Licencia';
+    let alias = "Licencia";
     let cols = {
         id: {
             type: DataTypes.INTEGER.UNSIGNED,
@@ -23,22 +23,16 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER.UNSIGNED,
             references: {
                 model: {
-                    tableName: 'usuarios'
+                    tableName: "usuarios",
                 },
-                key: 'id'
+                key: "id",
             },
             allowNull: false,
-            onDelete: 'CASCADE',
-        },
-        createdAt: {
-            type: DataTypes.DATE,
-        },
-        updatedAt: {
-            type: DataTypes.DATE,
+            onDelete: "CASCADE",
         },
     };
     let config = {
-        tableName: 'licencias',
+        tableName: "licencias",
         timestamps: true,
     };
 
@@ -46,10 +40,10 @@ module.exports = (sequelize, DataTypes) => {
 
     Licencia.associate = (models) => {
         Licencia.belongsTo(models.Usuario, {
-            as: 'licencia_usuario',
-            foreignKey: 'usuario_id',
+            as: "licencia_usuario",
+            foreignKey: "usuario_id",
         });
-    }
+    };
 
     return Licencia;
-}
+};

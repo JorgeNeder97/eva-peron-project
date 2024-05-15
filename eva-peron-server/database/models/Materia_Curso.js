@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    let alias = 'Materia_Curso';
+    let alias = "Materia_Curso";
     let cols = {
         id: {
             type: DataTypes.INTEGER.UNSIGNED,
@@ -11,9 +11,9 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER.UNSIGNED,
             references: {
                 model: {
-                    tableName: 'materias',
+                    tableName: "materias",
                 },
-                key: 'id',
+                key: "id",
             },
             allowNull: false,
         },
@@ -21,24 +21,18 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER.UNSIGNED,
             references: {
                 model: {
-                    tableName: 'cursos',
+                    tableName: "cursos",
                 },
-                key: 'id',
+                key: "id",
             },
             allowNull: false,
         },
-        createdAt: {
-            type: DataTypes.DATE,
-        },
-        updatedAt: {
-            type: DataTypes.DATE,
-        },
     };
     let config = {
-        tableName: 'materias_cursos',
+        tableName: "materias_cursos",
         timestamps: true,
     };
 
     const Materia_Curso = sequelize.define(alias, cols, config);
     return Materia_Curso;
-}
+};
