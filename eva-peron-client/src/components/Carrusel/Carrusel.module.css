@@ -44,7 +44,7 @@
 /* Boton de leer mas */
 
 .navLink {
-    width: 90px;
+    width: 120px;
     background: #ffc107;
     position: absolute;
     display: inline-block;
@@ -195,7 +195,7 @@
     /* Boton de leer mas */
 
     .navLink {
-        width: 90px;
+        width: 120px;
         background: #ffc107;
         position: absolute;
         display: inline-block;
@@ -222,7 +222,7 @@
 
     .navLink:not(:hover) {
         color: #FFF;
-        box-shadow: 0 0 0 0;
+        box-shadow: 0 0 0 #000;
         transition: .3s all;
     }
 

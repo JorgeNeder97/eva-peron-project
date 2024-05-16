@@ -22,7 +22,7 @@ export const Footer = () => {
                         <a href="mailto: escevaperon4@gmail.com"><i className="fa-solid fa-envelope"></i> escevaperon4@gmail.com</a>
                     </div>
                     <div className={styles.telefonoContacto}>
-                        <a href="tel: 4226237"><i className="fa-solid fa-phone"></i> 422-6237</a>
+                        <a href="tel: 4226237"><i className="fa-solid fa-phone"></i> (385) 422-6237</a>
                     </div>
                 </div>
                 <div className={styles.redesContainer}>

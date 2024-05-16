@@ -26,6 +26,7 @@
 
 .mainContainer {
     width: 100%;
+    box-sizing: border-box;
 }
 
 .logoContainer {
@@ -45,18 +46,6 @@
 
 .linksContainer {
     display: none;
-}
-
-
-
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
-
-}
-
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -106,6 +95,7 @@
     .scrolled {
         max-width: 100%;
         width: 100%;
+        box-sizing: border-box;
         padding-top: 15px;
         padding-bottom: 10px;
         background: linear-gradient(45deg, #fab707, var(--color-amarillo));

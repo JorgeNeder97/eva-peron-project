@@ -5,6 +5,8 @@ import { Carrusel } from '../../components/Carrusel/Carrusel'
 import { Noticia } from '../../components/News/Noticia'
 import { Maps } from '../../components/Maps/Maps';
 import { InfoBar } from '../../components/InfoBar/InfoBar';
+import { GaleriaNoticias } from '../../components/GaleriaNoticias/GaleriaNoticias';
+import { PropuestasAc } from '../../components/PropuestasAc/PropuestasAc';
 
 export const HomePage = () => {
 
@@ -14,7 +16,8 @@ export const HomePage = () => {
       <NavBar />
       <div>
         <Carrusel />
-        <Noticia />
+        <PropuestasAc />
+        <GaleriaNoticias />
         <InfoBar />
         <Maps />
       </div>

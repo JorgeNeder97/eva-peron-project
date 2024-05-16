@@ -1,23 +1,22 @@
 import React from 'react'
 import styles from './Noticia.module.css'
 import { Link } from 'react-router-dom'
+export const Noticia = ({ id, titulo, adelanto, cuerpo, imagenes }) => {
 
-export const Noticia = () => {
-    // Crear un estado de la noticia, traer las noticias de la base de datos y guardarlas en el estado como array.
-    // mapear debajo las ultimas 6 noticias.
 
-  return (
-    <>
-        {/* Debe ser una galeria grid */}
-        <div className={styles.mainContainer}>
-            <div className={styles.card}>
-                <img src="" width="" />
-                <div>
-                    <Link><h3>titulo</h3></Link>
-                    <p>adelanto</p>
-                </div>
+    return (
+        <>
+            <div className={styles.mainContainer} key={id}>
+                    <Link className={styles.imagenAdelantoContainer}>
+                        {imagenes.map((imagen, i) => (
+                            <img className={styles.image} src={imagen.nombre} key={i} />
+                        ))}
+                        <div className={styles.tituloAdelantoContainer}>
+                            <h3 className={styles.titulo}>{titulo}</h3>
+                            <p className={styles.adelanto}>{adelanto}</p>
+                        </div>
+                    </Link>
             </div>
-        </div>
-    </>
-  )
+        </>
+    )
 }

@@ -1,0 +1,293 @@
+
+.mainContainer {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 100px auto 50px auto;
+}
+
+.tituloPropuestasAcademicas {
+    font-family: 'Lato', 'sans-serif';
+    font-size: 2.7rem;
+    text-align: center;
+    color: #333;
+}
+
+.divider {
+    border-top: .5px solid rgba(0, 0, 0, .3);
+    width: 97%;
+    margin: 0 auto;
+}
+
+/* Contenedor grid */
+
+.propuestasContainer {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 400px 400px;
+    gap: 10px;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0 10px;
+    margin-top: 80px;
+}
+
+.pctbiContainer, .formacionContainer {
+    position: relative;   
+    border-radius: 5px;
+    height: 500px;
+}
+
+.pctbiImagen, .formacionImagen {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.pctbiTitulo, .formacionTitulo {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 4rem;
+    font-family: 'Lusitana', 'sans-serif';
+    text-align: center;
+    color: #FFF;
+}
+
+.pctbiDescripcion {
+    position: absolute;
+    bottom: 45%;
+    left: 0;
+    right: 0;
+    font-family: 'Lato', 'sans-serif';
+    font-size: 1rem;
+    color: #FFF;
+    margin: auto;
+    padding: 0 30px;
+    text-align: center;
+}
+
+.formacionDescripcion {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 49%;
+    margin: auto;
+    font-family: 'Lato', 'sans-serif';
+    font-size: 1rem;
+    color: #FFF;
+    text-align: center;
+}
+
+@media (min-width: 992px) {
+
+    
+    .propuestasContainer {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 10px;
+        align-items: center;
+        justify-items: center;
+        box-sizing: border-box;
+        padding: 0 100px;
+    }
+
+    .pctbiContainer, .formacionContainer {
+        position: relative;
+    }
+    
+    
+    .pctbiContainer:hover .pctbiImagen, .formacionContainer:hover .formacionImagen {
+        filter:brightness(0.4);
+        transition: filter 1s;
+    }
+
+    .pctbiTitulo, .formacionTitulo {
+        position: absolute;
+        top: 35%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        font-size: 6rem;
+        font-family: 'Lusitana', 'sans-serif';
+        text-align: center;
+        color: #DDD;
+        transition: color .3s;
+    }
+
+    .pctbiContainer:hover .pctbiTitulo, .formacionContainer:hover .formacionTitulo {
+        color: #FFF;
+        transition: color .3s;
+    }
+    
+    .pctbiDescripcion, .formacionDescripcion {
+        opacity: 0;
+        transform: translateY(70%);
+        transition: .5s ease-in all;
+    }
+
+    .pctbiContainer:hover .pctbiDescripcion, .formacionContainer:hover .formacionDescripcion {
+        opacity: 1;
+        transform: translateY(0);
+        transition: .5s ease-in all;
+    }
+
+
+
+
+
+
+    /* -- Hover Transition Border -- */
+
+    .pctbiContainer span, .formacionContainer span {
+        position: absolute;
+        display: block;
+        background: #FFF;
+        z-index: 10;
+    }
+
+    .pctbiContainer span:nth-child(1), .formacionContainer span:nth-child(1) {
+        left: 5%;
+        top: 5%;
+        width: 50.5%;
+        height: 1.5px;
+        transform-origin: left;
+        transform: scaleX(0);
+        transition: transform ease-in-out .5s;
+    }
+
+    .pctbiContainer:hover span:nth-child(1), .formacionContainer:hover span:nth-child(1) {
+        transform: scaleX(1);
+        transform-origin: right;
+    }
+
+
+
+
+    .pctbiContainer span:nth-child(2), .formacionContainer span:nth-child(2) {
+        right: 5%;
+        top: 5%;
+        width: 50.5%;
+        height: 1.5px;
+        transform-origin: left;
+        transform: scaleX(0);
+        transition: transform ease-in-out .5s;
+    }
+
+    .pctbiContainer:hover span:nth-child(2), .formacionContainer:hover span:nth-child(2) {
+        transform: scaleX(1);
+        transform-origin: right;
+    }
+
+
+
+
+    .pctbiContainer span:nth-child(3), .formacionContainer span:nth-child(3) {
+        right: 5%;
+        top: 5%;
+        width: 1.5px;
+        height: 90%;
+        transform-origin: top;
+        transform: scaleY(0);
+        transition: transform ease-in-out .5s;
+    }
+
+    .pctbiContainer:hover span:nth-child(3), .formacionContainer:hover span:nth-child(3) {
+        transform: scaleY(1);
+        transform-origin: bottom;
+    }
+
+
+
+
+    .pctbiContainer span:nth-child(4), .formacionContainer span:nth-child(4) {
+        left: 5%;
+        top: 5%;
+        width: 2px;
+        height: 90%;
+        transform-origin: bottom;
+        transform: scaleY(0);
+        transition: transform ease-in-out .5s;
+    }
+
+    .pctbiContainer:hover span:nth-child(4), .formacionContainer:hover span:nth-child(4) {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+
+
+
+
+    .pctbiContainer span:nth-child(5), .formacionContainer span:nth-child(5) {
+        left: 5%;
+        bottom: 5%;
+        width: 50.5%;
+        height: 2px;
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform ease-in-out .5s;
+    }
+
+    .pctbiContainer:hover span:nth-child(5), .formacionContainer:hover span:nth-child(5) {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+
+
+
+    .pctbiContainer span:nth-child(6), .formacionContainer span:nth-child(6) {
+        right: 5%;
+        bottom: 5%;
+        width: 50.5%;
+        height: 2px;
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform ease-in-out .5s;
+    }
+
+    .pctbiContainer:hover span:nth-child(6), .formacionContainer:hover span:nth-child(6) {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+
+
+
+    /* -- Hover Transition Border -- */
+
+    
+    .pctbiImagen, .formacionImagen {
+        max-width: 600px;
+    }
+    
+    .pctbiDescripcion {
+        position: absolute;
+        bottom: 30%;
+        left: 0;
+        right: 0;
+        font-family: 'Lato', 'sans-serif';
+        font-size: 1rem;
+        color: #FFF;
+        margin: auto;
+        padding: 0 30px;
+        text-align: center;
+    }
+    
+    .formacionDescripcion {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 34%;
+        margin: auto;
+        font-family: 'Lato', 'sans-serif';
+        font-size: 1rem;
+        color: #FFF;
+        text-align: center;
+    }
+
+}

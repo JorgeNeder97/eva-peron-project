@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styles from './Noticias.module.css';
 import { NavBar } from '../../components/NavBar/NavBar';
 import { Noticia } from '../../components/News/Noticia';
@@ -9,24 +9,30 @@ import { useFetch } from '../../hooks/useFetch';
 export const Noticias = () => {
 
     const { isLoaded } = useSlowLoad();
-    
-    const [noticias, setNoticias] = useState(null);
-    
-    const {data, isLoading, errors} = useFetch('http://localhost:3000/api/noticias/list');
-    console.log(data);
 
-    
-    // const {titulo, adelanto, cuerpo, noticia_imagen} = noticias;
-
-    // const imagen = noticia_imagen.nombre;
+    const { data, isLoading, errors } = useFetch('http://localhost:3000/api/noticias/list');
 
     return (
         <>
             <NavBar />
             <div className={isLoaded ? styles.mainContainer : styles.unloaded}>
-                <div className={styles.noticiasContainer}>
-                        <Noticia />
-                </div>
+                <h2 className={styles.tituloPagina}>NOTICIAS</h2>
+                <div className={styles.divider}></div>
+                {isLoading ? <h2>Cargando...</h2> : errors ? <h2>Ha ocurrido un error: {errors}</h2> :
+                    <div className={styles.noticiasContainer}>
+                        {data.data.map(noticia => {
+                            return (
+                                <Noticia
+                                    key={noticia.id}
+                                    titulo={noticia.titulo}
+                                    adelanto={noticia.adelanto}
+                                    cuerpo={noticia.cuerpo}
+                                    imagenes={noticia.noticia_imagen}
+                                />
+                            )
+                        })}
+                    </div>
+                }
             </div>
         </>
     )

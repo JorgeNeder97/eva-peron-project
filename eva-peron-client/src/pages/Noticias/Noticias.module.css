@@ -8,4 +8,40 @@
     width: 100%;
     opacity: 1;
     transition: 1s opacity;
+    margin: 0px auto 100px auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.tituloPagina {
+    font-family: 'Anek Devanagari', 'sans-serif';
+    font-size: 2.7rem;
+    text-align: center;
+    color: #333;
+}
+
+.divider {
+    border-top: .5px solid rgba(0, 0, 0, .3);
+    margin-bottom: 50px;
+}
+
+.noticiasContainer {
+    width: 100%;
+    display: grid;
+    grid-template-rows: auto;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+
+
+@media(min-width: 992px) {
+    .noticiasContainer {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        gap: 10px;
+    }
 }

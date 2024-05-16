@@ -10,6 +10,7 @@ import { AsesoriaPedagogicaPage } from './pages/AsesoriaPedagogica/AsesoriaPedag
 import { SecretariaPanel } from './pages/Secretaria/SecretariaPanel/SecretariaPanel';
 import { Footer } from './components/Footer/Footer';
 import { useSlowLoad } from './hooks/useSlowLoad';
+import 'normalize.css/normalize.css';
 
 export const MainApp = () => {
 

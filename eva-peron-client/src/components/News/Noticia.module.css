@@ -1,0 +1,127 @@
+.mainContainer {
+    width: 100%;
+    min-width: 300px;
+    min-height: 400px;
+    max-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+
+.titulo {
+    margin: 0;
+    font-family: 'Anek Devanagari', 'sans-serif';
+    font-size: 1.8rem;
+}
+
+.imagenAdelantoContainer {
+    width: 100%;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.tituloAdelantoContainer {
+    background: linear-gradient(to top, rgba(0, 0, 0, .9), rgba(0, 0, 0, .8), rgba(0, 0, 0, .7), rgba(0, 0, 0, .6), rgba(0, 0, 0, .6), rgba(0, 0, 0, 0));
+    align-self: flex-start;
+    font-family: 'Lato', 'sans-serif';
+    font-weight: bold;
+    text-align: start;
+    color: #FFF;
+    position: absolute;
+    margin: 0 auto;
+    padding: 20px 20px 0 20px;
+    bottom: 0%;
+    flex: 0;
+}
+
+.image {
+    max-width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: top;
+    flex: 1;
+}
+
+.adelanto {
+    text-align: justify;
+    font-size: 1.1rem;
+    font-family: 'Lato', 'sans-serif';
+    color: #DDD;
+    opacity: 1;
+}
+
+
+
+
+@media (min-width: 992px) {
+    .tituloAdelantoContainer {
+        background: linear-gradient(to top, rgba(0, 0, 0, .9), rgba(0, 0, 0, .8), rgba(0, 0, 0, .7), rgba(0, 0, 0, .6), rgba(0, 0, 0, .6), rgba(0, 0, 0, 0));
+        align-self: flex-start;
+        font-family: 'Lato', 'sans-serif';
+        font-weight: bold;
+        text-align: start;
+        color: #FFF;
+        position: absolute;
+        margin: 0 auto;
+        padding: 20px 20px 0 20px;
+        bottom: 0%;
+        flex: 0;
+        transform: translateY(40%);
+    }
+    
+    .image {
+        max-width: 100%;
+        object-fit: cover;
+        object-position: top;
+        flex: 1;
+    }
+    
+    .adelanto {
+        text-align: justify;
+        font-size: 1.1rem;
+        font-family: 'Lato', 'sans-serif';
+        color: #DDD;
+        opacity: 0;
+        transition: .3s all;
+    }
+    
+    
+    
+    /* Hovers */
+    
+    .imagenAdelantoContainer:hover .tituloAdelantoContainer {
+        transform: translateY(0);
+        transition: .3s all;
+    }
+    
+    .imagenAdelantoContainer:hover .adelanto {
+        opacity: 1;
+        transition: 1s all;
+    }
+    
+    .imagenAdelantoContainer:hover .image {
+        filter: brightness(0.8);
+        transition: .5s all;
+    }
+    
+    .imagenAdelantoContainer:not(:hover) .tituloAdelantoContainer {
+        transform: translateY(40%);
+        transition: .3s all;
+    }
+    
+    .imagenAdelantoContainer:not(:hover) .adelanto {
+        opacity: 0;
+        transition: .3s all;
+    }
+    
+    .imagenAdelantoContainer:not(:hover) .image {
+        filter: brightness(1);
+        transition: .5s all;
+    }
+    
+    /* Fin Hovers */
+}
