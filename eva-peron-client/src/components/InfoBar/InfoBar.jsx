@@ -50,7 +50,7 @@ export const InfoBar = () => {
                     <h3>Educadores</h3>
                 </div>
                 <div className={styles.infoContainer}>
-                    <div><Number n={412} /></div>
+                    <div><Number n={428} /></div>
                     <h3>Estudiantes</h3>
                 </div>
             </div>

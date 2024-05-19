@@ -11,7 +11,7 @@ module.exports = {
                 allowNull: false,
             },
             nota: {
-                type: DataTypes.TINYINT(10).UNSIGNED,
+                type: DataTypes.FLOAT.UNSIGNED,
                 allowNull: false,
             },
             alumno_id: {

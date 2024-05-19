@@ -21,7 +21,6 @@ module.exports = {
             dni: {
                 type: DataTypes.INTEGER(8).UNSIGNED,
                 allowNull: false,
-                unique: true,
             },
             fecha_nacimiento: {
                 type: DataTypes.DATEONLY,

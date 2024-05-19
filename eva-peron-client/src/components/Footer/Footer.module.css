@@ -5,9 +5,11 @@
     --color-verde-fuente: #1d6100;
 }
 
+
+
 .mainContainer {
     width: 100%;
-    max-height: 300px;
+    max-height: 350px;
     background: radial-gradient(circle, #32910a, #277c02);
     font-family: 'Anek Devanagari', 'sans-serif';
     color: #FFF;
@@ -16,6 +18,7 @@
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     gap: 15px;
+    margin-top: auto;
 }
 
 .logosContainer {
@@ -23,15 +26,12 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    margin-top: 20px;
 }
 
 .logoEscuela {
     max-width: 300px;
     width: 100%;
-}
-
-.logosSecundarios {
-    display: none;
 }
 
 
@@ -41,6 +41,7 @@
     gap: 5px;
     justify-content: center;
     font-size: 1.1rem;
+    margin-top: 20px;
 }
 
 .emailContacto, .telefonoContacto {
@@ -94,36 +95,55 @@
     transition: .3s all;
 }
 
+.developedByContainer {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+
+.developedBy {
+    font-size: 1.1rem;
+    margin: 0;
+    padding-top: 5px;
+}
+
+.logoMind {
+    width: 80px;
+    margin-right: 10px;
+}
+
+
 
 @media (min-width: 992px) {
     .mainContainer {
         max-width: 100%;
         height: 150px;
         padding: 20px 5px;
+        display: grid;
         grid-template-columns: repeat(3, 1fr);
+        position: relative;
     }
     
     .logosContainer {
         padding-left: 20px;
+        align-self: flex-end;
+        margin-top: 0;
     }
 
     .logoEscuela {
-        width: 300px;
-    }
-    
-    .logosSecundarios {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-end;
-        gap: 5px;
-    }
-    
-    .logoSecretaria, .logoSeccionAlumnos, .logoAsesoriaPedagogica {
-        width: 140px;
+        width: 100%;
+        max-width: 800px;
     }
     
     .infoContactoContainer {
-        padding-left: 60px;
+        padding-top: 10px;
+        align-self: center;
+        margin-top: 0;
     }
 
     .emailContacto a:hover {
@@ -147,6 +167,31 @@
     }
 
     .redesContainer {
-        padding-right: 60px;
+        padding-left: 50px;
+    }
+
+    .developedByContainer {
+        width: 100%;
+        position: absolute;
+        bottom: 3%;
+        right: 1%;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 5px;
+        margin-top: 20px;
+    }
+    
+    
+    .developedBy {
+        font-size: 1.1rem;
+        margin: 0;
+        padding-top: 5px;
+    }
+    
+    .logoMind {
+        width: 80px;
+        margin-right: 10px;
     }
 }

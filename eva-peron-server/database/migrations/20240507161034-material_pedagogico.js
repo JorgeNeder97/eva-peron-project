@@ -12,7 +12,7 @@ module.exports = {
             },
             archivo_solicitado: {
                 type: DataTypes.STRING,
-                allowNull: false,
+                allowNull: true,
             },
             archivo_entregado: {
                 type: DataTypes.STRING,

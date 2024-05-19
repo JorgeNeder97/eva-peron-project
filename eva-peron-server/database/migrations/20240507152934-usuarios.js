@@ -23,17 +23,21 @@ module.exports = {
                 allowNull: false,
                 unique: true,
             },
-            fecha_nacimiento: {
-                type: DataTypes.DATEONLY,
-                allowNull: false,
-            },
-            email: {
+            contraseña: {
                 type: DataTypes.STRING(100),
                 allowNull: false,
             },
+            fecha_nacimiento: {
+                type: DataTypes.DATEONLY,
+                allowNull: true,
+            },
+            email: {
+                type: DataTypes.STRING(100),
+                allowNull: true,
+            },
             telefono: {
                 type: DataTypes.INTEGER(15).UNSIGNED,
-                allowNull: false,
+                allowNull: true,
             },
             sexo_id: {
                 type: DataTypes.INTEGER.UNSIGNED,

@@ -34,6 +34,7 @@ export const GaleriaNoticias = () => {
                         })}
                     </div>
                 }
+                <div className={styles.bottomDivider}></div>
             </div>
         </>
     )
