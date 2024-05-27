@@ -34,6 +34,7 @@ export const NavBar = () => {
           <Link to="/" className={styles.links} onClick={handleLinkClick}>INICIO</Link>
           <Link to="/institucional" className={styles.links} onClick={handleLinkClick}>INSTITUCIONAL</Link>
           <Link to="/noticias" className={styles.links} onClick={handleLinkClick}>NOTICIAS</Link>
+          <Link to ="/rectoria" className={styles.links} onClick={handleLinkClick}>RECTORIA</Link>
           <Link to="/secretaria" className={styles.links} onClick={handleLinkClick}>SECRETARIA</Link>
           <Link to="/alumnos" className={styles.links} onClick={handleLinkClick}>ALUMNOS</Link>
           <Link to="/asesoria-pedagogica" className={styles.links} onClick={handleLinkClick}>ASESORIA PEDAGOGICA</Link>

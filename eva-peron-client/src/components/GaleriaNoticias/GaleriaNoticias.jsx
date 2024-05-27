@@ -9,7 +9,7 @@ import { useFetch } from '../../hooks/useFetch';
 export const GaleriaNoticias = () => {
 
     const { isLoaded } = useSlowLoad();
-
+    
     const { data, isLoading, errors } = useFetch('http://localhost:3000/api/noticias/list');
 
     return (

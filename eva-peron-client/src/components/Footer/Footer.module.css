@@ -10,7 +10,7 @@
 .mainContainer {
     width: 100%;
     max-height: 350px;
-    background: radial-gradient(circle, #32910a, #277c02);
+    background: linear-gradient(to bottom, #287a05, #1f6802);
     font-family: 'Anek Devanagari', 'sans-serif';
     color: #FFF;
     padding: 10px 0px;

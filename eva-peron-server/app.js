@@ -20,10 +20,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ 
+    origin: "http://localhost:5173",
+    credentials: true,
+}));
 
 app.use("/api/saludar", indexRouter);
-app.use("/api/users", usersRouter);
+app.use("/api/usuarios", usersRouter);
 app.use("/api/noticias", noticiasRouter);
 
 // catch 404 and forward to error handler

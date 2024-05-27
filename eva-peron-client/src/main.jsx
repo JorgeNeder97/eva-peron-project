@@ -6,9 +6,9 @@ import 'normalize.css/normalize.css';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <React.StrictMode>
-      <MainApp />
-    </React.StrictMode>
-  </BrowserRouter>,
+    <BrowserRouter>
+      <React.StrictMode>
+        <MainApp />
+      </React.StrictMode>
+    </BrowserRouter>
 )

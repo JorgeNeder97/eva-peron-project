@@ -4,23 +4,13 @@ import { NavBar } from '../../components/NavBar/NavBar'
 import { useSlowLoad } from '../../hooks/useSlowLoad'
 import video from '../../assets/SeccionAlumnosLogin.mp4'
 import logoSeccionAlumnos from '../../assets/logoSeccionAlumnos.png'
-import { useForm } from '../../hooks/useForm'
+import { LoginForm } from '../../components/LoginForm/LoginForm'
+import { useSeccionAlumnosAuth } from '../../context/SeccionAlumnosContext/SeccionAlumnosContext'
 
 export const SeccionAlumnosPage = () => {
 
     const { isLoaded } = useSlowLoad()
 
-    const initForm = {
-        user: '',
-        password: ''
-    }
-
-    const { user, password, formState, onInputChange } = useForm(initForm);
-
-    const onSubmit = (e) => {
-        e.preventDefault();
-        console.log(formState);
-    }
 
     return (
         <>
@@ -35,35 +25,7 @@ export const SeccionAlumnosPage = () => {
                     <div className={styles.logoContainer}>
                         <img className={styles.logoSeccionAlumnos} src={logoSeccionAlumnos} alt="Sección Alumnos Eva Perón - Logo" />
                     </div>
-                    <form className={styles.form} onSubmit={onSubmit}>
-                        <div className={styles.groupToWrite} id="accesoUsuarios">
-                            <label htmlFor="accesoUsuarios" className={styles.label}>Acceso de usuarios</label>
-                            <input
-                                type="text"
-                                name="user"
-                                placeholder="Usuario"
-                                className={styles.input}
-                                value={user}
-                                onChange={onInputChange}
-                            />
-                            <input
-                                type="password"
-                                name="password"
-                                placeholder="Contraseña"
-                                className={styles.input}
-                                value={password}
-                                onChange={onInputChange}
-                            />
-                        </div>
-                        <div className={styles.groupToCheck}>
-                            <input
-                                type="checkbox"
-                                name="remember"
-                            />
-                            <label htmlFor="remember">Recuerdame</label>
-                        </div>
-                        <button className={styles.submitButton} type="submit">Iniciar Sesión</button>
-                    </form>
+                    <LoginForm urlToNavigate={'/alumnos/home'} loginPage={"seccionAlumnos"} auth={useSeccionAlumnosAuth} />
                 </div>
             </div>
         </>
