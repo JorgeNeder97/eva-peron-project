@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import styles from './NavBar.module.css'
 import Logo from '../../assets/img/Logo.png'
 import { Link } from 'react-router-dom'
+import { useLinkScroll } from '../../hooks/useLinkScroll'
 
 
 export const NavBar = () => {
@@ -15,12 +16,7 @@ export const NavBar = () => {
     window.scrollY > 189 ? setFix(true) : setFix(false);
   }
 
-  const handleLinkClick = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  }
+  const { handleLinkClick } = useLinkScroll();
 
   window.addEventListener('scroll', setFixed);
 

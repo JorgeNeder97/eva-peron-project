@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const LoginForm = ({ urlToNavigate, loginPage, auth }) => {
 
-    const {iniciarSesion, usuario, isAuthenticated} = auth();
+    const {iniciarSesion, isAuthenticated} = auth();
 
     const { register, handleSubmit, formState: {errors} } = useForm();
 

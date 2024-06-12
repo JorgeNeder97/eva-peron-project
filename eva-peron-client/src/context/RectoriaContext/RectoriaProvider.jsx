@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { RectoriaContext } from './RectoriaContext';
-import { loginRequest, verifyTokenRequest } from '../../api/auth';
+import { loginRequest, verifyTokenRequest } from '../../api/login';
 import Cookies from 'js-cookie';
 
 
@@ -64,10 +64,6 @@ export const RectoriaProvider = ({ children }) => {
             setLoading(false);
         }
     }, []);
-
-    useEffect(() => {
-        console.log(usuario);
-    }, [usuario]);
 
 
     return (

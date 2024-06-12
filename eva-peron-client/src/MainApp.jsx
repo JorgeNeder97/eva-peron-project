@@ -23,6 +23,13 @@ import { RectoriaProvider } from './context/RectoriaContext/RectoriaProvider';
 import { SecretariaProvider } from './context/SecretariaContext/SecretariaProvider';
 import { SeccionAlumnosProvider } from './context/SeccionAlumnosContext/SeccionAlumnosProvider';
 import { AsesoriaPedagogicaProvider } from './context/AsesoriaPedagogicaContext/AsesoriaPedagogicaProvider';
+import { NuevoUsuarioForm } from './pages/Rectoria/Protected-Routes/RectoriaPanel/GestionUsuarios/NuevoUsuarioForm/NuevoUsuarioForm';
+import { GestionUsuarios } from './pages/Rectoria/Protected-Routes/RectoriaPanel/GestionUsuarios/GestionUsuarios';
+import { ModificarUsuarios } from './pages/Rectoria/Protected-Routes/RectoriaPanel/GestionUsuarios/ModificarUsuarios/ModificarUsuarios';
+import { ModificarUsuarioForm } from './pages/Rectoria/Protected-Routes/RectoriaPanel/GestionUsuarios/ModificarUsuarioForm/ModificarUsuarioForm';
+import { EliminarUsuarios } from './pages/Rectoria/Protected-Routes/RectoriaPanel/GestionUsuarios/EliminarUsuarios/EliminarUsuarios';
+
+
 
 export const MainApp = () => {
 
@@ -48,6 +55,11 @@ export const MainApp = () => {
                             <Routes>
                                 <Route element={<RectoriaProtectedRoutes />}>
                                     <Route path="home" element={<RectoriaPanel />} />
+                                    <Route path="gestionUsuarios" element={<GestionUsuarios />} />
+                                    <Route path="gestionUsuarios/nuevoUsuario" element={<NuevoUsuarioForm />} />
+                                    <Route path="gestionUsuarios/listarUsuarios" element={<ModificarUsuarios />} />
+                                    <Route path="gestionUsuarios/modificarUsuario/:id" element={<ModificarUsuarioForm />} />
+                                    <Route path="gestionUsuarios/eliminarUsuarios" element={<EliminarUsuarios />} />
                                 </Route>
                             </Routes>
                         </RectoriaProvider>

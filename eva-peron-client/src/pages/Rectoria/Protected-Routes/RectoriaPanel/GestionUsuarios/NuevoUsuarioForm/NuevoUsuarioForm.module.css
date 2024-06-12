@@ -1,0 +1,191 @@
+.unloaded {
+    opacity: 0;
+    transition: 1s all;
+}
+
+.mainContainer {
+    width: 100%;
+    opacity: 1;
+    transition: 1s opacity;
+    margin: 0px auto 0px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.form {
+    display: grid;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    padding: 30px;
+    border: 2px solid #CCC;
+    border-radius: 2px;
+}
+
+.paginaHeader {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px auto 0 auto;
+
+    .tituloPagina {
+        font-family: 'Lato', 'sans-serif';
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: left;
+        margin: 0;
+    }
+
+}
+
+
+/* Errores de validación */
+.hiddenSpan {
+    opacity: 0;
+    height: 8px;
+    transition: .3s all;
+}
+
+.error {
+    color: tomato;
+    font-size: small;
+    font-family: 'Lato', 'sans-serif';
+    height: 8px;
+    padding-left: 5px;
+    transition: .3s all;
+}
+
+/* Errores de validación */
+
+
+@media (min-width: 992px) {
+    .form {
+        font-family: 'Roboto', 'sans-serif';
+        width: 95%;
+        margin: 0 auto 50px auto;
+        padding: 30px 50px;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(3, 100px) 60px;
+        grid-template-areas:
+            "a a b b c c"
+            "d d e e f f"
+            "g g h h i j"
+            "k k k k k k";
+
+        .nombre, .apellido, .dni, .contraseña,
+        .confirmarContraseña, .fechaNacimiento,
+        .email, .telefono, .sexo, .rol {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+            gap: 10px;
+
+            label {
+                font-size: 1rem;
+                color: #333;
+            }
+            
+            input {
+                width: 100%;
+                height: 35px;
+                border: 1px solid #ddd;
+                border-radius: 3px;
+                outline: none;
+                padding-left: 10px;
+                font-size: 1rem;
+                cursor: pointer;
+            }
+
+            select {
+                height: 35px;
+                border: 1px solid #ddd;
+                border-radius: 3px;
+                padding: 0 5px 0 5px;
+                outline: none;
+                cursor: pointer;
+            }
+        }
+
+        .nombre {
+            grid-area: a;
+        }
+
+        .apellido {
+            grid-area: b;
+        }
+
+        .dni {
+            grid-area: c;
+        }
+
+        .contraseña {
+            grid-area: d;
+        }
+
+        .confirmarContraseña {
+            grid-area: e;
+        }
+
+        .fechaNacimiento {
+            grid-area: f;
+            
+            input {
+                padding: 0 10px 0 10px;
+            }
+        }
+
+        .email {
+            grid-area: g;
+        }
+
+        .telefono {
+            grid-area: h;
+        }
+
+        .sexo {
+            grid-area: i;
+            padding-bottom: 18px;
+        }
+
+        .rol {
+            grid-area: j;
+            padding-bottom: 18px;
+        }
+
+        .enviar {
+            grid-area: k;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: self-start;
+            button {
+                width: 60%;
+                min-width: 700px;
+                max-width: 1000px;
+                height: 40px;
+                border: none;
+                border-radius: 3px;
+                background: #0CA789;
+                color: #FFF;
+                box-shadow: 0px 0px 5px #888;
+                cursor: pointer;
+                font-weight: bold;
+                letter-spacing: 3px;
+                transition: .3s all ease;
+            }
+
+            button:hover {
+                background: #03be99;
+                letter-spacing: 4px;
+            }
+        }
+    }
+
+}

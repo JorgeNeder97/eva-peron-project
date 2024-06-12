@@ -1,0 +1,318 @@
+.unloaded {
+    opacity: 0;
+    transition: 1s all;
+}
+
+
+.mainContainer {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 70px 20px 80px 20px;
+    opacity: 1;
+    transition: 1s opacity;
+}
+
+.bienvenido {
+    font-family: 'Lato', 'sans-serif';
+    font-size: 5rem;
+    text-align: center;
+    margin: 0;
+}
+
+.tituloPanel {
+    font-family: 'Lusitana', 'sans-serif';
+    font-size: 3rem;
+    text-align: center;
+    color: #333;
+}
+
+.divider {
+    border-top: .5px solid rgba(0, 0, 0, .3);
+    width: 97%;
+    margin: 0 auto;
+}
+
+
+/* Contenedor grid */
+
+.opcionesContainer {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 400px 400px;
+    gap: 10px;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+.gestionUsuariosContainer, .plantaFuncionalContainer {
+    position: relative;   
+    border-radius: 5px;
+    min-width: 400px;
+    height: 400px;
+    box-shadow: 0px 0px 5px #777;
+}
+
+.gestionUsuariosImagen, .plantaFuncionalImagen {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.gestionUsuariosTitulo, .plantaFuncionalTitulo {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 4rem;
+    font-family: 'Lusitana', 'sans-serif';
+    text-align: center;
+    color: #FFF;
+    max-width: 400px;
+}
+
+.gestionUsuariosDescripcion {
+    position: absolute;
+    bottom: 45%;
+    left: 0;
+    right: 0;
+    font-family: 'Lato', 'sans-serif';
+    font-size: 1rem;
+    color: #FFF;
+    margin: auto;
+    padding: 0 30px;
+    text-align: center;
+}
+
+.plantaFuncionalDescripcion {
+    position: absolute;
+    bottom: 45%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-family: 'Lato', 'sans-serif';
+    font-size: 1rem;
+    color: #FFF;
+    text-align: center;
+}
+
+
+@media (min-width: 992px) {
+
+    
+    .opcionesContainer {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 80px;
+        align-items: center;
+        justify-items: center;
+        box-sizing: border-box;
+        padding: 0 100px;
+    }
+
+    .gestionUsuariosContainer, .plantaFuncionalContainer {
+        position: relative;
+    }
+    
+    
+    .gestionUsuariosContainer:hover .gestionUsuariosImagen, .plantaFuncionalContainer:hover .plantaFuncionalImagen {
+        filter:brightness(0.4);
+        transition: filter 1s;
+    }
+
+    .gestionUsuariosContainer:not(:hover) .gestionUsuariosImagen, .plantaFuncionalContainer:not(:hover) .plantaFuncionalImagen {
+        filter: brightness(1);
+        transition: filter 1s;
+    }
+
+    .gestionUsuariosTitulo, .plantaFuncionalTitulo {
+        position: absolute;
+        top: 30%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        font-size: 3rem;
+        font-family: 'Lusitana', 'sans-serif';
+        text-align: center;
+        color: #DDD;
+        transition: color .3s;
+    }
+
+    .gestionUsuariosContainer:hover .gestionUsuariosTitulo, .plantaFuncionalContainer:hover .plantaFuncionalTitulo {
+        color: #FFF;
+        transition: color .3s;
+    }
+    
+    .gestionUsuariosDescripcion, .plantaFuncionalDescripcion {
+        opacity: 0;
+        transform: translateY(70%);
+        transition: .5s ease-in all;
+    }
+
+    .gestionUsuariosContainer:hover .gestionUsuariosDescripcion, .plantaFuncionalContainer:hover .plantaFuncionalDescripcion {
+        opacity: 1;
+        transform: translateY(0);
+        transition: .5s ease-in all;
+    }
+
+
+
+
+
+
+    /* -- Hover Transition Border -- */
+
+    .gestionUsuariosContainer span, .plantaFuncionalContainer span {
+        position: absolute;
+        display: block;
+        background: #FFF;
+        z-index: 10;
+    }
+
+    .gestionUsuariosContainer span:nth-child(1), .plantaFuncionalContainer span:nth-child(1) {
+        left: 5%;
+        top: 5%;
+        width: 50.5%;
+        height: 1.5px;
+        transform-origin: left;
+        transform: scaleX(0);
+        transition: transform ease-in-out .5s;
+    }
+
+    .gestionUsuariosContainer:hover span:nth-child(1), .plantaFuncionalContainer:hover span:nth-child(1) {
+        transform: scaleX(1);
+        transform-origin: right;
+    }
+
+
+
+
+    .gestionUsuariosContainer span:nth-child(2), .plantaFuncionalContainer span:nth-child(2) {
+        right: 5%;
+        top: 5%;
+        width: 50.5%;
+        height: 1.5px;
+        transform-origin: left;
+        transform: scaleX(0);
+        transition: transform ease-in-out .5s;
+    }
+
+    .gestionUsuariosContainer:hover span:nth-child(2), .plantaFuncionalContainer:hover span:nth-child(2) {
+        transform: scaleX(1);
+        transform-origin: right;
+    }
+
+
+
+
+    .gestionUsuariosContainer span:nth-child(3), .plantaFuncionalContainer span:nth-child(3) {
+        right: 5%;
+        top: 5%;
+        width: 1.5px;
+        height: 90%;
+        transform-origin: top;
+        transform: scaleY(0);
+        transition: transform ease-in-out .5s;
+    }
+
+    .gestionUsuariosContainer:hover span:nth-child(3), .plantaFuncionalContainer:hover span:nth-child(3) {
+        transform: scaleY(1);
+        transform-origin: bottom;
+    }
+
+
+
+
+    .gestionUsuariosContainer span:nth-child(4), .plantaFuncionalContainer span:nth-child(4) {
+        left: 5%;
+        top: 5%;
+        width: 2px;
+        height: 90%;
+        transform-origin: bottom;
+        transform: scaleY(0);
+        transition: transform ease-in-out .5s;
+    }
+
+    .gestionUsuariosContainer:hover span:nth-child(4), .plantaFuncionalContainer:hover span:nth-child(4) {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+
+
+
+
+    .gestionUsuariosContainer span:nth-child(5), .plantaFuncionalContainer span:nth-child(5) {
+        left: 5%;
+        bottom: 5%;
+        width: 50.5%;
+        height: 2px;
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform ease-in-out .5s;
+    }
+
+    .gestionUsuariosContainer:hover span:nth-child(5), .plantaFuncionalContainer:hover span:nth-child(5) {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+
+
+
+    .gestionUsuariosContainer span:nth-child(6), .plantaFuncionalContainer span:nth-child(6) {
+        right: 5%;
+        bottom: 5%;
+        width: 50.5%;
+        height: 2px;
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform ease-in-out .5s;
+    }
+
+    .gestionUsuariosContainer:hover span:nth-child(6), .plantaFuncionalContainer:hover span:nth-child(6) {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+
+
+
+    /* -- Hover Transition Border -- */
+
+    
+    .gestionUsuariosImagen, .plantaFuncionalImagen {
+        max-width: 600px;
+    }
+    
+    .gestionUsuariosDescripcion {
+        position: absolute;
+        bottom: 30%;
+        left: 0;
+        right: 0;
+        font-family: 'Lato', 'sans-serif';
+        font-size: 1rem;
+        color: #FFF;
+        margin: auto;
+        padding: 0 30px;
+        text-align: center;
+    }
+    
+    .plantaFuncionalDescripcion {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 30%;
+        margin: auto;
+        font-family: 'Lato', 'sans-serif';
+        font-size: 1rem;
+        color: #FFF;
+        text-align: center;
+    }
+
+}

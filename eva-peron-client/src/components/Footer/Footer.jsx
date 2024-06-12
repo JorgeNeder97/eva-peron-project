@@ -5,11 +5,15 @@ import logoSecretaria from '../../assets/img/logoSecretaria-Blanco.png';
 import logoSeccionAlumnos from '../../assets/img/logoSeccionAlumnos-Blanco.png';
 import logoAsesoriaPedagogica from '../../assets/img/logoAsesoriaPedagogica-Blanco.png';
 import logoMind from '../../assets/img/mind.png';
+import { useSlowLoad } from '../../hooks/useSlowLoad';
 
 export const Footer = () => {
+
+    const { isLoaded } = useSlowLoad();
+
     return (
         <>
-            <div className={styles.mainContainer}>
+            <div className={isLoaded ? styles.mainContainer : styles.unloaded}>
                 <div className={styles.logosContainer}>
                     <img className={styles.logoEscuela} src={logo} alt='Escuela Eva Perón - Logo' />
                 </div>

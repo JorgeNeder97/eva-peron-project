@@ -7,7 +7,4 @@ const adminController = require('../controllers/adminController');
 
 
 
-
-
-
 module.exports = router;

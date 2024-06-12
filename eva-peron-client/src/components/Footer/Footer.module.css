@@ -2,15 +2,18 @@
     --color-verde-logo: #1A5900;
     --color-amarillo-logo: #C8BE39;
     --color-amarillo: #ffc107;
-    --color-verde-fuente: #1d6100;
+    --color-verde-fuente: #0b3b32;
 }
 
-
+.unloaded {
+    opacity: 0;
+    transition: 1s all;
+}
 
 .mainContainer {
     width: 100%;
     max-height: 350px;
-    background: linear-gradient(to bottom, #287a05, #1f6802);
+    background: linear-gradient(to right, #093028, #237A57);
     font-family: 'Anek Devanagari', 'sans-serif';
     color: #FFF;
     padding: 10px 0px;
@@ -19,6 +22,8 @@
     grid-template-rows: repeat(3, 1fr);
     gap: 15px;
     margin-top: auto;
+    opacity: 1;
+    transition: 1s opacity;
 }
 
 .logosContainer {

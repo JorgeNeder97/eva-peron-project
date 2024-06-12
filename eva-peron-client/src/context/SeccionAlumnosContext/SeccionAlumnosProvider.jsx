@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { SeccionAlumnosContext } from './SeccionAlumnosContext';
-import { loginRequest, verifyTokenRequest } from '../../api/auth';
+import { loginRequest, verifyTokenRequest } from '../../api/login';
 import Cookies from 'js-cookie';
 
 

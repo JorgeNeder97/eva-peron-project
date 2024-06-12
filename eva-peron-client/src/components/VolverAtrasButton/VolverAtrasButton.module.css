@@ -1,0 +1,76 @@
+.volverAtras {
+    font-family: 'Roboto', 'sans-serif';
+    font-weight: bold;
+    font-size: 1.2rem;
+    letter-spacing: 0px;
+    text-decoration: none;
+    text-align: center;
+    position: relative;
+    border-radius: 10px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding-left: 10px;
+    z-index: 1;
+    overflow: hidden;
+    color: #000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: .5s all ease;
+
+    .volverAtrasIco {
+        border-radius: 50%;
+        background: #ddd;
+        width: 30px;
+        height: 30px;
+        padding-left: 7px;
+    }
+    
+    .volverAtrasTexto {
+        margin: 0;
+        opacity: 0;
+        color: #06715C;
+        transform: translateX(200%);
+    }
+
+}
+
+.volverAtras::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    top: 0;
+    right: -200%;
+    background-color: #efefef;
+    border-radius: 50%;
+    transition: all .5s ease;
+    z-index: -1;
+}
+
+.volverAtras:hover::before {
+    right: 0;
+    border-radius: 0%;
+    transition: all .5s ease;
+}
+
+.volverAtras:hover {
+    color: #06715C;
+    transition: .5s all ease;
+
+    .volverAtrasTexto {
+        opacity: 1;
+        transform: translateX(0%);
+        z-index: -1;
+        transition: .5s ease all;
+    }
+}
+
+.volverAtras:not(:hover) {
+    .volverAtrasTexto {
+        opacity: 0;
+        transform: translateX(200%);
+        transition: .5s ease all;
+        z-index: -1;
+    }
+}
