@@ -12,6 +12,7 @@ export const GaleriaNoticias = () => {
     
     const { data, isLoading, errors } = useFetch('http://localhost:3000/api/noticias/list');
 
+    console.log(data);
     return (
         <>
             <div className={isLoaded ? styles.mainContainer : styles.unloaded}>
@@ -27,7 +28,7 @@ export const GaleriaNoticias = () => {
                                         titulo={noticia.titulo}
                                         adelanto={noticia.adelanto}
                                         cuerpo={noticia.cuerpo}
-                                        imagenes={noticia.noticia_imagen}
+                                        imagen={noticia.noticia_imagen[0].nombre}
                                     />
                                 </div>
                             )

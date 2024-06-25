@@ -55,7 +55,7 @@
 }
 
 .submitButton {
-    background-color: rgb(87, 196, 60);
+    background-color: #2daf73;
     color: #fff;
     border: none;
     border-radius: 3px;
@@ -68,12 +68,12 @@
 }
 
 .submitButton:hover {
-    background-color: #7acc66;
+    background-color: #41cf8d;
     transition: .3s all;
 }
 
 .submitButton:not(:hover) {
-    background-color: #57c43c;
+    background-color: #2daf73;
     transition: .3s all;
 }
 

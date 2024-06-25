@@ -1,23 +1,30 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './RectoriaPanel.module.css';
 import { Link } from 'react-router-dom';
-import { useSlowLoad } from '../../../../hooks/useSlowLoad';
 import { NavBarRectoria } from './NavBarRectoria/NavBarRectoria';
 import { useLinkScroll } from '../../../../hooks/useLinkScroll';
 
 
 export const RectoriaPanel = () => {
 
-  const { isLoaded } = useSlowLoad();
+  const [isLoaded, setIsLoaded] = useState();
   const { handleLinkClick } = useLinkScroll();
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+        setIsLoaded(true);
+    }, 50);
+
+    // Limpieza del timer cuando el componente se desmonta
+    return () => clearTimeout(timer);
+}, []);
 
   return (
     <>
       <NavBarRectoria />
+      <div className={isLoaded ? styles.mainContainer : styles.unloaded}>
       <h2 className={styles.tituloPanel}>PANEL DE RECTORÍA</h2>
       <div className={styles.divider}></div>
-      <div className={isLoaded ? styles.mainContainer : styles.unloaded}>
         <div className={styles.opcionesContainer}>
           <div className={styles.gestionUsuariosContainer}>
             <Link to="../gestionUsuarios" onClick={handleLinkClick}>

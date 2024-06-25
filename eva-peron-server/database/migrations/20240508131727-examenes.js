@@ -18,7 +18,7 @@ module.exports = {
                 type: DataTypes.DATE,
                 allowNull: false,
             },
-            libr: {
+            libro: {
                 type: DataTypes.TINYINT(50).UNSIGNED,
                 allowNull: false,
             },
@@ -35,7 +35,7 @@ module.exports = {
                     key: "id",
                 },
                 allowNull: false,
-                onDelete: "CASCADE",
+                onDelete: "NULL",
             },
             materia_id: {
                 type: DataTypes.INTEGER.UNSIGNED,
@@ -46,7 +46,7 @@ module.exports = {
                     key: "id",
                 },
                 allowNull: false,
-                onDelete: "CASCADE",
+                onDelete: "NULL",
             },
             curso_id: {
                 type: DataTypes.INTEGER.UNSIGNED,
@@ -57,7 +57,7 @@ module.exports = {
                     key: "id",
                 },
                 allowNull: false,
-                onDelete: "CASCADE",
+                onDelete: "NULL",
             },
             createdAt: {
                 type: DataTypes.DATE,

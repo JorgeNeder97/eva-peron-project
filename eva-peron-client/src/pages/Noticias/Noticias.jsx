@@ -12,6 +12,8 @@ export const Noticias = () => {
 
     const { data, isLoading, errors } = useFetch('http://localhost:3000/api/noticias/list');
 
+    console.log(data);
+
     return (
         <>
             <NavBar />
@@ -27,7 +29,7 @@ export const Noticias = () => {
                                     titulo={noticia.titulo}
                                     adelanto={noticia.adelanto}
                                     cuerpo={noticia.cuerpo}
-                                    imagenes={noticia.noticia_imagen}
+                                    imagen={noticia.noticia_imagen[0].nombre}
                                 />
                             )
                         })}

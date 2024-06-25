@@ -45,7 +45,7 @@
 
 .navLink {
     width: 120px;
-    background: #ffc107;
+    background: #06715C;
     position: absolute;
     display: inline-block;
     bottom: 15%;
@@ -64,14 +64,12 @@
 }
 
 .navLink:hover {
-    color: var(--color-verde-fuente);
-    box-shadow: 0 0 10px #333;
+    background: #0eaa8b;
     transition: .3s all;
 }
 
 .navLink:not(:hover) {
     color: #FFF;
-    box-shadow: 0 0 0 0;
     transition: .3s all;
 }
 
@@ -174,6 +172,7 @@
 
     .buttonLeft:hover {
         color: #FFF;
+        cursor: pointer;
         transition: .5s all;
     }
 
@@ -184,6 +183,7 @@
 
     .buttonRight:hover {
         color: #FFF;
+        cursor: pointer;
         transition: .5s all;
     }
 
@@ -196,7 +196,7 @@
 
     .navLink {
         width: 120px;
-        background: #ffc107;
+        background: #089276;
         position: absolute;
         display: inline-block;
         bottom: 15%;
@@ -215,14 +215,12 @@
     }
 
     .navLink:hover {
-        color: var(--color-verde-fuente);
-        box-shadow: 0 0 10px #333;
+        background: #0eaa8b;
         transition: .3s all;
     }
 
     .navLink:not(:hover) {
         color: #FFF;
-        box-shadow: 0 0 0 #000;
         transition: .3s all;
     }
 

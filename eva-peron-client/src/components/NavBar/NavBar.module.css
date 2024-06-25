@@ -77,7 +77,7 @@
     .linksContainerContainer {
         max-width: 100%;
         min-height: 43.39px;
-        background: var(--color-amarillo);
+        background: #06715C;
     }
 
     .linksContainer {
@@ -85,7 +85,7 @@
         width: 100%;
         padding-top: 15px;
         padding-bottom: 10px;
-        background: linear-gradient(45deg, #fab707, var(--color-amarillo));
+        background: #06715C;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
@@ -98,7 +98,7 @@
         box-sizing: border-box;
         padding-top: 15px;
         padding-bottom: 10px;
-        background: linear-gradient(45deg, #fab707, var(--color-amarillo));
+        background: #06715C;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;

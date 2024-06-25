@@ -28,6 +28,8 @@ import { GestionUsuarios } from './pages/Rectoria/Protected-Routes/RectoriaPanel
 import { ModificarUsuarios } from './pages/Rectoria/Protected-Routes/RectoriaPanel/GestionUsuarios/ModificarUsuarios/ModificarUsuarios';
 import { ModificarUsuarioForm } from './pages/Rectoria/Protected-Routes/RectoriaPanel/GestionUsuarios/ModificarUsuarioForm/ModificarUsuarioForm';
 import { EliminarUsuarios } from './pages/Rectoria/Protected-Routes/RectoriaPanel/GestionUsuarios/EliminarUsuarios/EliminarUsuarios';
+import { GestionNoticias } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Noticias/GestionNoticias';
+import { NuevaNoticiaForm } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Noticias/CrearNoticia/NuevaNoticiaForm';
 
 
 
@@ -73,6 +75,8 @@ export const MainApp = () => {
                             <Routes>
                                 <Route element={<SecretariaProtectedRoutes />}>
                                     <Route path="home" element={<SecretariaPanel />} />
+                                    <Route path="gestionNoticias" element={<GestionNoticias />} />
+                                    <Route path="gestionNoticias/nuevaNoticia" element={<NuevaNoticiaForm />} />
                                 </Route>
                             </Routes>
                         </SecretariaProvider>

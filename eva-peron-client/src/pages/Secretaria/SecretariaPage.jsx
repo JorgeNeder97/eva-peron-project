@@ -7,6 +7,7 @@ import logoSecretaria from '../../assets/logoSecretaria.png'
 import { LoginForm } from '../../components/LoginForm/LoginForm';
 import { useSecretariaAuth } from '../../context/SecretariaContext/SecretariaContext';
 import Cookies from 'js-cookie';
+import { Navigate } from 'react-router-dom';
 
 export const SecretariaPage = () => {
 

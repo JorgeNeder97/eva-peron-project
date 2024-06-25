@@ -67,10 +67,6 @@ export const SecretariaProvider = ({ children }) => {
         }
     }, []);
 
-    useEffect(() => {
-        console.log(usuario);
-    }, [usuario]);
-
 
     return (
         <SecretariaContext.Provider value={{
