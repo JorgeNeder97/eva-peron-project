@@ -19,11 +19,17 @@ export const NuevaNoticiaForm = () => {
     const [estadoModal, setEstadoModal] = useState(false);
     const [redirigir, setRedirigir] = useState(false);
 
-    const registrarNoticia = async (noticia) => {
+    const registrarNoticia = async (data) => {
+        const formData = new FormData();
+        formData.append('titulo', data.titulo);
+        formData.append('adelanto', data.adelanto);
+        formData.append('cuerpo', data.cuerpo);
+        formData.append('nombre', data.nombre[0]); // El archivo
+
         try {
-            crearNoticiaRequest(noticia);
             setCreado(true);
             setEstadoModal(true);
+            await crearNoticiaRequest(formData);
         } catch (error) {
             console.log(error);
         }
@@ -33,10 +39,6 @@ export const NuevaNoticiaForm = () => {
         registrarNoticia(data);
         reset();
     });
-
-    const imageOnChange = (e) => {
-        setValue('nombre', e.target.files[0].name);
-    }
 
     const handleAceptar = (e) => {
         setRedirigir(true);
@@ -70,7 +72,7 @@ export const NuevaNoticiaForm = () => {
                 <form className={styles.form} onSubmit={onSubmit} encType="multipart/form-data">
 
                     {/* TITULO */}
-                    <div className={styles.nombre}>
+                    <div className={styles.titulo}>
                         <label htmlFor="titulo">Titulo</label>
                         <input
                             type="text"
@@ -94,7 +96,7 @@ export const NuevaNoticiaForm = () => {
 
 
                     {/* ADELANTO */}
-                    <div className={styles.apellido}>
+                    <div className={styles.adelanto}>
                         <label htmlFor="apellido">Adelanto</label>
                         <textarea
                             {...register("adelanto", {
@@ -113,7 +115,7 @@ export const NuevaNoticiaForm = () => {
 
 
                     {/* CUERPO */}
-                    <div className={styles.dni}>
+                    <div className={styles.cuerpo}>
                         <label htmlFor="cuerpo">Cuerpo</label>
                         <textarea
                             {...register("cuerpo", {
@@ -132,12 +134,11 @@ export const NuevaNoticiaForm = () => {
 
 
                     {/* IMAGENES */}
-                    <div className={styles.contraseña}>
-                        <label htmlFor="nombre">Imagenes</label>
+                    <div className={styles.imagen}>
+                        <label htmlFor="nombre">Agrega una imagen</label>
                         <input
                             type="file"
                             accept='.jpg, .png, .jpeg, .webp, .svg'
-                            onChange={imageOnChange}
                             {...register('nombre', {
                                 required: {
                                     value: true,

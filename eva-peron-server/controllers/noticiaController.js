@@ -44,7 +44,9 @@ const noticiaController = {
                 noticia_id: noticia_db.id,
                 imagen_id: imagen_db.id,
             });
+            console.log('CREADA');
         } catch (error) {
+            console.log('ERROR !!!');
             res.status(500).json({ message: error.message });
         }
     },

@@ -14,7 +14,7 @@
 }
 
 .form {
-    display: grid;
+    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 50px;
@@ -70,17 +70,15 @@
         margin: 0 auto 50px auto;
         padding: 30px 50px;
         display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        grid-template-rows: repeat(3, 100px) 60px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 110px 300px 100px 100px;
         grid-template-areas:
-            "a a b b c c"
-            "d d e e f f"
-            "g g h h i j"
-            "k k k k k k";
+            "T A"
+            "C C"
+            "I I"
+            "B B";
 
-        .nombre, .apellido, .dni, .contraseña,
-        .confirmarContraseña, .fechaNacimiento,
-        .email, .telefono, .sexo, .rol {
+        .titulo, .adelanto, .cuerpo, .imagen {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -94,73 +92,57 @@
             
             input {
                 width: 100%;
-                height: 35px;
+                height: 45px;
                 border: 1px solid #ddd;
                 border-radius: 3px;
                 outline: none;
                 padding-left: 10px;
                 font-size: 1rem;
-                cursor: pointer;
             }
 
-            select {
-                height: 35px;
-                border: 1px solid #ddd;
+        }
+
+        .titulo {
+            grid-area: T;
+            align-self: flex-start;
+        }
+
+        .adelanto {
+            grid-area: A;
+            align-self: flex-start;
+
+            textarea {
+                width: 100%;
+                height: 85px;
+                resize: none;
+                border: 1px solid #DDD;
                 border-radius: 3px;
-                padding: 0 5px 0 5px;
                 outline: none;
-                cursor: pointer;
+                padding: 10px;
             }
         }
 
-        .nombre {
-            grid-area: a;
-        }
+        .cuerpo {
+            grid-area: C;
+            width: 100%;
 
-        .apellido {
-            grid-area: b;
-        }
-
-        .dni {
-            grid-area: c;
-        }
-
-        .contraseña {
-            grid-area: d;
-        }
-
-        .confirmarContraseña {
-            grid-area: e;
-        }
-
-        .fechaNacimiento {
-            grid-area: f;
-            
-            input {
-                padding: 0 10px 0 10px;
+            textarea {
+                width: 100%;
+                height: 250px;
+                resize: none;
+                border: 1px solid #DDD;
+                border-radius: 3px;
+                outline: none;
+                padding: 10px;
             }
         }
 
-        .email {
-            grid-area: g;
-        }
-
-        .telefono {
-            grid-area: h;
-        }
-
-        .sexo {
-            grid-area: i;
-            padding-bottom: 18px;
-        }
-
-        .rol {
-            grid-area: j;
-            padding-bottom: 18px;
+        .imagen {
+            grid-area: I;
         }
 
         .enviar {
-            grid-area: k;
+            grid-area: B;
             display: flex;
             align-items: center;
             justify-content: center;
