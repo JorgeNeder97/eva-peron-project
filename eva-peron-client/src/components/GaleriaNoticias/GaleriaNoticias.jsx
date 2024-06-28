@@ -10,7 +10,7 @@ export const GaleriaNoticias = () => {
 
     const { isLoaded } = useSlowLoad();
     
-    const { data, isLoading, errors } = useFetch('http://localhost:3000/api/noticias/list');
+    const { data, isLoading, errors } = useFetch('http://localhost:3000/api/noticias/lastestLIST');
 
     console.log(data);
     return (

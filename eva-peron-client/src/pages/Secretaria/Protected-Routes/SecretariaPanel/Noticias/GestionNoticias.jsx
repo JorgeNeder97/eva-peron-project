@@ -37,7 +37,7 @@ export const GestionNoticias = () => {
                         </div>
                     </Link>
 
-                    <Link to="listarUsuarios" onClick={handleLinkClick}>
+                    <Link to="modificarNoticias" onClick={handleLinkClick}>
                         <div className={styles.gestionUsuariosContainer}>
                             <span></span>
                             <span></span>

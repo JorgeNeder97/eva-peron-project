@@ -1,4 +1,5 @@
 import React from 'react';
+import 'normalize.css/normalize.css';
 import styles from './styles/MainApp.module.css';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { RectoriaProtectedRoutes } from './pages/Rectoria/Protected-Routes/RectoriaProtectedRoutes';
@@ -18,7 +19,6 @@ import { SeccionAlumnosPanel } from './pages/SeccionAlumnos/Protected-Routes/Sec
 import { AsesorPedagogicoPanel } from './pages/AsesoriaPedagogica/Protected-Routes/AsesorPedagogicoPanel/AsesorPedagogicoPanel';
 import { Footer } from './components/Footer/Footer';
 import { useSlowLoad } from './hooks/useSlowLoad';
-import 'normalize.css/normalize.css';
 import { RectoriaProvider } from './context/RectoriaContext/RectoriaProvider';
 import { SecretariaProvider } from './context/SecretariaContext/SecretariaProvider';
 import { SeccionAlumnosProvider } from './context/SeccionAlumnosContext/SeccionAlumnosProvider';
@@ -30,7 +30,8 @@ import { ModificarUsuarioForm } from './pages/Rectoria/Protected-Routes/Rectoria
 import { EliminarUsuarios } from './pages/Rectoria/Protected-Routes/RectoriaPanel/GestionUsuarios/EliminarUsuarios/EliminarUsuarios';
 import { GestionNoticias } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Noticias/GestionNoticias';
 import { NuevaNoticiaForm } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Noticias/CrearNoticia/NuevaNoticiaForm';
-
+import { ModificarNoticia } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Noticias/ModificarNoticia/ModificarNoticia';
+import { ModificarNoticiaForm } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Noticias/ModificarNoticiaForm/ModificarNoticiaForm';
 
 
 export const MainApp = () => {
@@ -77,6 +78,8 @@ export const MainApp = () => {
                                     <Route path="home" element={<SecretariaPanel />} />
                                     <Route path="gestionNoticias" element={<GestionNoticias />} />
                                     <Route path="gestionNoticias/nuevaNoticia" element={<NuevaNoticiaForm />} />
+                                    <Route path="gestionNoticias/modificarNoticias" element={<ModificarNoticia />} />
+                                    <Route path="gestionNoticias/modificarNoticias/:id" element={<ModificarNoticiaForm />} />
                                 </Route>
                             </Routes>
                         </SecretariaProvider>

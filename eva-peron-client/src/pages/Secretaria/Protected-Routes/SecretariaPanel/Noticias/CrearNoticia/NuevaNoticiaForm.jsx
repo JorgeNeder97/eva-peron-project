@@ -86,8 +86,8 @@ export const NuevaNoticiaForm = () => {
                                     message: 'El titulo debe contener al menos 3 caracteres',
                                 },
                                 maxLength: {
-                                    value: 83,
-                                    message: 'El titulo puede contener como máximo 83 caracteres',
+                                    value: 100,
+                                    message: 'El titulo puede contener como máximo 100 caracteres',
                                 },
                             })}
                         />
@@ -105,8 +105,8 @@ export const NuevaNoticiaForm = () => {
                                     message: 'El adelanto debe contener al menos 15 caracteres',
                                 },
                                 maxLength: {
-                                    value: 200,
-                                    message: 'El adelanto puede contener como máximo 200 caracteres',
+                                    value: 250,
+                                    message: 'El adelanto puede contener como máximo 250 caracteres',
                                 },
                             })}
                         />

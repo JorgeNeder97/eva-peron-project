@@ -25,6 +25,7 @@
 }
 
 .tituloAdelantoContainer {
+    width: 100%;
     background: linear-gradient(to top, rgba(0, 0, 0, .9), rgba(0, 0, 0, .8), rgba(0, 0, 0, .7), rgba(0, 0, 0, .6), rgba(0, 0, 0, .6), rgba(0, 0, 0, 0));
     align-self: flex-start;
     font-family: 'Lato', 'sans-serif';
@@ -59,6 +60,7 @@
 
 @media (min-width: 992px) {
     .tituloAdelantoContainer {
+        width: 100%;
         background: linear-gradient(to top, rgba(0, 0, 0, .9), rgba(0, 0, 0, .8), rgba(0, 0, 0, .7), rgba(0, 0, 0, .6), rgba(0, 0, 0, .6), rgba(0, 0, 0, 0));
         align-self: flex-start;
         font-family: 'Lato', 'sans-serif';

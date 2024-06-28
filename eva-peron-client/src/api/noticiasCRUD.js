@@ -9,3 +9,18 @@ export const crearNoticiaRequest = async (noticia) => {
     });
 }
 
+export const listarNoticiasRequest = async () => {
+    return await axios.get('/noticias/list');
+}
+
+export const noticiaParaModificarRequest = async (id) => {
+    return await axios.get(`/noticias/noticiaParaModificar/${id}`);
+}
+
+export const modifiyRequest = async (noticia, id) => {
+    return await axios.patch(`/noticias/modify/${id}`, noticia, {
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        }
+    });
+}
