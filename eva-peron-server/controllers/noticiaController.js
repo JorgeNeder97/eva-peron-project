@@ -7,9 +7,7 @@ const noticiaController = {
     list: async (req, res) => {
         const noticias = await db.Noticia.findAll({
             include: [{ association: "noticia_imagen" }],
-            order: [
-                ['createdAt', 'DESC'],
-            ]
+            order: [["createdAt", "DESC"]],
         });
 
         res.json({
@@ -22,11 +20,22 @@ const noticiaController = {
         });
     },
 
+    listOne: async (req, res) => {
+        try {
+            const id = req.params.id;
+            const peticion = await db.Noticia.findByPk(id, {
+                include: [{ association: 'noticia_imagen' }],
+            });
+            const noticia = peticion.dataValues;
+            res.json({ noticia });
+        } catch (error) {
+            res.status(500).json({ message: error.message });
+        }
+    },
+
     lastestList: async (req, res) => {
         const noticias = await db.Noticia.findAll({
-            order: [
-                ['createdAt', 'DESC']
-            ],
+            order: [["createdAt", "DESC"]],
             limit: 6,
             include: [{ association: "noticia_imagen" }],
         });
@@ -86,27 +95,31 @@ const noticiaController = {
     modify: async (req, res) => {
         try {
             const id = req.params.id;
-            const {...otrosCampos } = req.body;
+            const { ...otrosCampos } = req.body;
 
             // Verifica si hay una nueva imagen o no
             if (req.file) {
-
                 // Traigo la relacion de noticia/imagen para obtener el id de la imagen vieja luego
                 const noticiaDB = await db.Noticia_Imagen.findOne({
-                    where: { noticia_id: { [Op.like]: id } }
+                    where: { noticia_id: { [Op.like]: id } },
                 });
-                
+
                 // Creo una constante con el id de la imagen vieja para traerla
                 const imagenAnteriorId = noticiaDB.imagen_id;
-                
+
                 // Traigo la imagen vieja
-                const imagenAnterior = await db.Imagen.findByPk(imagenAnteriorId);
-                
+                const imagenAnterior = await db.Imagen.findByPk(
+                    imagenAnteriorId
+                );
+
                 // Obtengo el nombre de la imagen vieja para eliminarla (Podria fallar por dataValues)
                 const nombreImagenAnterior = imagenAnterior.dataValues.nombre;
-                
+
                 // Obtengo la ruta absoluta de la imagen vieja
-                const imagenAnteriorPath = path.join(__dirname, `../public/images/${nombreImagenAnterior}`);
+                const imagenAnteriorPath = path.join(
+                    __dirname,
+                    `../public/images/${nombreImagenAnterior}`
+                );
 
                 // Elimino la imagen vieja
                 fs.unlinkSync(imagenAnteriorPath);
@@ -117,7 +130,7 @@ const noticiaController = {
                         nombre: req.file.filename,
                     },
                     {
-                        where: { id: imagenAnteriorId }
+                        where: { id: imagenAnteriorId },
                     }
                 );
 
@@ -130,7 +143,6 @@ const noticiaController = {
                         where: { id },
                     }
                 );
-                
             } else {
                 await db.Noticia.update(
                     {
@@ -157,7 +169,10 @@ const noticiaController = {
             const imagenId = noticiaImagen.imagen_id;
             const imagenCompleta = await db.Imagen.findByPk(imagenId);
             const nombreImagen = imagenCompleta.dataValues.nombre;
-            const imagenPath = path.join(__dirname, `../public/images/${nombreImagen}`);
+            const imagenPath = path.join(
+                __dirname,
+                `../public/images/${nombreImagen}`
+            );
             fs.unlinkSync(imagenPath);
 
             await db.Noticia.destroy({
@@ -171,7 +186,6 @@ const noticiaController = {
             res.status(500).json({ message: error.message });
         }
     },
-    
 };
 
 module.exports = noticiaController;

@@ -25,6 +25,7 @@ export const Noticias = () => {
                             return (
                                 <Noticia
                                     key={noticia.id}
+                                    id={noticia.id}
                                     titulo={noticia.titulo}
                                     adelanto={noticia.adelanto}
                                     cuerpo={noticia.cuerpo}

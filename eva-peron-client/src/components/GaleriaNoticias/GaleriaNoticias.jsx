@@ -4,12 +4,13 @@ import { NavBar } from '../NavBar/NavBar';
 import { Noticia } from '../News/Noticia';
 import { useSlowLoad } from '../../hooks/useSlowLoad';
 import { useFetch } from '../../hooks/useFetch';
+import { Link } from 'react-router-dom';
 
 
 export const GaleriaNoticias = () => {
 
     const { isLoaded } = useSlowLoad();
-    
+
     const { data, isLoading, errors } = useFetch('http://localhost:3000/api/noticias/lastestLIST');
 
     return (
@@ -22,13 +23,14 @@ export const GaleriaNoticias = () => {
                         {data.data.map((noticia, i) => {
                             return (
                                 <div id={'noticia' + (i + 1)} key={noticia.id}>
-                                    <Noticia
-                                        key={noticia.id}
-                                        titulo={noticia.titulo}
-                                        adelanto={noticia.adelanto}
-                                        cuerpo={noticia.cuerpo}
-                                        imagen={noticia.noticia_imagen[0].nombre}
-                                    />
+                                        <Noticia
+                                            key={noticia.id}
+                                            id={noticia.id}
+                                            titulo={noticia.titulo}
+                                            adelanto={noticia.adelanto}
+                                            cuerpo={noticia.cuerpo}
+                                            imagen={noticia.noticia_imagen[0].nombre}
+                                        />
                                 </div>
                             )
                         })}

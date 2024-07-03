@@ -33,6 +33,7 @@ import { NuevaNoticiaForm } from './pages/Secretaria/Protected-Routes/Secretaria
 import { ModificarNoticia } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Noticias/ModificarNoticia/ModificarNoticia';
 import { ModificarNoticiaForm } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Noticias/ModificarNoticiaForm/ModificarNoticiaForm';
 import { EliminarNoticia } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Noticias/EliminarNoticia/EliminarNoticia';
+import { NoticiaCompleta } from './pages/Noticias/Noticia/NoticiaCompleta';
 
 
 export const MainApp = () => {
@@ -46,6 +47,7 @@ export const MainApp = () => {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/institucional" element={<Institucional />} />
                 <Route path="/noticias" element={<Noticias />} />
+                <Route path="/noticias/:id" element={<NoticiaCompleta />} />
                 <Route path="/rectoria" element={<RectoriaProvider><RectoriaPage /></RectoriaProvider>} />
                 <Route path="/secretaria" element={<SecretariaProvider><SecretariaPage /></SecretariaProvider>} />
                 <Route path="/alumnos" element={<SeccionAlumnosProvider><SeccionAlumnosPage /></SeccionAlumnosProvider>} />

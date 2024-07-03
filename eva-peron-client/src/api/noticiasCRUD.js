@@ -13,6 +13,10 @@ export const listarNoticiasRequest = async () => {
     return await axios.get('/noticias/list');
 }
 
+export const listarNoticiaRequest = async (id) => {
+    return await axios.get(`/noticias/list/${id}`);
+}
+
 export const noticiaParaModificarRequest = async (id) => {
     return await axios.get(`/noticias/noticiaParaModificar/${id}`);
 }

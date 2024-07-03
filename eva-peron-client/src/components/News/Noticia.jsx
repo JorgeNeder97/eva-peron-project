@@ -8,7 +8,7 @@ export const Noticia = ({ id, titulo, adelanto, cuerpo, imagen }) => {
     return (
         <>
             <div className={styles.mainContainer} key={id}>
-                <Link className={styles.imagenAdelantoContainer}>
+                <Link to={`/noticias/${id}`} className={styles.imagenAdelantoContainer}>
                     <img className={styles.image} src={imagenUrl} />
                     <div className={styles.tituloAdelantoContainer}>
                         <h3 className={styles.titulo}>{titulo}</h3>

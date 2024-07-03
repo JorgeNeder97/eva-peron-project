@@ -5,6 +5,8 @@ const upload = require("../middlewares/multerMiddleware");
 
 router.get('/list', noticiaController.list);
 
+router.get('/list/:id', noticiaController.listOne);
+
 router.get('/lastestList', noticiaController.lastestList);
 
 router.post('/crearNoticia', upload.single('nombre'), noticiaController.create);
