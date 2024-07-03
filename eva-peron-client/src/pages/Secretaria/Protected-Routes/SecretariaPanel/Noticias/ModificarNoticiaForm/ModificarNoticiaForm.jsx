@@ -53,11 +53,18 @@ export const ModificarNoticiaForm = () => {
     }, [])
 
 
-    const modificarNoticia = async (noticia) => {
+    const modificarNoticia = async (data) => {
+        
+        const formData = new FormData();
+        formData.append('titulo', data.titulo);
+        formData.append('adelanto', data.adelanto);
+        formData.append('cuerpo', data.cuerpo);
+        formData.append('nombre', data.nombre[0]);
+
         try {
-            const res = await modifiyRequest(noticia, params.id);
-            setModificado(true);
-            setEstadoModal(true);
+            const res = await modifiyRequest(formData, params.id);
+            if(res.status == 200) setEstadoModal(true);
+            console.log(res);
         } catch (error) {
             console.log(error);
         }

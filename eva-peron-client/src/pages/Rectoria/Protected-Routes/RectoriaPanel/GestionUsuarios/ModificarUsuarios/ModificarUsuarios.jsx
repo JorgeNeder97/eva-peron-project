@@ -20,7 +20,6 @@ export const ModificarUsuarios = () => {
             // usuarios es un array.
             setUsuarios(res.data.usuarios);
             setLoading(false);
-            console.log(usuarios);
         }
         
         listaUsuarios();

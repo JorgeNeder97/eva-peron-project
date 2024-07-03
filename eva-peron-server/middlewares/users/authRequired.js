@@ -10,7 +10,6 @@ function authRequired (req, res, next) {
         if(err) return res.status(403).json({ message: 'Invalid Token' });
 
         req.usuarioLogueado = usuario;
-        console.log(usuario);
 
         next();
     });

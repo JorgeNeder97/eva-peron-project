@@ -12,7 +12,6 @@ export const Noticias = () => {
 
     const { data, isLoading, errors } = useFetch('http://localhost:3000/api/noticias/list');
 
-    console.log(data);
 
     return (
         <>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from './TablaEliminarUsuarios.module.css'
+import styles from './TablaEliminarNoticias.module.css'
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -8,14 +8,14 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { useForm } from 'react-hook-form';
-import { deleteRequest } from '../../api/usersCRUD';
+import { Link, Navigate } from 'react-router-dom';
 import { useState } from 'react';
-import { ModalEliminar } from '../ModalEliminar/ModalEliminar';
-import { useEffect, useRef } from 'react';
-import { Navigate } from 'react-router-dom';
+import { useRef } from 'react';
+import { useEffect } from 'react';
+import { deleteRequest } from '../../api/noticiasCRUD';
 import { ModalEliminadoCorrectamente } from '../ModalEliminadoCorrectamente/ModalEliminadoCorrectamente';
-
+import { ModalEliminar } from '../ModalEliminar/ModalEliminar';
+import { useForm } from 'react-hook-form';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -38,9 +38,9 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 
-export const TablaEliminarUsuarios = ({ usuarios }) => {
+export const TablaEliminarNoticias = ({ noticias, accion, url }) => {
 
-  const [usuarioId, setUsuarioId] = useState(null);
+  const [noticiaId, setNoticiaId] = useState(null);
   const [eliminado, setEliminado] = useState(false);
   const [estadoModal, setEstadoModal] = useState(false);
   const [codigoModal, setCodigoModal] = useState(generarCodigo());
@@ -50,7 +50,7 @@ export const TablaEliminarUsuarios = ({ usuarios }) => {
   const { register, handleSubmit, setValue } = useForm();
 
 
-  const EliminarUsuarios = async (data) => {
+  const EliminarNoticia = async (data) => {
     try {
       deleteRequest(data);
       setEstadoModal(false);
@@ -66,8 +66,7 @@ export const TablaEliminarUsuarios = ({ usuarios }) => {
   }
 
   const onSubmit = handleSubmit((data) => {
-    EliminarUsuarios(data);
-    console.log(data);
+    EliminarNoticia(data);
   });
 
   // Nos permite redirigir al apretar en "Aceptar"
@@ -103,7 +102,7 @@ export const TablaEliminarUsuarios = ({ usuarios }) => {
   }, [estadoModal]);
 
   // Permite redirigir al tocar "Aceptar" en el modal
-  if (redirigir) return <Navigate to="/rectoria/gestionUsuarios" />;
+  if (redirigir) return <Navigate to="/secretaria/gestionNoticias" />;
 
   return (
     <>
@@ -114,20 +113,20 @@ export const TablaEliminarUsuarios = ({ usuarios }) => {
           estado={eliminado}
           cambiarEstado={setEliminado}
         >
-          <h2>¡Usuario eliminado con éxito!</h2>
+          <h2>¡Noticia eliminada con éxito!</h2>
           <button onClick={handleAceptar}>ACEPTAR</button>
         </ModalEliminadoCorrectamente>
       }
       {estadoModal &&
         <ModalEliminar
-          titulo="GESTION USUARIOS"
+          titulo="GESTION NOTICIAS"
           mostrarHeader={true}
           estado={estadoModal}
           cambiarEstado={setEstadoModal}
           inputRef={inputRef}
         >
           <h2><i className="fa-solid fa-triangle-exclamation fa-xl"></i>¡ADVERTENCIA!<i className="fa-solid fa-triangle-exclamation fa-xl"></i></h2>
-          <p>Estas a punto de eliminar un usuario, para continuar ingresa el siguiente código y se habilitará el botón <i>Eliminar usuario</i></p>
+          <p>Estas a punto de eliminar una noticia, para continuar ingresa el siguiente código y se habilitará el botón <i>Eliminar Noticia</i></p>
           <span>{codigoModal}</span>
           <input type="text" onChange={onChange} maxLength={6} ref={inputRef} />
           <form onSubmit={onSubmit}>
@@ -136,7 +135,7 @@ export const TablaEliminarUsuarios = ({ usuarios }) => {
               type="text"
               {...register("id")}
             />
-            <button disabled={isButtonDisabled} type="submit" onClick={(e) => setValue("id", usuarioId)}>ELIMINAR USUARIO</button>
+            <button disabled={isButtonDisabled} type="submit" onClick={(e) => setValue("id", noticiaId)}>ELIMINAR NOTICIA</button>
           </form>
         </ModalEliminar>
       }
@@ -144,27 +143,19 @@ export const TablaEliminarUsuarios = ({ usuarios }) => {
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell>Nombre y Apellido</StyledTableCell>
-              <StyledTableCell align="center">D.N.I.</StyledTableCell>
-              <StyledTableCell align="center">Fecha de Nacimiento</StyledTableCell>
-              <StyledTableCell align="center">Correo</StyledTableCell>
-              <StyledTableCell align="center">Teléfono</StyledTableCell>
-              <StyledTableCell align="center">Sexo</StyledTableCell>
-              <StyledTableCell align="center">ELIMINAR</StyledTableCell>
+              <StyledTableCell align="center">Título</StyledTableCell>
+              <StyledTableCell align="center">Adelanto</StyledTableCell>
+              <StyledTableCell align="center">{accion}</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {usuarios.map((usuario) => (
-              <StyledTableRow key={usuario.id}>
-                <StyledTableCell component="th" scope="row">{usuario.nombre} {usuario.apellido}</StyledTableCell>
-                <StyledTableCell align="center">{usuario.dni}</StyledTableCell>
-                <StyledTableCell align="center">{usuario.fecha_nacimiento}</StyledTableCell>
-                <StyledTableCell align="center">{usuario.email}</StyledTableCell>
-                <StyledTableCell align="center">{usuario.telefono}</StyledTableCell>
-                <StyledTableCell align="center">{usuario.sexo_id == 1 ? 'Masculino' : usuario.sexo_id == 2 ? 'Femenino' : 'Sin información'}</StyledTableCell>
+            {noticias.map((noticia) => (
+              <StyledTableRow key={noticia.id}>
+                <StyledTableCell component="th" scope="row" align="justify">{noticia.titulo}</StyledTableCell>
+                <StyledTableCell align="justify">{noticia.adelanto}</StyledTableCell>
                 <StyledTableCell align="center">
                   <form onSubmit={onSubmitDos}>
-                    <button className={styles.iconoEliminar} type="submit" onClick={(e) => setUsuarioId(usuario.id)}><i className="fa-solid fa-user-xmark fa-xl"></i></button>
+                    <button className={styles.iconoEliminar} type="submit" onClick={(e) => setNoticiaId(noticia.id)}><i className="fa-solid fa-trash-can fa-xl"></i></button>
                   </form>
                 </StyledTableCell>
               </StyledTableRow>

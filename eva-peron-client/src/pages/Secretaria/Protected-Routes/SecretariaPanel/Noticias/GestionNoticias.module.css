@@ -79,7 +79,6 @@
 }
 
 
-
 @media (min-width: 992px) {
 
 
@@ -119,17 +118,19 @@
 
     .gestionUsuariosDescripcion {
         position: absolute;
-        top: 45%;
+        top: 39%;
         left: 65%;
         right: 0;
         font-family: 'Lato', 'sans-serif';
-        font-size: 1rem;
-        filter: invert(100%);
+        font-size: 1.8rem;
+        color: #DDD;
         margin: auto;
         padding: 0 30px;
         text-align: center;
         width: 180px;
+
     }
+    
 
     .gestionUsuariosDescripcion {
         opacity: 0;

@@ -24,3 +24,7 @@ export const modifiyRequest = async (noticia, id) => {
         }
     });
 }
+
+export const deleteRequest = async (data) => {
+    return await axios.delete(`/noticias/delete/${data.id}`);
+}

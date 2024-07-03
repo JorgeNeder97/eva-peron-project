@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import styles from './ModificarNoticia.module.css';
+import styles from './EliminarNoticia.module.css';
 import { SecretariaNavBar } from '../../SecretariaNavBar/SecretariaNavBar';
 import { listarNoticiasRequest } from '../../../../../../api/noticiasCRUD';
-import { TablaNoticias } from '../../../../../../components/TablaNoticias/TablaNoticias';
 import { VolverAtrasButton } from '../../../../../../components/VolverAtrasButton/VolverAtrasButton';
+import { TablaEliminarNoticias } from '../../../../../../components/TablaEliminarNoticias/TablaEliminarNoticias';
 
 
 
-export const ModificarNoticia = () => {
+export const EliminarNoticia = () => {
 
     const [loading, setLoading] = useState(true);
     const [noticias, setNoticias] = useState(null);
@@ -49,7 +49,7 @@ export const ModificarNoticia = () => {
                     <div className={styles.gridContainer}>
                         <div className={styles.tableContainer}>
                             <h3 className={styles.tituloTabla}>Todas las Noticias</h3>
-                            <TablaNoticias noticias={noticias} accion='EDITAR' url='../gestionNoticias/modificarNoticias/' />
+                            <TablaEliminarNoticias noticias={noticias} accion='ELIMINAR' url='../gestionNoticias/modificarNoticias/' />
                         </div>
                     </div>
                 </div>

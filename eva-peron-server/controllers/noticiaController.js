@@ -1,5 +1,7 @@
 const db = require("../database/models");
 const { Op } = require("sequelize");
+const fs = require("fs");
+const path = require("path");
 
 const noticiaController = {
     list: async (req, res) => {
@@ -45,7 +47,6 @@ const noticiaController = {
             adelanto: req.body.adelanto,
             cuerpo: req.body.cuerpo,
         };
-        console.log(req.file);
         const imagenNueva = {
             nombre: req.file.filename,
         };
@@ -66,9 +67,7 @@ const noticiaController = {
                 noticia_id: noticia_db.id,
                 imagen_id: imagen_db.id,
             });
-            console.log('CREADA');
         } catch (error) {
-            console.log('ERROR !!!');
             res.status(500).json({ message: error.message });
         }
     },
@@ -87,10 +86,42 @@ const noticiaController = {
     modify: async (req, res) => {
         try {
             const id = req.params.id;
-            const {nombre, ...otrosCampos } = req.body;
+            const {...otrosCampos } = req.body;
 
             // Verifica si hay una nueva imagen o no
-            if (!nombre) {
+            if (req.file) {
+
+                // Traigo la relacion de noticia/imagen para obtener el id de la imagen vieja luego
+                const noticiaDB = await db.Noticia_Imagen.findOne({
+                    where: { noticia_id: { [Op.like]: id } }
+                });
+                
+                // Creo una constante con el id de la imagen vieja para traerla
+                const imagenAnteriorId = noticiaDB.imagen_id;
+                
+                // Traigo la imagen vieja
+                const imagenAnterior = await db.Imagen.findByPk(imagenAnteriorId);
+                
+                // Obtengo el nombre de la imagen vieja para eliminarla (Podria fallar por dataValues)
+                const nombreImagenAnterior = imagenAnterior.dataValues.nombre;
+                
+                // Obtengo la ruta absoluta de la imagen vieja
+                const imagenAnteriorPath = path.join(__dirname, `../public/images/${nombreImagenAnterior}`);
+
+                // Elimino la imagen vieja
+                fs.unlinkSync(imagenAnteriorPath);
+
+                // Update de la imagen
+                await db.Imagen.update(
+                    {
+                        nombre: req.file.filename,
+                    },
+                    {
+                        where: { id: imagenAnteriorId }
+                    }
+                );
+
+                // Update de la noticia
                 await db.Noticia.update(
                     {
                         ...otrosCampos,
@@ -99,11 +130,11 @@ const noticiaController = {
                         where: { id },
                     }
                 );
+                
             } else {
                 await db.Noticia.update(
                     {
                         ...otrosCampos,
-                        nombre: req.file.filename,
                     },
                     {
                         where: { id },
@@ -111,6 +142,31 @@ const noticiaController = {
                 );
             }
             res.json({ message: "Noticia Modificada" });
+        } catch (error) {
+            res.status(500).json({ message: error.message });
+            console.log(error);
+        }
+    },
+
+    delete: async (req, res) => {
+        const id = req.params.id;
+        try {
+            const noticiaImagen = await db.Noticia_Imagen.findOne({
+                where: { noticia_id: { [Op.like]: id } },
+            });
+            const imagenId = noticiaImagen.imagen_id;
+            const imagenCompleta = await db.Imagen.findByPk(imagenId);
+            const nombreImagen = imagenCompleta.dataValues.nombre;
+            const imagenPath = path.join(__dirname, `../public/images/${nombreImagen}`);
+            fs.unlinkSync(imagenPath);
+
+            await db.Noticia.destroy({
+                // IMPORTANTISIMO ESTE WHERE, NO TOCAR !!!!
+                where: { id: id },
+            });
+            await db.Imagen.destroy({
+                where: { id: imagenId },
+            });
         } catch (error) {
             res.status(500).json({ message: error.message });
         }

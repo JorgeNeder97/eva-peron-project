@@ -24,7 +24,6 @@ export const SeccionAlumnosProvider = ({ children }) => {
             setUsuario(res.data);
             setAccesos(res.data.token);
             setIsAuthenticated(true);
-            console.log(res.data);
         } catch (error) {
             console.log(error);
         }
@@ -40,20 +39,17 @@ export const SeccionAlumnosProvider = ({ children }) => {
                 if (!res.data) {
                     setUsuario(null);
                     setLoading(false);
-                    console.log('No paso la verificación');
                     return;
                 }
     
                 setUsuario(res.data);
                 setIsAuthenticated(true);
                 setLoading(false);
-                console.log('Lo seteó bien');
                 return;
             } catch (error) {
                 setUsuario(null);
                 setIsAuthenticated(false);
                 setLoading(false);
-                console.log('saltó el catch');
                 console.log(error);
             }
         }
@@ -67,9 +63,9 @@ export const SeccionAlumnosProvider = ({ children }) => {
         }
     }, []);
 
-    useEffect(() => {
-        console.log(usuario);
-    }, [usuario]);
+    // useEffect(() => {
+    //     console.log(usuario);
+    // }, [usuario]);
 
 
     return (

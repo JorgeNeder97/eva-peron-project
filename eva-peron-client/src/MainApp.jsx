@@ -32,6 +32,7 @@ import { GestionNoticias } from './pages/Secretaria/Protected-Routes/SecretariaP
 import { NuevaNoticiaForm } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Noticias/CrearNoticia/NuevaNoticiaForm';
 import { ModificarNoticia } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Noticias/ModificarNoticia/ModificarNoticia';
 import { ModificarNoticiaForm } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Noticias/ModificarNoticiaForm/ModificarNoticiaForm';
+import { EliminarNoticia } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Noticias/EliminarNoticia/EliminarNoticia';
 
 
 export const MainApp = () => {
@@ -80,6 +81,7 @@ export const MainApp = () => {
                                     <Route path="gestionNoticias/nuevaNoticia" element={<NuevaNoticiaForm />} />
                                     <Route path="gestionNoticias/modificarNoticias" element={<ModificarNoticia />} />
                                     <Route path="gestionNoticias/modificarNoticias/:id" element={<ModificarNoticiaForm />} />
+                                    <Route path="gestionNoticias/eliminarNoticias" element={<EliminarNoticia />} />
                                 </Route>
                             </Routes>
                         </SecretariaProvider>

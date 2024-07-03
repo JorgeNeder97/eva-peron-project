@@ -13,4 +13,6 @@ router.get('/noticiaParaModificar/:id', noticiaController.noticiaParaModificar);
 
 router.patch('/modify/:id', upload.single('nombre'), noticiaController.modify);
 
+router.delete('/delete/:id', noticiaController.delete);
+
 module.exports = router;

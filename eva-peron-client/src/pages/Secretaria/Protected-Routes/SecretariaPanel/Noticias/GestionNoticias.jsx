@@ -33,7 +33,7 @@ export const GestionNoticias = () => {
                             <span></span>
                             <span></span>
                             <h2 className={styles.gestionUsuariosTitulo}>CREAR NOTICIA</h2>
-                            <img className={styles.gestionUsuariosDescripcion} src="/agregarUsuario.png" alt="Agregar Usuarios" />
+                            <div className={styles.gestionUsuariosDescripcion}><i className="fa-solid fa-square-plus fa-2xl"></i></div>
                         </div>
                     </Link>
 
@@ -46,11 +46,11 @@ export const GestionNoticias = () => {
                             <span></span>
                             <span></span>
                             <h2 className={styles.gestionUsuariosTitulo}>MODIFICAR NOTICIA</h2>
-                            <img className={styles.gestionUsuariosDescripcion} src="/editarUsuario.png" alt="Editar Usuarios" />
+                            <div className={styles.gestionUsuariosDescripcion}><i className="fa-solid fa-square-pen fa-2xl"></i></div>
                         </div>
                     </Link>
 
-                    <Link to="eliminarUsuarios" onClick={handleLinkClick}>
+                    <Link to="eliminarNoticias" onClick={handleLinkClick}>
                         <div className={styles.gestionUsuariosContainer}>
                             <span></span>
                             <span></span>
@@ -59,7 +59,7 @@ export const GestionNoticias = () => {
                             <span></span>
                             <span></span>
                             <h2 className={styles.gestionUsuariosTitulo}>ELIMINAR NOTICIA</h2>
-                            <img className={styles.gestionUsuariosDescripcion} src="/eliminarUsuario.png" alt="Eliminar Usuarios" />
+                            <div className={styles.gestionUsuariosDescripcion}><i className="fa-solid fa-square-minus fa-2xl"></i></div>
                         </div>
                     </Link>
                 </div>

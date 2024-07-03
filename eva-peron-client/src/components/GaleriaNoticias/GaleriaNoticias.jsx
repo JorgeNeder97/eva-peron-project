@@ -12,7 +12,6 @@ export const GaleriaNoticias = () => {
     
     const { data, isLoading, errors } = useFetch('http://localhost:3000/api/noticias/lastestLIST');
 
-    console.log(data);
     return (
         <>
             <div className={isLoaded ? styles.mainContainer : styles.unloaded}>

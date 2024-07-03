@@ -19,7 +19,6 @@ export const EliminarUsuarios = () => {
             // usuarios es un array.
             setUsuarios(res.data.usuarios);
             setLoading(false);
-            console.log(usuarios);
         }
 
         listaUsuarios();
