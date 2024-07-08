@@ -1,12 +1,21 @@
+const db = require('../../database/models');
+const { Op } = require('sequelize');
 
+ 
 const personalController = {
-    nuevaLicencia: async (req, res) => {
-        // post (pide una licencia)
+    listarDocentes: async (req, res) => {
+        try {
+            const response = await db.Docente.findAll({ 
+                include: [{ association: 'docente_cargo'}],
+            });
+            const docentes = response.map(docente => {
+                return docente.dataValue;
+            });
+            res.json({ docentes });
+        } catch(error) {
+            res.status(500).json({ message: error.message });
+        }
     },
-
-    cargosDisponibles: async (req, res) => {
-        // get (trae los cargos disponibles)
-    }
 }
 
 

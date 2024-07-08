@@ -34,20 +34,15 @@
     margin: 30px auto;
 }
 
-.gridContainer {
+.flexContainer {
     width: 90%;
     margin: 0 auto 80px auto;
-    display: grid;
-    grid-template-rows: 1fr 80px 600px 1fr;
-    grid-template-areas: 
-    "titulo"
-    "adelanto"
-    "imagen"
-    "cuerpo";
+    display: flex;
+    flex-direction: column;
+    align-items: left;
 }
 
 .tituloNoticia {
-    grid-area: titulo;
     font-family: 'Lato', 'sans-serif';
     font-size: 2.1rem;
     font-weight: bold;
@@ -55,13 +50,12 @@
 }
 
 .adelantoNoticia {
-    grid-area: adelanto;
     font-family: 'Lato', 'sans-serif';
     font-size: 1.1rem;
+    line-height: 1.5rem;
 }
 
 .imagenNoticia {
-    grid-area: imagen;
     width: 100%;
     max-height: 600px;
     margin: 0 auto;
@@ -71,4 +65,8 @@
 .cuerpoNoticia {
     font-family: 'Lato', 'sans-serif';
     font-size: 1rem;
+    background-color: #DCDCDC;
+    padding: 10px;
+    line-height: 1.5rem;
+    white-space: pre-wrap;
 }

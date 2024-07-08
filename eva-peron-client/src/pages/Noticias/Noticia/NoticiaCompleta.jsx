@@ -51,7 +51,7 @@ export const NoticiaCompleta = () => {
                         <VolverAtrasButton url="/noticias" />
                     </div>
                     <div className={styles.divider}></div>
-                    <div className={styles.gridContainer}>
+                    <div className={styles.flexContainer}>
                         <h2 className={styles.tituloNoticia}>{noticia.titulo}</h2>
                         <p className={styles.adelantoNoticia}>{noticia.adelanto}</p>
                         <img className={styles.imagenNoticia} src={imagenUrl} alt="Imagen de la noticia" />

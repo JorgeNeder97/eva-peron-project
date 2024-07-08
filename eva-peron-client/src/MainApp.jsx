@@ -34,6 +34,13 @@ import { ModificarNoticia } from './pages/Secretaria/Protected-Routes/Secretaria
 import { ModificarNoticiaForm } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Noticias/ModificarNoticiaForm/ModificarNoticiaForm';
 import { EliminarNoticia } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Noticias/EliminarNoticia/EliminarNoticia';
 import { NoticiaCompleta } from './pages/Noticias/Noticia/NoticiaCompleta';
+import { GestionCargos } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Cargos/GestionCargos';
+import { CrearCargoForm } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Cargos/CrearCargo/CrearCargoForm';
+import { VerCargos } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Cargos/VerCargos/VerCargos';
+import { ModificarCargo } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Cargos/ModificarCargo/ModificarCargo';
+import { ModificarCargoForm } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Cargos/ModificarCargoForm/ModificarCargoForm';
+import { EliminarCargo } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Cargos/EliminarCargo/EliminarCargo';
+import { GestionDocentes } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Docentes/GestionDocentes';
 
 
 export const MainApp = () => {
@@ -84,6 +91,13 @@ export const MainApp = () => {
                                     <Route path="gestionNoticias/modificarNoticias" element={<ModificarNoticia />} />
                                     <Route path="gestionNoticias/modificarNoticias/:id" element={<ModificarNoticiaForm />} />
                                     <Route path="gestionNoticias/eliminarNoticias" element={<EliminarNoticia />} />
+                                    <Route path="gestionCargos" element={<GestionCargos />} />
+                                    <Route path="gestionCargos/nuevoCargo" element={<CrearCargoForm />} />
+                                    <Route path="gestionCargos/listarCargos" element={<VerCargos />} /> 
+                                    <Route path="gestionCargos/modificarCargo" element={<ModificarCargo />} />
+                                    <Route path="gestionCargos/modificarCargo/:id" element={<ModificarCargoForm />} />
+                                    <Route path="gestionCargos/eliminarCargo" element={<EliminarCargo />} />
+                                    <Route path="gestionDocentes" element={<GestionDocentes />} />
                                 </Route>
                             </Routes>
                         </SecretariaProvider>

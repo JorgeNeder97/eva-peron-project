@@ -4,13 +4,14 @@ const db = require('../../database/models');
 const { Op } = require('sequelize');
 
 
-const loginValidations = [
+const secretariaLoginValidations = [
     body("usuario")
         .notEmpty().withMessage('Ingresa un usuario para iniciar sesión').bail()
         .custom(async (value, { req }) => {
             const usuarioEncontrado = await db.Usuario.findOne({
                 where: {
                     dni: req.body.usuario,
+                    rol_id: 3,
                 }
             });
             if(!usuarioEncontrado) throw new Error("El usuario ingresado no existe");
@@ -21,7 +22,7 @@ const loginValidations = [
         .custom(async (value, { req }) => {
             const usuarioEncontrado = await db.Usuario.findOne({
                 where: {
-                    dni: req.body.contraseña,
+                    dni: req.body.usuario,
                 }
             });
             if(usuarioEncontrado) {
@@ -34,4 +35,4 @@ const loginValidations = [
 ]
 
 
-module.exports = loginValidations;
+module.exports = secretariaLoginValidations;

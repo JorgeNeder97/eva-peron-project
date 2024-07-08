@@ -23,7 +23,7 @@ module.exports = {
                     key: "id",
                 },
                 allowNull: false,
-                onDelete: "NULL",
+                onDelete: "CASCADE",
             },
             materia_id: {
                 type: DataTypes.INTEGER.UNSIGNED,
@@ -34,7 +34,7 @@ module.exports = {
                     key: "id",
                 },
                 allowNull: false,
-                onDelete: "NULL",
+                onDelete: "CASCADE",
             },
             createdAt: {
                 type: DataTypes.DATE,

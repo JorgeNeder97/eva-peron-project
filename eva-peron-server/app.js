@@ -13,6 +13,11 @@ const cors = require("cors");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const noticiasRouter = require('./routes/noticias');
+const secretariaRouter = require('./routes/secretaria/secretaria');
+const docentesRouter = require('./routes/secretaria/personal');
+const seccionAlumnosRouter = require('./routes/seccionAlumnos/seccionAlumnos');
+const rectoriaRouter = require('./routes/admin');
+const asesoriaPedagogicaRouter = require('./routes/asesorPedagogico/asesorPedagogico');
 
 var app = express();
 
@@ -39,6 +44,11 @@ app.options('*', cors(corsOptions));
 app.use("/api/saludar", indexRouter);
 app.use("/api/usuarios", usersRouter);
 app.use("/api/noticias", noticiasRouter);
+app.use("/api/secretaria", secretariaRouter);
+app.use("/api/docentes", docentesRouter);
+app.use("/api/seccionAlumnos", seccionAlumnosRouter);
+app.use("/api/rectoria", rectoriaRouter);
+app.use("/api/asesoriaPedagogica", asesoriaPedagogicaRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

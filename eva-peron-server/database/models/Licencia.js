@@ -19,16 +19,16 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        usuario_id: {
+        docente_id: {
             type: DataTypes.INTEGER.UNSIGNED,
             references: {
                 model: {
-                    tableName: "usuarios",
+                    tableName: "docentes",
                 },
                 key: "id",
             },
             allowNull: false,
-            onDelete: "CASCADE",
+            onDelete: "NULL",
         },
     };
     let config = {
@@ -39,9 +39,9 @@ module.exports = (sequelize, DataTypes) => {
     const Licencia = sequelize.define(alias, cols, config);
 
     Licencia.associate = (models) => {
-        Licencia.belongsTo(models.Usuario, {
-            as: "licencia_usuario",
-            foreignKey: "usuario_id",
+        Licencia.belongsTo(models.Docente, {
+            as: "licencia_docente",
+            foreignKey: "docente_id",
         });
     };
 

@@ -38,7 +38,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 
-export const TablaEliminarNoticias = ({ noticias, accion, url }) => {
+export const TablaEliminarNoticias = ({ noticias, accion }) => {
 
   const [noticiaId, setNoticiaId] = useState(null);
   const [eliminado, setEliminado] = useState(false);
@@ -108,7 +108,7 @@ export const TablaEliminarNoticias = ({ noticias, accion, url }) => {
     <>
       {eliminado &&
         <ModalEliminadoCorrectamente
-          titulo="GESTION USUARIOS"
+          titulo="GESTION NOTICIAS"
           mostrarHeader={true}
           estado={eliminado}
           cambiarEstado={setEliminado}

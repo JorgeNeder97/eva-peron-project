@@ -1,0 +1,303 @@
+.unloaded {
+    opacity: 0;
+    transition: 1s all;
+}
+
+.mainContainer {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 40px 20px 40px 20px;
+    opacity: 1;
+    transition: 1s opacity;
+}
+
+.paginaHeader {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto 30px auto;
+
+    .tituloPagina {
+        font-family: 'Lato', 'sans-serif';
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: left;
+        margin: 0;
+    }
+
+}
+
+
+/* Contenedor grid */
+
+.opcionesContainer {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 400px 400px;
+    gap: 20px;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+.gestionDocentesContainer {
+    position: relative;
+    border-radius: 5px;
+    width: 90vw;
+    height: 150px;
+    box-shadow: 0px 0px 5px #777;
+    background: linear-gradient(to top, #16222A, #3A6073);
+}
+
+.gestionDocentesTitulo {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 4rem;
+    font-family: 'Lusitana', 'sans-serif';
+    text-align: center;
+    color: #FFF;
+    max-width: 400px;
+}
+
+.gestionDocentesDescripcion {
+    position: absolute;
+    bottom: 45%;
+    left: 0;
+    right: 0;
+    font-family: 'Lato', 'sans-serif';
+    font-size: 1rem;
+    color: #FFF;
+    margin: auto;
+    padding: 0 30px;
+    text-align: center;
+}
+
+.gestionDocentesIcono {
+    position: absolute;
+    bottom: 45%;
+    left: 0;
+    right: 0;
+    font-family: 'Lato', 'sans-serif';
+    font-size: 1rem;
+    color: #FFF;
+    margin: auto;
+    padding: 0 30px;
+    text-align: center;
+}
+
+
+
+@media (min-width: 992px) {
+
+
+    .opcionesContainer {
+        width: 100%;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 20px;
+        align-items: center;
+        justify-items: center;
+        box-sizing: border-box;
+        padding: 0 10px;
+    }
+
+    .gestionDocentesContainer {
+        position: relative;
+    }
+
+
+    .gestionDocentesTitulo {
+        position: absolute;
+        right: 65%;
+        top: 38%;
+        font-size: 2rem;
+        min-width: 700px;
+        font-family: 'Lusitana', 'sans-serif';
+        text-align: left;
+        padding-left: 80px;
+        color: #DDD;
+        transition: color .3s;
+    }
+
+    .gestionDocentesContainer:hover .gestionDocentesTitulo {
+        color: #FFF;
+        transition: color .3s;
+    }
+
+    .gestionDocentesDescripcion {
+        position: absolute;
+        top: 45%;
+        left: 65%;
+        right: 0;
+        font-family: 'Lato', 'sans-serif';
+        font-size: 1rem;
+        filter: invert(100%);
+        margin: auto;
+        padding: 0 30px;
+        text-align: center;
+        width: 180px;
+    }
+
+    .gestionDocentesDescripcion {
+        opacity: 0;
+        transform: translateY(20%);
+        transition: .5s ease-in all;
+    }
+
+    .gestionDocentesContainer:hover .gestionDocentesDescripcion {
+        opacity: 1;
+        transform: translateY(0);
+        transition: .5s ease-in all;
+    }
+
+    .gestionDocentesIcono {
+        position: absolute;
+        top: 39%;
+        left: 65%;
+        right: 0;
+        font-family: 'Lato', 'sans-serif';
+        font-size: 1.8rem;
+        color: #DDD;
+        margin: auto;
+        padding: 0 30px;
+        text-align: center;
+        width: 180px;
+
+    }
+    
+
+    .gestionDocentesIcono {
+        opacity: 0;
+        transform: translateY(20%);
+        transition: .5s ease-in all;
+    }
+
+    .gestionDocentesContainer:hover .gestionDocentesIcono {
+        opacity: 1;
+        transform: translateY(0);
+        transition: .5s ease-in all;
+    }
+
+
+    /* -- Hover Transition Border -- */
+
+    .gestionDocentesContainer span {
+        position: absolute;
+        display: block;
+        background: #FFF;
+        z-index: 10;
+    }
+
+    .gestionDocentesContainer span:nth-child(1) {
+        left: 1%;
+        top: 5%;
+        width: 50.5%;
+        height: 2px;
+        transform-origin: left;
+        transform: scaleX(0);
+        transition: transform ease-in-out .5s;
+    }
+
+    .gestionDocentesContainer:hover span:nth-child(1) {
+        transform: scaleX(1);
+        transform-origin: right;
+    }
+
+
+
+
+    .gestionDocentesContainer span:nth-child(2) {
+        right: 1%;
+        top: 5%;
+        width: 50.5%;
+        height: 2px;
+        transform-origin: left;
+        transform: scaleX(0);
+        transition: transform ease-in-out .5s;
+    }
+
+    .gestionDocentesContainer:hover span:nth-child(2) {
+        transform: scaleX(1);
+        transform-origin: right;
+    }
+
+
+
+
+    .gestionDocentesContainer span:nth-child(3) {
+        right: 1%;
+        top: 5%;
+        width: 2px;
+        height: 90%;
+        transform-origin: top;
+        transform: scaleY(0);
+        transition: transform ease-in-out .5s;
+    }
+
+    .gestionDocentesContainer:hover span:nth-child(3) {
+        transform: scaleY(1);
+        transform-origin: bottom;
+    }
+
+
+
+
+    .gestionDocentesContainer span:nth-child(4) {
+        left: 1%;
+        top: 5%;
+        width: 2px;
+        height: 90%;
+        transform-origin: bottom;
+        transform: scaleY(0);
+        transition: transform ease-in-out .5s;
+    }
+
+    .gestionDocentesContainer:hover span:nth-child(4) {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+
+
+
+
+    .gestionDocentesContainer span:nth-child(5) {
+        left: 1%;
+        bottom: 5%;
+        width: 50.5%;
+        height: 2px;
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform ease-in-out .5s;
+    }
+
+    .gestionDocentesContainer:hover span:nth-child(5) {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+
+
+
+    .gestionDocentesContainer span:nth-child(6) {
+        right: 1%;
+        bottom: 5%;
+        width: 50.5%;
+        height: 2px;
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform ease-in-out .5s;
+    }
+
+    .gestionDocentesContainer:hover span:nth-child(6) {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+    /* -- Hover Transition Border -- */
+}

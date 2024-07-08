@@ -27,7 +27,7 @@ module.exports = {
                     key: "id",
                 },
                 allowNull: false,
-                onDelete: "NULL",
+                onDelete: "CASCADE",
             },
             createdAt: {
                 type: DataTypes.DATE,

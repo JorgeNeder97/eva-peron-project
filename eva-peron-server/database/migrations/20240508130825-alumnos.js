@@ -43,7 +43,7 @@ module.exports = {
                     key: "id",
                 },
                 allowNull: false,
-                onDelete: "NULL",
+                onDelete: "RESTRICT",
             },
             sexo_id: {
                 type: DataTypes.INTEGER.UNSIGNED,
@@ -54,7 +54,7 @@ module.exports = {
                     key: "id",
                 },
                 allowNull: false,
-                onDelete: "NULL",
+                onDelete: "RESTRICT",
             },
             createdAt: {
                 type: DataTypes.DATE,

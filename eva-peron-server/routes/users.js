@@ -2,11 +2,10 @@ var express = require('express');
 var router = express.Router();
 const userController = require('../controllers/userController');
 const authRequired = require('../middlewares/users/authRequired');
-const loginValidations = require('../middlewares/users/loginValidations');
+const loginValidations = require('../middlewares/users/rectoriaLoginValidations');
 
 
-// Iniciar sesión
-router.post('/login', loginValidations, userController.login);
+
 
 // Cerrar sesión
 router.post('/logout', userController.logout);

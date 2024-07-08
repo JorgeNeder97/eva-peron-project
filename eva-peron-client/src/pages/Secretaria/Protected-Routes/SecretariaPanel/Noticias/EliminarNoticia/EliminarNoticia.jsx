@@ -49,7 +49,7 @@ export const EliminarNoticia = () => {
                     <div className={styles.gridContainer}>
                         <div className={styles.tableContainer}>
                             <h3 className={styles.tituloTabla}>Todas las Noticias</h3>
-                            <TablaEliminarNoticias noticias={noticias} accion='ELIMINAR' url='../gestionNoticias/modificarNoticias/' />
+                            <TablaEliminarNoticias noticias={noticias} accion='ELIMINAR' />
                         </div>
                     </div>
                 </div>

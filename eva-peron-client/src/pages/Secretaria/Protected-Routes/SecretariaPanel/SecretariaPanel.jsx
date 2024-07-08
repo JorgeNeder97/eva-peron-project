@@ -41,7 +41,7 @@ export const SecretariaPanel = () => {
                     </div>
 
                     <div className={styles.opcionContainer}>
-                        <Link to="../" onClick={handleLinkClick}>
+                        <Link to="../gestionCargos" onClick={handleLinkClick}>
                             <span></span>
                             <span></span>
                             <span></span>
@@ -55,7 +55,7 @@ export const SecretariaPanel = () => {
                     </div>
 
                     <div className={styles.opcionContainer}>
-                        <Link to="../" onClick={handleLinkClick}>
+                        <Link to="../gestionDocentes" onClick={handleLinkClick}>
                             <span></span>
                             <span></span>
                             <span></span>

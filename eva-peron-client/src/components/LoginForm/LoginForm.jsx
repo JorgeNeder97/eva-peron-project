@@ -2,12 +2,15 @@ import React, { useEffect } from 'react'
 import styles from './LoginForm.module.css';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 export const LoginForm = ({ urlToNavigate, loginPage, auth }) => {
 
-    const {iniciarSesion, isAuthenticated} = auth();
+    const { iniciarSesion, isAuthenticated, errores, setErrores } = auth();
 
-    const { register, handleSubmit, formState: {errors} } = useForm();
+    const { register, handleSubmit, formState: { errors }, clearErrors } = useForm();
+
+    const [cargando, setCargando] = useState(true);
 
     const navigate = useNavigate();
 
@@ -17,9 +20,17 @@ export const LoginForm = ({ urlToNavigate, loginPage, auth }) => {
     });
 
     useEffect(() => {
-        if(isAuthenticated) navigate(urlToNavigate);
+        if (isAuthenticated) navigate(urlToNavigate);
     }, [isAuthenticated]);
 
+    useEffect(() => {
+        if (errores != null) setCargando(false);
+    }, [errores])
+
+    const handleInputChange = (campo) => {
+        clearErrors(campo);
+        setErrores(null);
+    }
 
     return (
         <form className={styles.form} onSubmit={onSubmit}>
@@ -43,8 +54,13 @@ export const LoginForm = ({ urlToNavigate, loginPage, auth }) => {
                             message: 'Debe ingresar un usuario válido',
                         }
                     })}
+                    onChange={() => handleInputChange("usuario")}
                 />
-                <span className={errors.usuario ? styles.error : styles.hiddenSpan}>{errors.usuario && errors.usuario.message}</span>
+                <div className={styles.errorsSpot}>
+                    <span className={errors.usuario ? styles.error : styles.hiddenSpan}>{errors.usuario && errors.usuario.message}</span>
+                    {cargando ? <span className={styles.hiddenSpan}></span> : <span className={errores && errores.usuario ? styles.error : styles.hiddenSpan}>{errores && errores.usuario && errores.usuario.msg}</span>}
+                </div>
+
                 <input
                     type="password"
                     placeholder="Contraseña"
@@ -59,8 +75,12 @@ export const LoginForm = ({ urlToNavigate, loginPage, auth }) => {
                             message: 'Debe ingresar una contraseña válida',
                         }
                     })}
+                    onChange={() => handleInputChange("contraseña")}
                 />
-                <span className={errors.contraseña ? styles.error : styles.hiddenSpan}>{errors.contraseña && errors.contraseña.message}</span>
+                <div className={styles.errorsSpot}>
+                    <span className={errors.contraseña ? styles.error : styles.hiddenSpan}>{errors.contraseña && errors.contraseña.message}</span>
+                    {cargando ? <span className={styles.hiddenSpan}></span> : <span className={errores && errores.contraseña ? styles.error : styles.hiddenSpan}>{errores && errores.contraseña && errores.contraseña.msg}</span>}
+                </div>
             </div>
             <div className={styles.groupToCheck}>
                 <input

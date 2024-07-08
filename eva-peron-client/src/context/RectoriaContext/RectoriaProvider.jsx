@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { RectoriaContext } from './RectoriaContext';
-import { loginRequest, verifyTokenRequest } from '../../api/login';
+import { rectoriaLoginRequest, verifyTokenRequest } from '../../api/login';
 import Cookies from 'js-cookie';
 
 
@@ -17,13 +17,23 @@ export const RectoriaProvider = ({ children }) => {
 
     const [accesos, setAccesos] = useState(null);
 
+    const [errores, setErrores] = useState(null);
+
+
     // Envia los datos al backend e inicia al usuario en sesión.
     const iniciarSesion = async (usuario) => {
         try {
-            const res = await loginRequest(usuario);
-            setUsuario(res.data);
-            setAccesos(res.data.token);
-            setIsAuthenticated(true);
+            const res = await rectoriaLoginRequest(usuario);
+            if (res.data.errors) {
+                setUsuario(null);
+                setAccesos(null);
+                setIsAuthenticated(false);
+                setErrores(res.data.errors);
+            } else if(res.data.token) {
+                setUsuario(res.data);
+                setAccesos(res.data.token);
+                setIsAuthenticated(true);
+            }
         } catch (error) {
             console.log(error);
         }
@@ -40,7 +50,7 @@ export const RectoriaProvider = ({ children }) => {
                     setLoading(false);
                     return;
                 }
-    
+
                 setUsuario(res.data);
                 setIsAuthenticated(true);
                 setLoading(false);
@@ -69,6 +79,8 @@ export const RectoriaProvider = ({ children }) => {
             accesos,
             isAuthenticated,
             loading,
+            errores,
+            setErrores,
         }}>
             {children}
         </RectoriaContext.Provider>

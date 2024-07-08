@@ -4,10 +4,8 @@
 //  1.admin
 //  2.seccion alumnos
 //  3.secretaria/o
-//  4.personal
-//  5.asesor pedagogico
-//  6.alumno
-//  7.docente
+//  4.asesor pedagogico
+//  5.alumno
 
 
 module.exports = {
@@ -37,14 +35,14 @@ module.exports = {
             {
                 nombre: "Secretaria",
                 apellido: "Uno",
-                dni: 32165478,
+                dni: 40169052,
                 // 12345678
                 contraseña: '$2a$11$Miqs4nbqvhJ7qu.MRHwNAuoOr1myFpb55/oLI.9N/qdWQNdxP1f7S',
                 sexo_id: 2,
                 rol_id: 3,
             },
             {
-                nombre: "Personal docente",
+                nombre: "Asesor Pedagógico",
                 apellido: "Uno",
                 dni: 13248765,
                 // 12345678
@@ -53,7 +51,7 @@ module.exports = {
                 rol_id: 4,
             },
             {
-                nombre: "Asesor Pedagógico",
+                nombre: "Alumno",
                 apellido: "Uno",
                 dni: 75648321,
                 // 12345678
@@ -61,24 +59,8 @@ module.exports = {
                 sexo_id: 3,
                 rol_id: 5,
             },
-            {
-                nombre: 'Alumno',
-                apellido: 'Uno',
-                dni: 45361278,
-                // 12345678
-                contraseña: '$2a$11$Miqs4nbqvhJ7qu.MRHwNAuoOr1myFpb55/oLI.9N/qdWQNdxP1f7S',
-                sexo_id: 2,
-                rol_id: 6,
-            },
-            {
-                nombre: 'Docente',
-                apellido: 'Uno',
-                dni: 32541678,
-                // 12345678
-                contraseña: '$2a$11$Miqs4nbqvhJ7qu.MRHwNAuoOr1myFpb55/oLI.9N/qdWQNdxP1f7S',
-                sexo_id: 1,
-                rol_id: 7,
-            },
+            
+            
         ]);
     },
     async down(queryInterface, Sequelize) {

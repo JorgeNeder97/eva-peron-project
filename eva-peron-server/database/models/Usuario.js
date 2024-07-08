@@ -77,10 +77,6 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: 'rol_id',
         });
 
-        Usuario.hasMany(models.Licencia, {
-            as: 'licencia_usuario',
-            foreignKey: 'usuario_id',
-        });
     }
 
     return Usuario;

@@ -5,6 +5,7 @@ const createAccessToken = require("../modules/jwt");
 const { verify } = require("jsonwebtoken");
 const TOKEN_SECRET = require("../config");
 const Usuarios = db.Usuario;
+const { validationResult } = require("express-validator");
 
 const userController = {
     // USERS CRUD:
@@ -133,161 +134,9 @@ const userController = {
         }
     },
 
-    // LOGIN & LOGOUT:
+    // VERIFICACION & LOGOUT:
 
-    // Inicia en sesión un usuario:
-    login: async (req, res) => {
-        const { usuario, contraseña, loginPage } = req.body;
-
-        try {
-            // Buscamos el usuario en la base de datos por su dni
-            const usuarioData = await Usuarios.findOne({
-                where: { dni: { [Op.like]: usuario } },
-            });
-
-            // Verificamos que exista
-            if (!usuarioData) {
-                return res.status(400).json({ message: "Credencial Invalida" });
-            }
-
-            // Accedemos a dataValues que es donde realmente esta el objeto del usuario
-            const usuarioEncontrado = usuarioData.dataValues;
-
-            // Comparamos la contraseña
-            const esCorrecta = await bcrypt.compare(
-                contraseña,
-                usuarioEncontrado.contraseña
-            );
-
-            // Definimos el flujo de la respuesta
-            if (!esCorrecta) {
-                return res
-                    .status(400)
-                    .json({ message: "Credencial Invalida " });
-            }
-
-            // Aqui comprobamos el rol del usuario y desde que pagina esta intentando hacer el login
-            const usuariosValidos = [
-                { rol_id: 1, loginPage: "rectoria" },
-                { rol_id: 2, loginPage: "seccionAlumnos" },
-                { rol_id: 3, loginPage: "secretaria" },
-                { rol_id: 4, loginPage: "secretaria" },
-                { rol_id: 5, loginPage: "asesoriaPedagogica" },
-                { rol_id: 6, loginPage: "seccionAlumnos" },
-                { rol_id: 7, loginPage: "asesoriaPedagogica" },
-            ];
-
-            // Creamos una variable para verificar si el usuario es válido.
-            const esValido = usuariosValidos.some((validacion) => {
-                return (
-                    validacion.rol_id == usuarioEncontrado.rol_id &&
-                    validacion.loginPage == loginPage
-                );
-            });
-
-            // Verificamos que el usuario sea válido.
-            if (esValido) {
-                switch (usuarioEncontrado.rol_id) {
-                    case 1:
-                        const rectoriaToken = await createAccessToken({
-                            id: usuarioEncontrado.id,
-                            rol: usuarioEncontrado.rol_id,
-                        });
-                        res.cookie("rectoriaToken", rectoriaToken);
-                        res.json({
-                            ...usuarioEncontrado,
-                            token: "rectoriaToken",
-                        });
-                        break;
-                    case 2:
-                        const seccionAlumnosToken = await createAccessToken({
-                            id: usuarioEncontrado.id,
-                            rol: usuarioEncontrado.rol_id,
-                        });
-                        res.cookie("seccionAlumnosToken", seccionAlumnosToken);
-                        res.json({
-                            ...usuarioEncontrado,
-                            token: "seccionAlumnosToken",
-                        });
-                        break;
-                    case 3:
-                        const secretariaToken = await createAccessToken({
-                            id: usuarioEncontrado.id,
-                            rol: usuarioEncontrado.rol_id,
-                        });
-                        res.cookie("secretariaToken", secretariaToken);
-                        res.json({
-                            ...usuarioEncontrado,
-                            token: "secretariaToken",
-                        });
-                        break;
-                    case 4:
-                        const personalToken = await createAccessToken({
-                            id: usuarioEncontrado.id,
-                            rol: usuarioEncontrado.rol_id,
-                        });
-                        res.cookie("personalToken", personalToken);
-                        res.json({
-                            ...usuarioEncontrado,
-                            token: "personalToken",
-                        });
-                        break;
-                    case 5:
-                        const asesoriaPedagogicaToken = await createAccessToken(
-                            {
-                                id: usuarioEncontrado.id,
-                                rol: usuarioEncontrado.rol_id,
-                            }
-                        );
-                        res.cookie(
-                            "asesoriaPedagogicaToken",
-                            asesoriaPedagogicaToken
-                        );
-                        res.json({
-                            ...usuarioEncontrado,
-                            token: "asesoriaPedagogicaToken",
-                        });
-                        break;
-                    case 6:
-                        const alumnoToken = await createAccessToken({
-                            id: usuarioEncontrado.id,
-                            rol: usuarioEncontrado.rol_id,
-                        });
-                        res.cookie("alumnoToken", alumnoToken);
-                        res.json({
-                            ...usuarioEncontrado,
-                            token: "alumnoToken",
-                        });
-                        break;
-                    case 7:
-                        const docenteToken = await createAccessToken({
-                            id: usuarioEncontrado.id,
-                            rol: usuarioEncontrado.rol_id,
-                        });
-                        res.cookie("docenteToken", docenteToken);
-                        res.json({
-                            ...usuarioEncontrado,
-                            token: "docenteToken",
-                        });
-                        break;
-                    default:
-                        res.status(401).json({ message: "Unauthorized user" });
-                }
-            } else {
-                // Enviamos el error
-                return res
-                    .status(400)
-                    .json({
-                        message:
-                            "Tu credencial NO tiene autorización en esta area",
-                    });
-            }
-        } catch (error) {
-            console.log(error);
-            res.status(500).json({ message: error.message });
-        }
-    },
-
+    
     // Verifica si hay un token existente y lo autoriza.
     verifyToken: async (req, res) => {
         // Crea constantes de cada token para que al intentar verificar si son válidos no devuelva error por undefined.
@@ -309,11 +158,9 @@ const userController = {
                 const buscarUsuario = await Usuarios.findByPk(usuario.id);
 
                 if (!buscarUsuario)
-                    return res
-                        .status(401)
-                        .json({
-                            message: "Unauthorized: no encontró el usuario",
-                        });
+                    return res.status(401).json({
+                        message: "Unauthorized: no encontró el usuario",
+                    });
 
                 const usuarioEncontrado = buscarUsuario.dataValues;
                 return res.json({

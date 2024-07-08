@@ -14,27 +14,27 @@ module.exports = {
       {
         titulo: 'INSCRIPCIONES 2024',
         adelanto: 'La Escuela de Especialidades Nocturna N⁰ 4 "María Eva Duarte de Perón" informa que continúan abiertas las "INSCRIPCIONES 2024" para el Nivel Secundario y los Talleres de Formación Profesional.',
-        cuerpo: `La Escuela de Especialidades Nocturna N⁰ 4 "María Eva Duarte de Perón" informa que continúan abiertas las "INSCRIPCIONES 2024" para el Nivel Secundario y los Talleres de Formación Profesional.
-        ◾REQUISITOS INGRESANTES A 1⁰ AÑO:
-        - Fotocopia del DNI.
-        - Copia del Acta de Nacimiento.
-        - Carpeta tres solapas.
-        - Certificado 7⁰ Grado.
-        - Ficha de inscripción.
-        - Copia del Código de Convivencia.
-        - Ficha médica.
-        - Edad: 16 Años cumplidos.
-        ◾REQUISITOS 2⁰ Y 3⁰ AÑO:
-        - Libreta.
-        - Ficha Médica.
-        - Ficha de inscripción.
-        - Código de Convivencia.
-        ◾TALLERES DE FORMACIÓN PROFESIONAL:
-        ✔️ AUXILIAR DE GASTRONOMÍA
-        ✔️ PANADERO / PASTELERO
-        ✔️ MODELISTA / PATRONISTA 
-        ✔️ OPERADOR DE MÁQUINA 
-        Se matrícula de Lunes a Viernes en el horario de 19:30 a 22:00 hs.
+        cuerpo: `La Escuela de Especialidades Nocturna N⁰ 4 "María Eva Duarte de Perón" informa que continúan abiertas las "INSCRIPCIONES 2024" para el Nivel Secundario y los Talleres de Formación Profesional. \n
+        ◾REQUISITOS INGRESANTES A 1⁰ AÑO: \n
+        - Fotocopia del DNI. \n
+        - Copia del Acta de Nacimiento. \n
+        - Carpeta tres solapas.\n
+        - Certificado 7⁰ Grado.\n
+        - Ficha de inscripción.\n
+        - Copia del Código de Convivencia.\n
+        - Ficha médica.\n
+        - Edad: 16 Años cumplidos.\n
+        ◾REQUISITOS 2⁰ Y 3⁰ AÑO:\n
+        - Libreta.\n
+        - Ficha Médica.\n
+        - Ficha de inscripción.\n
+        - Código de Convivencia.\n
+        ◾TALLERES DE FORMACIÓN PROFESIONAL:\n
+        ✔️ AUXILIAR DE GASTRONOMÍA\n
+        ✔️ PANADERO / PASTELERO\n
+        ✔️ MODELISTA / PATRONISTA\n 
+        ✔️ OPERADOR DE MÁQUINA \n
+        Se matrícula de Lunes a Viernes en el horario de 19:30 a 22:00 hs.\n
         ◾Se reciben contribuciones voluntarias para la cooperadora escolar.`
       },
       {

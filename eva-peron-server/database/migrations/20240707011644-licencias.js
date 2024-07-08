@@ -22,16 +22,16 @@ module.exports = {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
-            usuario_id: {
+            docente_id: {
                 type: DataTypes.INTEGER.UNSIGNED,
                 references: {
                     model: {
-                        tableName: "usuarios",
+                        tableName: "docentes",
                     },
                     key: "id",
                 },
                 allowNull: false,
-                onDelete: "NULL",
+                onDelete: "CASCADE",
             },
             createdAt: {
                 type: DataTypes.DATE,

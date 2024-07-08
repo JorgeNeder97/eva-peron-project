@@ -11,21 +11,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(100),
             allowNull: false,
         },
-        disponibilidad: {
-            type: DataTypes.TINYINT(1).UNSIGNED,
-            allowNull: false,
-        },
-        usuario_id: {
-            type: DataTypes.INTEGER.UNSIGNED,
-            references: {
-                model: {
-                    tableName: "usuarios",
-                },
-                key: "id",
-            },
-            allowNull: false,
-            onDelete: "CASCADE",
-        },
     };
     let config = {
         tableName: "cargos",
@@ -33,6 +18,14 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     const Cargo = sequelize.define(alias, cols, config);
+
+    // Hacer relaciones con docente
+    Cargo.associate = (models) => {
+        Cargo.hasMany(models.Docente, {
+            as: 'docente_cargo',
+            foreignKey: 'cargo_id',
+        });
+    }
 
     return Cargo;
 };
