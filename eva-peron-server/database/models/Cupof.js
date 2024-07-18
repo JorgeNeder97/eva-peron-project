@@ -15,8 +15,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(10),
             allowNull: false,
         },
-        
-        // un docente tiene muchos cupof y un cupof pertenece a un solo docente
+
         docente_id: {
             type: DataTypes.INTEGER.UNSIGNED,
             references: {
@@ -35,16 +34,13 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     const Cupof = sequelize.define(alias, cols, config);
-
-    // Hacer relaciones con docente
+    // un docente tiene muchos cupof y un cupof pertenece a un solo docente
     Cupof.associate = (models) => {
-
         Cupof.belongsTo(models.Docente, {
-            as: 'cupof_docente',
-            foreignKey: 'docente_id',
+            as: "cupof_docente",
+            foreignKey: "docente_id",
         });
-        
-    }
+    };
 
     return Cupof;
 };

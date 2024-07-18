@@ -1,0 +1,548 @@
+.unloaded {
+    opacity: 0;
+    transition: 1s all;
+}
+
+.mainContainer {
+    width: 100%;
+    opacity: 1;
+    transition: 1s opacity;
+    margin: 0px auto 0px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.form {
+    font-family: 'Roboto', 'sans-serif';
+    display: grid;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    padding: 30px;
+    border: 2px solid #CCC;
+    border-radius: 2px;
+
+    .nombre,
+    .apellido,
+    .cuil,
+    .dni,
+    .contraseña,
+    .confirmarContraseña,
+    .edad,
+    .sexo,
+    .email,
+    .domicilio,
+    .tituloDocente,
+    .fechaPromIncDoce,
+    .cargo,
+    .situacionRevista,
+    .altaExpte,
+    .fechaIncCargoActual,
+    cupofCantidad,
+    .cupofDinamicos,
+    .asignaturasCantidad,
+    .asignaturasDinamicas,
+    .otros,
+    .otrosContainer,
+    .cupofContainer,
+    .asignaturasContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 10px;
+
+        label {
+            font-size: 1rem;
+            padding-left: 5px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            height: 35px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            outline: none;
+            padding-left: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        select {
+            width: 100%;
+            height: 35px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 0 5px 0 5px;
+            outline: none;
+            cursor: pointer;
+        }
+    }
+
+    .cupofContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+
+        .cupofTitulo {
+            align-self: center;
+        }
+
+        .cupofCantidad {
+            width: 100%;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .cupofDinamicosContainer {
+            width: 100%;
+            display: flex; 
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .cupofDinamicos, .cupofDinamicosInput, .cupofDinamicosSelect {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            opacity: 1;
+        }
+
+        .cupofDinamicos {
+            border-top: 1px solid #ccc;
+            padding-top: 40px;
+        }
+    }
+
+    .fadeIn {
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+
+    .asignaturasContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+        opacity: 1;
+
+        .asignaturasTitulo {
+            align-self: center;
+        }
+
+        .asignaturasCantidad {
+            width: 100%;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .asignaturasDinamicasContainer {
+            width: 100%;
+            display: flex; 
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .asignaturasDinamicas, .asignaturasDinamicasInput, .asignaturasDinamicasCurso, .asignaturasDinamicasHoras {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            opacity: 1;
+        }
+
+        .asignaturasDinamicas {
+            border-top: 1px solid #ccc;
+            padding-top: 40px;
+        }
+    }
+
+    .otrosContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+
+        .otros {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+    .enviar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: self-start;
+
+        button {
+            width: 60%;
+            height: 40px;
+            border: none;
+            border-radius: 3px;
+            background: #0CA789;
+            color: #FFF;
+            box-shadow: 0px 0px 5px #888;
+            cursor: pointer;
+            font-weight: bold;
+            letter-spacing: 3px;
+            transition: .3s all ease;
+        }
+
+        button:hover {
+            background: #03be99;
+            letter-spacing: 4px;
+        }
+    }
+}
+
+.paginaHeader {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px auto 0 auto;
+
+    .tituloPagina {
+        font-family: 'Lato', 'sans-serif';
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: left;
+        margin: 0;
+    }
+
+}
+
+
+/* Errores de validación */
+.hiddenSpan {
+    opacity: 0;
+    height: 8px;
+    transition: .3s all;
+}
+
+.error {
+    color: tomato;
+    font-size: small;
+    font-family: 'Lato', 'sans-serif';
+    height: 8px;
+    padding-left: 5px;
+    transition: .3s all;
+}
+
+/* Errores de validación */
+
+
+@media (min-width: 992px) {
+    .form {
+        font-family: 'Roboto', 'sans-serif';
+        width: 95%;
+        max-width: 95%;
+        margin: 0 auto 50px auto;
+        padding: 30px 50px;
+        display: grid;
+        justify-content: center;
+        align-items: start;
+        grid-template-columns: repeat(6, 10vw);
+        grid-template-rows: auto;
+        grid-template-areas:
+            "a a b b c c"
+            "d d e e f f"
+            "g g g h h h"
+            "i i j j j j"
+            "k k l l n n"
+            "m m o o p p"
+            "q q q r r r"
+            "s s s s s s"
+            "t t t t t t";
+
+        .nombre,
+        .apellido,
+        .cuil,
+        .dni,
+        .contraseña,
+        .confirmarContraseña,
+        .edad,
+        .sexo,
+        .email,
+        .domicilio,
+        .tituloDocente,
+        .fechaPromIncDoce,
+        .cargo,
+        .situacionRevista,
+        .altaExpte,
+        .fechaIncCargoActual,
+        cupofCantidad,
+        .cupofDinamicos,
+        .asignaturasCantidad,
+        .asignaturasDinamicas,
+        .otros,
+        .otrosContainer,
+        .cupofContainer,
+        .asignaturasContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+            gap: 10px;
+
+            label {
+                font-size: 1rem;
+                padding-left: 5px;
+                color: #333;
+            }
+
+            input {
+                width: 100%;
+                height: 35px;
+                border: 1px solid #ddd;
+                border-radius: 3px;
+                outline: none;
+                padding-left: 10px;
+                font-size: 1rem;
+                cursor: pointer;
+            }
+
+            select {
+                width: 100%;
+                height: 35px;
+                border: 1px solid #ddd;
+                border-radius: 3px;
+                padding: 0 5px 0 5px;
+                outline: none;
+                cursor: pointer;
+            }
+        }
+
+        .nombre {
+            grid-area: a;
+        }
+
+        .apellido {
+            grid-area: b;
+        }
+
+        .edad {
+            grid-area: c;
+        }
+
+        .dni {
+            grid-area: d;
+        }
+
+        .cuil {
+            grid-area: e;
+        }
+
+        .sexo {
+            grid-area: f;
+            padding-bottom: 18px;
+        }
+
+        .contraseña {
+            grid-area: g;
+        }
+
+        .confirmarContraseña {
+            grid-area: h;
+        }
+
+        .email {
+            grid-area: i;
+        }
+
+        .domicilio {
+            grid-area: j;
+        }
+
+        .tituloDocente {
+            grid-area: k;
+        }
+
+        .fechaPromIncDoce {
+            grid-area: l;
+
+            input {
+                padding: 0 10px 0 10px;
+            }
+        }
+
+        .altaExpte {
+            grid-area: m;
+        }
+
+        .fechaIncCargoActual {
+            grid-area: n;
+
+            input {
+                padding: 0 10px 0 10px;
+            }
+        }
+
+        .cargo {
+            grid-area: o;
+        }
+
+        .situacionRevista {
+            grid-area: p;
+        }
+
+        .cupofContainer {
+            grid-area: q;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            width: 100%;
+
+            .cupofTitulo {
+                align-self: center;
+            }
+
+            .cupofCantidad {
+                width: 100%;
+                font-weight: bold;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+
+            .cupofDinamicosContainer {
+                width: 100%;
+                display: flex; 
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .cupofDinamicos, .cupofDinamicosInput, .cupofDinamicosSelect {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                opacity: 1;
+            }
+
+            .cupofDinamicos {
+                border-top: 1px solid #ccc;
+                padding-top: 40px;
+            }
+        }
+
+        .fadeIn {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .asignaturasContainer {
+            grid-area: r;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            width: 100%;
+            opacity: 1;
+
+            .asignaturasTitulo {
+                align-self: center;
+            }
+
+            .asignaturasCantidad {
+                width: 100%;
+                font-weight: bold;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+
+            .asignaturasDinamicasContainer {
+                width: 100%;
+                display: flex; 
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .asignaturasDinamicas, .asignaturasDinamicasInput, .asignaturasDinamicasCurso, .asignaturasDinamicasHoras {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                opacity: 1;
+            }
+
+            .asignaturasDinamicas {
+                border-top: 1px solid #ccc;
+                padding-top: 40px;
+            }
+        }
+
+        .otrosContainer {
+            grid-area: s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+
+            .otros {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        .enviar {
+            grid-area: t;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: self-start;
+
+            button {
+                width: 60%;
+                min-width: 700px;
+                max-width: 1000px;
+                height: 40px;
+                border: none;
+                border-radius: 3px;
+                background: #0CA789;
+                color: #FFF;
+                box-shadow: 0px 0px 5px #888;
+                cursor: pointer;
+                font-weight: bold;
+                letter-spacing: 3px;
+                transition: .3s all ease;
+            }
+
+            button:hover {
+                background: #03be99;
+                letter-spacing: 4px;
+            }
+        }
+    }
+
+}

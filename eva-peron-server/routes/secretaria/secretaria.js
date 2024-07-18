@@ -18,6 +18,16 @@ router.patch('/cargos/modificarCargo/:id', secretariaController.modificarCargo);
 
 router.delete('/cargos/eliminarCargo/:id', secretariaController.eliminarCargo);
 
+router.get('/docentes/listarDocentes', secretariaController.listarDocentes);
+
+router.get('/docentes/docenteParaModificar/:id', secretariaController.docenteParaModificar);
+
+router.post('/docentes/altaDocente', secretariaController.altaDocente);
+
+router.patch('/docentes/modificarDocente/:id', secretariaController.modificarDocente);
+
+router.get('/cursos/listarCursos', secretariaController.listarCursos);
+
 
 
 

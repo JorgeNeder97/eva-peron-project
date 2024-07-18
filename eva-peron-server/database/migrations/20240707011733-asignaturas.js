@@ -25,10 +25,6 @@ module.exports = {
                 allowNull: false,
                 onDelete: "CASCADE",
             },
-            division: {
-                type: DataTypes.STRING(10),
-                allowNull: false,
-            },
             horas: {
                 type: DataTypes.INTEGER(2).UNSIGNED,
                 allowNull: false,

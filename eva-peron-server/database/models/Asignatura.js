@@ -23,10 +23,6 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             onDelete: "NULL",
         },
-        division: {
-            type: DataTypes.STRING(10),
-            allowNull: false,
-        },
         horas: {
             type: DataTypes.INTEGER(2).UNSIGNED,
             allowNull: false,

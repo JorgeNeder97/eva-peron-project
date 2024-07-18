@@ -45,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
                 key: 'id'
             },
             allowNull: false,
-            onDelete: 'CASCADE',
+            onDelete: 'RESTRICT',
         },
         rol_id: {
             type: DataTypes.INTEGER.UNSIGNED,
@@ -56,7 +56,7 @@ module.exports = (sequelize, DataTypes) => {
                 key: 'id'
             },
             allowNull: false,
-            onDelete: 'CASCADE'
+            onDelete: 'RESTRICT'
         },
     };
     let config = {

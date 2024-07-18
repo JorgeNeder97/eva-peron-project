@@ -19,7 +19,7 @@ module.exports = {
                 allowNull: false,
             },
             cuil: {
-                type: DataTypes.INTEGER(11).UNSIGNED,
+                type: DataTypes.BIGINT.UNSIGNED,
                 allowNull: false,
                 unique: true,
             },
@@ -35,6 +35,21 @@ module.exports = {
             edad: {
                 type: DataTypes.INTEGER(2).UNSIGNED,
                 allowNull: false,
+            },
+            sexo_id: {
+                type: DataTypes.INTEGER.UNSIGNED,
+                references: {
+                    model: {
+                        tableName: "sexos",
+                    },
+                    key: "id",
+                },
+                allowNull: false,
+                onDelete: "RESTRICT",
+            },
+            email: {
+                type: DataTypes.STRING(100),
+                allowNull: true,
             },
             domicilio: {
                 type: DataTypes.STRING(150),

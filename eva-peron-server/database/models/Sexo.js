@@ -24,6 +24,11 @@ module.exports = (sequelize, DataTypes) => {
             as: 'sexo_usuario',
             foreignKey: 'sexo_id',
         });
+
+        Sexo.hasMany(models.Docente, {
+            as: 'sexo_docente',
+            foreignKey: 'sexo_id',
+        });
         
         Sexo.hasMany(models.Alumno, {
             as: 'sexo_alumno',

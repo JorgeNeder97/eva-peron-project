@@ -24,7 +24,7 @@ export const GestionDocentes = () => {
                 </div>
                 <div className={styles.opcionesContainer}>
 
-                    <Link to="nuevoUsuario" onClick={handleLinkClick}>
+                    <Link to="altaDocente" onClick={handleLinkClick}>
                         <div className={styles.gestionDocentesContainer}>
                             <span></span>
                             <span></span>
@@ -37,7 +37,7 @@ export const GestionDocentes = () => {
                         </div>
                     </Link>
 
-                    <Link to="listarUsuarios" onClick={handleLinkClick}>
+                    <Link to="modificarDocente" onClick={handleLinkClick}>
                         <div className={styles.gestionDocentesContainer}>
                             <span></span>
                             <span></span>

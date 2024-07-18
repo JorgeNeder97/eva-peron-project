@@ -25,8 +25,9 @@ export const LoginForm = ({ urlToNavigate, loginPage, auth }) => {
 
     useEffect(() => {
         if (errores != null) setCargando(false);
-    }, [errores])
+    }, [errores]);
 
+    // Ahora funciona pero me sigue tirando el error del required de contraseña del frontend cuando trato de ingresar la primera vez una contraseña
     const handleInputChange = (campo) => {
         clearErrors(campo);
         setErrores(null);

@@ -41,6 +41,9 @@ import { ModificarCargo } from './pages/Secretaria/Protected-Routes/SecretariaPa
 import { ModificarCargoForm } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Cargos/ModificarCargoForm/ModificarCargoForm';
 import { EliminarCargo } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Cargos/EliminarCargo/EliminarCargo';
 import { GestionDocentes } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Docentes/GestionDocentes';
+import { NuevoDocenteForm } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Docentes/NuevoDocente/NuevoDocenteForm';
+import { ModificarDocente } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Docentes/ModificarDocente/ModificarDocente';
+import { ModificarDocenteForm } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Docentes/ModificarDocenteForm/ModificarDocenteForm';
 
 
 export const MainApp = () => {
@@ -98,6 +101,9 @@ export const MainApp = () => {
                                     <Route path="gestionCargos/modificarCargo/:id" element={<ModificarCargoForm />} />
                                     <Route path="gestionCargos/eliminarCargo" element={<EliminarCargo />} />
                                     <Route path="gestionDocentes" element={<GestionDocentes />} />
+                                    <Route path="gestionDocentes/altaDocente" element={<NuevoDocenteForm />} />
+                                    <Route path="gestionDocentes/modificarDocente" element={<ModificarDocente />} />
+                                    <Route path="gestionDocentes/modificarDocente/:id" element={<ModificarDocenteForm />} />
                                 </Route>
                             </Routes>
                         </SecretariaProvider>
