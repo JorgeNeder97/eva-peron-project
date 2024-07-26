@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { SecretariaContext } from './SecretariaContext';
-import { secretariaLoginRequest, verifyTokenRequest } from '../../api/login';
+import { secretariaLoginRequest, verifySecretariaTokenRequest } from '../../api/login';
 import Cookies from 'js-cookie';
 
 
@@ -44,7 +44,7 @@ export const SecretariaProvider = ({ children }) => {
 
         const checkLogin = async (token) => {
             try {
-                const res = await verifyTokenRequest(token);
+                const res = await verifySecretariaTokenRequest(token);
                 if (!res.data) {
                     setUsuario(null);
                     setLoading(false);
@@ -63,8 +63,8 @@ export const SecretariaProvider = ({ children }) => {
             }
         }
 
-        if (secretariaToken) checkLogin(secretariaToken);
-        else if(personalToken) checkLogin(personalToken);
+        if (personalToken) checkLogin(personalToken);
+        else if (secretariaToken) checkLogin(secretariaToken);
         else {
             setIsAuthenticated(false);
             setUsuario(null);

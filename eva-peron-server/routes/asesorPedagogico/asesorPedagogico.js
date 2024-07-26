@@ -6,7 +6,7 @@ const asesoriaPedagogicaLoginValidations = require('../../middlewares/users/ases
 
 router.post('/login', asesoriaPedagogicaLoginValidations, asesorPedagogicoController.login);
 
-
+router.post('/logout', asesorPedagogicoController.logout);
 
 
 

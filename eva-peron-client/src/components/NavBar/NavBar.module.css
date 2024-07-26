@@ -30,10 +30,6 @@
 }
 
 .logoContainer {
-    /* background-image: url('../../../public/FondoMovile.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center; */
     background-color: #111;
     width: 100%;
     display: flex;
@@ -53,11 +49,11 @@
     .logo {
         width: 200px;
     }
-    
+
     .mainContainer {
         width: 100%;
     }
-    
+
     .logoContainer {
         background-color: #FFF;
         background-image: url('../../../public/fondo.png');
@@ -76,38 +72,25 @@
 
     .linksContainerContainer {
         max-width: 100%;
-        min-height: 43.39px;
-        background: #06715C;
-    }
-
-    .linksContainer {
-        max-width: 100%;
         width: 100%;
-        padding-top: 15px;
-        padding-bottom: 10px;
         background: #06715C;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        box-shadow: 0px 0px 5px #555;
-    }
-
-    .scrolled {
-        max-width: 100%;
-        width: 100%;
-        box-sizing: border-box;
-        padding-top: 15px;
-        padding-bottom: 10px;
-        background: #06715C;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        box-shadow: 0px 0px 5px #555;
-        position: fixed;
+        position: sticky;
         top: 0;
-        left: 0;
-        z-index: 11;
-    }
+        z-index: 100;
+        box-shadow: 0px 0px 5px #555;
+      }
+    
+      .linksContainer {
+        max-width: 100%;
+        width: 100%;
+        padding-top: 15px;
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        position: sticky;
+        top: 0;
+      }
 
     .links {
         color: #FFF;
@@ -128,9 +111,3 @@
     }
 
 }
-
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-    
-}
-

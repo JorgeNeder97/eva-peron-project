@@ -1,0 +1,39 @@
+.iconoEliminar {
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 15px;
+    text-decoration: none;
+    transition: all ease .3s;
+}
+
+.iconoEliminar:hover {
+    color: #CE2121;
+}
+
+.iconoEliminar {
+    border: none;
+    background: none;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 15px;
+    text-decoration: none;
+    transition: all ease .3s;
+}
+
+.iconoEliminar:hover {
+    color: #CE2121;
+}
+
+.inputInvisible {
+    display: none;
+}

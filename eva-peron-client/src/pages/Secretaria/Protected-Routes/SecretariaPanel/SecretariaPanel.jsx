@@ -3,11 +3,14 @@ import styles from './SecretariaPanel.module.css';
 import { Link } from 'react-router-dom';
 import { SecretariaNavBar } from './SecretariaNavBar/SecretariaNavBar';
 import { useLinkScroll } from '../../../../hooks/useLinkScroll';
+import { useSecretariaAuth } from '../../../../context/SecretariaContext/SecretariaContext';
 
 export const SecretariaPanel = () => {
 
     const { handleLinkClick } = useLinkScroll();
     const [isLoaded, setIsLoaded] = useState();
+
+    const { usuario } = useSecretariaAuth();
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -22,7 +25,7 @@ export const SecretariaPanel = () => {
         <>
             <SecretariaNavBar />
             <div className={isLoaded ? styles.mainContainer : styles.unloaded}>
-            <h2 className={styles.tituloPanel}>PANEL FUNCIONAL</h2>
+            <h2 className={styles.tituloPanel}>PANEL DE SECRETARÍA</h2>
             <div className={styles.divider}></div>
                 <div className={styles.opcionesContainer}>
 

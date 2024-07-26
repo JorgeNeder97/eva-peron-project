@@ -33,7 +33,7 @@ export const ExportarExcel = () => {
         fecha_inc_cargo_actual: docente.fecha_inc_cargo_actual,
       }
     });
-    
+
     // [
     //   { name: 'John Doe', age: 30, email: 'john@example.com', CUPOF: '58805-DFE-SDEAR-1837D' },
     //   { name: 'Jane Smith', age: 25, email: 'jane@example.com' },

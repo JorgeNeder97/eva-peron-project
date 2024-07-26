@@ -214,7 +214,7 @@ export const ModificarUsuarioForm = () => {
 
                         {/* FECHA DE NACIMIENTO */}
                         <div className={styles.fechaNacimiento}>
-                            <label htmlFor="fecha_nacimiento">Fecha de nacimiento</label>
+                            <label htmlFor="fecha_nacimiento">Fecha de nacimiento (mes/día/año)</label>
                             <input
                                 type="date"
                                 {...register("fecha_nacimiento", {
@@ -313,7 +313,7 @@ export const ModificarUsuarioForm = () => {
                                 <option value="1">Rectoría</option>
                                 <option value="2">Seccion Alumnos</option>
                                 <option value="3">Secretaría</option>
-                                <option value="5">Asesoría Pedagógica</option>
+                                <option value="4">Asesoría Pedagógica</option>
                             </select>
                         </div>
 

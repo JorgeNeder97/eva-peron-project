@@ -127,7 +127,7 @@ export const TablaEliminarUsuarios = ({ usuarios }) => {
           inputRef={inputRef}
         >
           <h2><i className="fa-solid fa-triangle-exclamation fa-xl"></i>¡ADVERTENCIA!<i className="fa-solid fa-triangle-exclamation fa-xl"></i></h2>
-          <p>Estas a punto de eliminar un usuario, para continuar ingresa el siguiente código y se habilitará el botón <i>Eliminar usuario</i></p>
+          <p>Estas a punto de eliminar un <strong>Usuario</strong>, para continuar ingresa el siguiente código y se habilitará el botón <i>Eliminar usuario</i></p>
           <span>{codigoModal}</span>
           <input type="text" onChange={onChange} maxLength={6} ref={inputRef} />
           <form onSubmit={onSubmit}>

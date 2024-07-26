@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Rectoria.module.css';
 import { NavBar } from '../../components/NavBar/NavBar';
 import { useSlowLoad } from '../../hooks/useSlowLoad';
-import video from '../../assets/SecretariaLogin.mp4';
+import video from '../../assets/RectoriaLogin.mp4';
 import logoRectoria from '../../assets/logoRectoria.png';
 import { LoginForm } from '../../components/LoginForm/LoginForm';
 import Cookies from 'js-cookie';

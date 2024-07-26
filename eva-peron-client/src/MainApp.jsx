@@ -44,6 +44,12 @@ import { GestionDocentes } from './pages/Secretaria/Protected-Routes/SecretariaP
 import { NuevoDocenteForm } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Docentes/NuevoDocente/NuevoDocenteForm';
 import { ModificarDocente } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Docentes/ModificarDocente/ModificarDocente';
 import { ModificarDocenteForm } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Docentes/ModificarDocenteForm/ModificarDocenteForm';
+import { EliminarDocente } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Docentes/EliminarDocente/EliminarDocente';
+import { PersonalPanel } from './pages/Secretaria/Protected-Routes/PesonalPanel/PersonalPanel';
+import { SolicitarLicencia } from './pages/Secretaria/Protected-Routes/PesonalPanel/SolicitarLicencia/SolicitarLicencia';
+import { MostrarLicencia } from './pages/Secretaria/Protected-Routes/PesonalPanel/MostrarLicencia/MostrarLicencia';
+import { MostrarDatos } from './pages/Secretaria/Protected-Routes/PesonalPanel/MostrarDatos/MostrarDatos';
+
 
 
 export const MainApp = () => {
@@ -104,6 +110,12 @@ export const MainApp = () => {
                                     <Route path="gestionDocentes/altaDocente" element={<NuevoDocenteForm />} />
                                     <Route path="gestionDocentes/modificarDocente" element={<ModificarDocente />} />
                                     <Route path="gestionDocentes/modificarDocente/:id" element={<ModificarDocenteForm />} />
+                                    <Route path="gestionDocentes/bajaDocente" element={<EliminarDocente />} />
+
+                                    <Route path="personalDocente" element={<PersonalPanel />} />
+                                    <Route path="personalDocente/solicitarLicencia" element={<SolicitarLicencia />} />
+                                    <Route path="personalDocente/solicitudLicencia/:id" element={<MostrarLicencia />} />
+                                    <Route path="personalDocente/datosPersonales" element={<MostrarDatos />} />
                                 </Route>
                             </Routes>
                         </SecretariaProvider>

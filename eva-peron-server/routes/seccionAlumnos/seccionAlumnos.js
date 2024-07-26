@@ -7,5 +7,8 @@ const seccionAlumnosLoginValidations = require('../../middlewares/users/seccionA
 
 router.post('/login',seccionAlumnosLoginValidations, seccionAlumnosController.login);
 
+router.post('/logout', seccionAlumnosController.logout);
+
+
 
 module.exports = router;

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './ModificarDocenteForm.module.css';
 import { useForm } from 'react-hook-form';
 import { listarCargosRequest } from '../../../../../../api/cargosCRUD';
-import { docenteParaModificarRequest, listarCursosRequest, modificarDocenteRequest } from '../../../../../../api/docentesCRUD';
+import { datosDocenteRequest, listarCursosRequest, modificarDocenteRequest } from '../../../../../../api/docentesCRUD';
 import { Navigate, useParams } from 'react-router-dom';
 import { SecretariaNavBar } from '../../SecretariaNavBar/SecretariaNavBar';
 import { VolverAtrasButton } from '../../../../../../components/VolverAtrasButton/VolverAtrasButton';
@@ -65,7 +65,7 @@ export const ModificarDocenteForm = () => {
         }
 
         const docenteParaModificar = async () => {
-            const res = await docenteParaModificarRequest(params.id);
+            const res = await datosDocenteRequest(params.id);
             setDocente(res.data.docente);
             setDocenteLoading(false);
         }
@@ -545,7 +545,7 @@ export const ModificarDocenteForm = () => {
 
                     {/* FECHA PROM INICIO DOCENTE */}
                     <div className={styles.fechaPromIncDoce}>
-                        <label htmlFor="fecha_prom_inc_doce">Fecha prom. inicio docencia</label>
+                        <label htmlFor="fecha_prom_inc_doce">Fecha prom. inicio docencia (mes/día/año)</label>
                         <input
                             type="date"
                             {...register("fecha_prom_inc_doce", {
@@ -619,7 +619,7 @@ export const ModificarDocenteForm = () => {
 
                     {/* FECHA DE INICIO EN EL CARGO */}
                     <div className={styles.fechaIncCargoActual}>
-                        <label htmlFor="fecha_inc_cargo_actual">Fecha de inicio del cargo actual</label>
+                        <label htmlFor="fecha_inc_cargo_actual">Fecha de inicio cargo actual (mes/día/año)</label>
                         <input
                             type="date"
                             {...register("fecha_inc_cargo_actual", {

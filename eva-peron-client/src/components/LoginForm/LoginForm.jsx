@@ -3,10 +3,11 @@ import styles from './LoginForm.module.css';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import Cookies from 'js-cookie';
 
-export const LoginForm = ({ urlToNavigate, loginPage, auth }) => {
+export const LoginForm = ({ urlToNavigate, loginPage, auth, urlAlter }) => {
 
-    const { iniciarSesion, isAuthenticated, errores, setErrores } = auth();
+    const { iniciarSesion, isAuthenticated, errores, setErrores, usuario } = auth();
 
     const { register, handleSubmit, formState: { errors }, clearErrors } = useForm();
 
@@ -20,8 +21,20 @@ export const LoginForm = ({ urlToNavigate, loginPage, auth }) => {
     });
 
     useEffect(() => {
-        if (isAuthenticated) navigate(urlToNavigate);
-    }, [isAuthenticated]);
+        const secretariaToken = Cookies.get('secretariaToken');
+        const rectoriaToken = Cookies.get('rectoriaToken');
+        const seccionAlumnosToken = Cookies.get('seccionAlumnosToken');
+        const asesoriaPedagogicaToken = Cookies.get('asesoriaPedagogicaToken');
+        const personalToken = Cookies.get('personalToken');
+
+        if (isAuthenticated) {
+            if (secretariaToken || rectoriaToken || seccionAlumnosToken || asesoriaPedagogicaToken) {
+                navigate(urlToNavigate);
+            } else if (personalToken) {
+                navigate(urlAlter);
+            }
+        }
+    }, [isAuthenticated, navigate, urlToNavigate, urlAlter]);
 
     useEffect(() => {
         if (errores != null) setCargando(false);
@@ -29,8 +42,8 @@ export const LoginForm = ({ urlToNavigate, loginPage, auth }) => {
 
     // Ahora funciona pero me sigue tirando el error del required de contraseña del frontend cuando trato de ingresar la primera vez una contraseña
     const handleInputChange = (campo) => {
-        clearErrors(campo);
-        setErrores(null);
+        if(errors[campo]) clearErrors(campo)
+        if(errores) setErrores(null);
     }
 
     return (
@@ -55,7 +68,7 @@ export const LoginForm = ({ urlToNavigate, loginPage, auth }) => {
                             message: 'Debe ingresar un usuario válido',
                         }
                     })}
-                    onChange={() => handleInputChange("usuario")}
+                    onInput={() => handleInputChange("usuario")}
                 />
                 <div className={styles.errorsSpot}>
                     <span className={errors.usuario ? styles.error : styles.hiddenSpan}>{errors.usuario && errors.usuario.message}</span>
@@ -76,7 +89,7 @@ export const LoginForm = ({ urlToNavigate, loginPage, auth }) => {
                             message: 'Debe ingresar una contraseña válida',
                         }
                     })}
-                    onChange={() => handleInputChange("contraseña")}
+                    onInput={() => handleInputChange("contraseña")}
                 />
                 <div className={styles.errorsSpot}>
                     <span className={errors.contraseña ? styles.error : styles.hiddenSpan}>{errors.contraseña && errors.contraseña.message}</span>

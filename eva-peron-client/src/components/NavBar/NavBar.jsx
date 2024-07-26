@@ -7,26 +7,19 @@ import { useLinkScroll } from '../../hooks/useLinkScroll'
 
 export const NavBar = () => {
 
-  const [fix, setFix] = useState(false);
-
   const logoContainer = useRef(null);
-
-
-  const setFixed = () => {
-    window.scrollY > 189 ? setFix(true) : setFix(false);
-  }
 
   const { handleLinkClick } = useLinkScroll();
 
-  window.addEventListener('scroll', setFixed);
-
   return (
+    <>
     <div className={styles.mainContainer}>
       <div className={styles.logoContainer} ref={logoContainer}>
         <Link to="/" onClick={handleLinkClick}><img src={Logo} className={styles.logo} alt="Escuela Eva Perón - Logotipo" /></Link>
       </div>
+    </div>
       <div className={styles.linksContainerContainer}>
-        <div className={fix ? styles.scrolled : styles.linksContainer}>
+        <div className={styles.linksContainer}>
           <Link to="/" className={styles.links} onClick={handleLinkClick}>INICIO</Link>
           <Link to="/institucional" className={styles.links} onClick={handleLinkClick}>INSTITUCIONAL</Link>
           <Link to="/noticias" className={styles.links} onClick={handleLinkClick}>NOTICIAS</Link>
@@ -36,6 +29,6 @@ export const NavBar = () => {
           <Link to="/asesoria-pedagogica" className={styles.links} onClick={handleLinkClick}>ASESORIA PEDAGOGICA</Link>
         </div>
       </div>
-    </div>
+    </>
   )
 }

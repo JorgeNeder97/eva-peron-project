@@ -15,6 +15,8 @@ export const SecretariaPage = () => {
     const cookie = Cookies.get();
     if(cookie.secretariaToken) {
         return <Navigate to="/secretaria/home" />
+    } else if (cookie.personalToken) {
+        return <Navigate to="/secretaria/personalDocente" />
     }
 
     return (
@@ -30,7 +32,7 @@ export const SecretariaPage = () => {
                     <div className={styles.logoContainer}>
                         <img className={styles.logoSecretaria} src={logoSecretaria} alt="Secretaría Eva Perón - Logo" />
                     </div>
-                    <LoginForm urlToNavigate={'/secretaria/home'} loginPage={"secretaria"} auth={useSecretariaAuth} />
+                    <LoginForm urlToNavigate={'/secretaria/home'} urlAlter={'/secretaria/personalDocente'} loginPage={"secretaria"} auth={useSecretariaAuth} />
                 </div>
             </div>
         </>

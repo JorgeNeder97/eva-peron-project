@@ -81,6 +81,11 @@ const seccionAlumnosController = {
         }
     },
 
+    logout: (req, res) => {
+        res.cookie("seccionAlumnosToken", "", { expires: new Date(0) });
+        return res.sendStatus(200);
+    },
+
     buscarAlumno: async (req, res) => {
         // get (trae al alumno por id)
     },

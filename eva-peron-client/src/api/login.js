@@ -1,7 +1,19 @@
 import axios from './axios';
 
 
-// Enviamos una peticion por post a la ruta donde se inicia sesión.
+//      ---------------GENERAL---------------
+
+export const verifyTokenRequest = async () => {
+    return await axios.get('/usuarios/verify');
+}
+
+//      -------------------------------------
+
+
+
+
+//      ---------------RECTORÍA---------------
+
 export const rectoriaLoginRequest = async (usuario) => {
     return await axios.post('/rectoria/login', usuario, {
         headers: {
@@ -10,13 +22,19 @@ export const rectoriaLoginRequest = async (usuario) => {
     });
 }
 
-export const seccionAlumnosLoginRequest = async (usuario) => {
-    return await axios.post('/seccionAlumnos/login', usuario, {
-        headers: {
-            'Content-Type': 'application/json',
-        }
-    });
+
+
+
+export const logoutRectoriaRequest = async () => {
+    return await axios.post('/usuarios/logout');
 }
+
+//      --------------------------------------
+
+
+
+
+//      --------------SECRETARÍA--------------
 
 export const secretariaLoginRequest = async (usuario) => {
     return await axios.post('/secretaria/login', usuario, {
@@ -26,6 +44,44 @@ export const secretariaLoginRequest = async (usuario) => {
     });
 }
 
+
+export const verifySecretariaTokenRequest = async () => {
+    return await axios.get('/secretaria/verify');
+}
+
+
+export const logoutSecretariaRequest = async () => {
+    return await axios.post('/secretaria/logout');
+}
+
+//      ----------------------------------------
+
+
+
+
+//      ------------SECCCIÓN ALUMNOS------------
+
+
+export const seccionAlumnosLoginRequest = async (usuario) => {
+    return await axios.post('/seccionAlumnos/login', usuario, {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    });
+}
+
+
+export const logoutSeccionAlumnosRequest = async () => {
+    return await axios.post('/seccionAlumnos/logout');
+}
+
+//      ----------------------------------------
+
+
+
+
+//      -----------ASESORÍA PEDAGÓGICA-----------
+
 export const asesoriaPedagogicaLoginRequest = async (usuario) => {
     return await axios.post('/asesoriaPedagogica/login', usuario, {
         headers: {
@@ -34,12 +90,9 @@ export const asesoriaPedagogicaLoginRequest = async (usuario) => {
     });
 }
 
-// Enviamos una peticion por get a la ruta donde verifica el token.
-export const verifyTokenRequest = async () => {
-    return await axios.get('/usuarios/verify');
+
+export const logoutAsesoriaPedagogicaRequest = async () => {
+    return await axios.post('/asesoriaPedagogica/logout');
 }
 
-// Enviamos una peticion por post a la ruta donde se cierra sesión.
-export const logoutRequest = async () => {
-    return await axios.post('/usuarios/logout');
-}
+//      -----------------------------------------

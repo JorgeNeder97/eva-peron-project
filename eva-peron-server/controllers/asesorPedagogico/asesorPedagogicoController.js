@@ -79,6 +79,11 @@ const asesorPedagogicoController = {
             res.status(500).json({ message: error.message });
         }
     },
+
+    logout: (req, res) => {
+        res.cookie("asesoriaPedagogicaToken", "", { expires: new Date(0) });
+        return res.sendStatus(200);
+    },
 };
 
 module.exports = asesorPedagogicoController;

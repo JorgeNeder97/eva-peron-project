@@ -145,6 +145,7 @@ const userController = {
             secretariaToken,
             seccionAlumnosToken,
             asesoriaPedagogicaToken,
+            personalToken,
         } = req.cookies;
 
         // Funcion que hace la verificación con JsonWebToken.
@@ -156,11 +157,24 @@ const userController = {
                         .json({ message: "Unauthorized: saltó el err" });
 
                 const buscarUsuario = await Usuarios.findByPk(usuario.id);
+                const buscarDocente = await db.Docente.findByPk(usuario.id);
+                
+                if (!buscarUsuario) {
+                    if (buscarDocente) {
+                        const docenteEncontrado = buscarDocente.dataValues;
+                        console.log(docenteEncontrado);
+                        return res.json({
+                            id: docenteEncontrado.id,
+                            nombre: docenteEncontrado.nombre,
+                            dni: docenteEncontrado.dni,
+                            sexo_id: docenteEncontrado.sexo_id,
+                        });
+                    }
 
-                if (!buscarUsuario)
                     return res.status(401).json({
                         message: "Unauthorized: no encontró el usuario",
                     });
+                }
 
                 const usuarioEncontrado = buscarUsuario.dataValues;
                 return res.json({
@@ -177,8 +191,8 @@ const userController = {
         if (rectoriaToken) return verifyTkn(rectoriaToken);
         else if (secretariaToken) return verifyTkn(secretariaToken);
         else if (seccionAlumnosToken) return verifyTkn(seccionAlumnosToken);
-        else if (asesoriaPedagogicaToken)
-            return verifyTkn(asesoriaPedagogicaToken);
+        else if (asesoriaPedagogicaToken) return verifyTkn(asesoriaPedagogicaToken);
+        else if (personalToken) return verifyTkn(personalToken);
         else
             return res
                 .status(401)
@@ -188,10 +202,8 @@ const userController = {
     // Cierra la sesión del usuario
     logout: (req, res) => {
         // Vacía la cookie donde se encontraba el token y lo hace expirar.
+        // Esto hace que al hacer logout se vacien TODOS los token
         res.cookie("rectoriaToken", "", { expires: new Date(0) });
-        res.cookie("secretariaToken", "", { expires: new Date(0) });
-        res.cookie("seccionAlumnosToken", "", { expires: new Date(0) });
-        res.cookie("asesoriaPedagogicaToken", "", { expires: new Date(0) });
         return res.sendStatus(200);
     },
 };

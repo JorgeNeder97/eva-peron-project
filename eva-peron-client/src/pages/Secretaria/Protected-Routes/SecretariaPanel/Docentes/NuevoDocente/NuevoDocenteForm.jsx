@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './NuevoDocenteForm.module.css';
 import { useForm } from 'react-hook-form';
-import { useSlowLoad } from '../../../../../../hooks/useSlowLoad';
 import { listarCargosRequest } from '../../../../../../api/cargosCRUD';
 import { listarCursosRequest } from '../../../../../../api/docentesCRUD';
 import { altaDocenteRequest } from '../../../../../../api/docentesCRUD';
@@ -9,8 +8,7 @@ import { Navigate } from 'react-router-dom';
 import { SecretariaNavBar } from '../../SecretariaNavBar/SecretariaNavBar';
 import { VolverAtrasButton } from '../../../../../../components/VolverAtrasButton/VolverAtrasButton';
 import { Modal } from '../../../../../../components/Modal/Modal';
-import { useEffect } from 'react';
-
+import { verificarDniRequest, verificarCuilRequest } from '../../../../../../api/docentesCRUD';
 
 
 export const NuevoDocenteForm = () => {
@@ -70,18 +68,38 @@ export const NuevoDocenteForm = () => {
 
         listarCargos();
         listarCursos();
-        
+
         // Limpieza del timer cuando el componente se desmonta
         return () => clearTimeout(timer);
     }, []);
 
-    
+
     // Variables del form para los select
     const selectedCantidadCupof = watch("cantidadCupof", "");
     const selectedCargo = watch("cargo_id", "");
     const selectedSituacionRevista = watch("situacion_revista", "");
     const selectedCantidadAsignaturas = watch("cantidadAsignaturas", "");
 
+    // Observa el valor del DNI
+    const dniValue = watch('dni', '');
+
+    // Función de validación para el CUIL
+    const validateCuil = async (cuil) => {
+
+        const exists = await verificarCuilRequest(cuil);
+        if (exists) {
+            let message = 'Este CUIL pertenece a un docente ya registrado'
+            return message;
+        }
+
+        const dniPattern = new RegExp(`^\\d{2}${dniValue}\\d{1}$`);
+        if (!dniPattern.test(cuil)) {
+            let message = 'El CUIL debe contener el DNI ingresado';
+            return message;
+        }
+
+        return true;
+    };
 
     // Función para hacer dinámicos los cupofs
     const generarCupofsDinamicos = () => {
@@ -145,7 +163,7 @@ export const NuevoDocenteForm = () => {
     }, [selectedCargo]);
 
     useEffect(() => {
-        if(selectedCantidadAsignaturas > 0) {
+        if (selectedCantidadAsignaturas > 0) {
             setAsignaturasFade(true);
         } else {
             setAsignaturasFade(false);
@@ -153,7 +171,7 @@ export const NuevoDocenteForm = () => {
     }, [selectedCantidadAsignaturas])
 
     useEffect(() => {
-        if(selectedCantidadCupof > 0) {
+        if (selectedCantidadCupof > 0) {
             setCupofFade(true);
         } else {
             setCupofFade(false);
@@ -343,7 +361,8 @@ export const NuevoDocenteForm = () => {
                                 pattern: {
                                     value: /([0-9]){11}/g,
                                     message: 'El CUIL no puede contener puntos ni guiones',
-                                }
+                                },
+                                validate: validateCuil,
                             })}
                         />
                         <span className={errors.cuil ? styles.error : styles.hiddenSpan}>{errors.cuil && errors.cuil.message}</span>
@@ -371,7 +390,14 @@ export const NuevoDocenteForm = () => {
                                 pattern: {
                                     value: /([0-9]){8}/g,
                                     message: 'El DNI no puede contener puntos ni letras',
-                                }
+                                },
+                                validate: async (value) => {
+                                    const exists = await verificarDniRequest(value);
+                                    if (exists) {
+                                        return 'Este DNI pertenece a un docente ya registrado';
+                                    }
+                                    return true;
+                                },
                             })}
                         />
                         <span className={errors.dni ? styles.error : styles.hiddenSpan}>{errors.dni && errors.dni.message}</span>
@@ -526,7 +552,7 @@ export const NuevoDocenteForm = () => {
 
                     {/* FECHA PROM INICIO DOCENTE */}
                     <div className={styles.fechaPromIncDoce}>
-                        <label htmlFor="fecha_prom_inc_doce">Fecha prom. inicio docencia</label>
+                        <label htmlFor="fecha_prom_inc_doce">Fecha prom. inicio docencia (mes/día/año)</label>
                         <input
                             type="date"
                             {...register("fecha_prom_inc_doce", {
@@ -595,7 +621,7 @@ export const NuevoDocenteForm = () => {
 
                     {/* FECHA DE INICIO EN EL CARGO */}
                     <div className={styles.fechaIncCargoActual}>
-                        <label htmlFor="fecha_inc_cargo_actual">Fecha de inicio del cargo actual</label>
+                        <label htmlFor="fecha_inc_cargo_actual">Fecha de inicio cargo actual (mes/día/año)</label>
                         <input
                             type="date"
                             {...register("fecha_inc_cargo_actual", {
@@ -654,39 +680,39 @@ export const NuevoDocenteForm = () => {
 
                     {/* Area de ASIGNATURA (SOLO DEBE SER HABILITADA PARA CIERTOS CARGOS) */}
                     {selectedCargo == 7 &&
-                            <div className={`${styles.fadeIn} ${fadeIn ? styles.asignaturasContainer : ''}`}>
-                                <h3 className={styles.asignaturasTitulo}>ASIGNATURAS</h3>
-                                {/* CANTIDAD DE ASIGNATURAS */}
-                                <div className={styles.asignaturasCantidad}>
-                                    <label htmlFor="cantidadAsignaturas">Cantidad de Asignaturas</label>
-                                    <select {...register("cantidadAsignaturas", {
-                                        required: {
-                                            value: true,
-                                            message: 'Debes ingresar la cantidad de Asignaturas',
-                                        }
-                                    })}
-                                        value={selectedCantidadAsignaturas}
-                                    >
-                                        <option value="" disabled>Seleccione la cantidad</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                    </select>
-                                    <span className={errors.cantidadAsignaturas ? styles.error : styles.hiddenSpan}>{errors.cantidadAsignaturas && errors.cantidadAsignaturas.message}</span>
-                                </div>
-
-                                {/* ASIGNATURAS, CURSOS, DIVISION Y HORAS */}
-                                <div className={styles.asignaturasDinamicasContainer} key={'asignaturasDinamicasContainerKey'}>
-                                    {generarAsignaturasDinamicas()}
-                                </div>
+                        <div className={`${styles.fadeIn} ${fadeIn ? styles.asignaturasContainer : ''}`}>
+                            <h3 className={styles.asignaturasTitulo}>ASIGNATURAS</h3>
+                            {/* CANTIDAD DE ASIGNATURAS */}
+                            <div className={styles.asignaturasCantidad}>
+                                <label htmlFor="cantidadAsignaturas">Cantidad de Asignaturas</label>
+                                <select {...register("cantidadAsignaturas", {
+                                    required: {
+                                        value: true,
+                                        message: 'Debes ingresar la cantidad de Asignaturas',
+                                    }
+                                })}
+                                    value={selectedCantidadAsignaturas}
+                                >
+                                    <option value="" disabled>Seleccione la cantidad</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                                <span className={errors.cantidadAsignaturas ? styles.error : styles.hiddenSpan}>{errors.cantidadAsignaturas && errors.cantidadAsignaturas.message}</span>
                             </div>
+
+                            {/* ASIGNATURAS, CURSOS, DIVISION Y HORAS */}
+                            <div className={styles.asignaturasDinamicasContainer} key={'asignaturasDinamicasContainerKey'}>
+                                {generarAsignaturasDinamicas()}
+                            </div>
+                        </div>
                     }
 
                     <div className={styles.otrosContainer}>

@@ -10,16 +10,12 @@ module.exports = {
                 autoIncrement: true,
                 allowNull: false,
             },
-            nombre: {
-                type: DataTypes.STRING(100),
+            licencia: {
+                type: DataTypes.STRING(50),
                 allowNull: false,
             },
             fecha: {
                 type: DataTypes.DATE,
-                allowNull: false,
-            },
-            archivo: {
-                type: DataTypes.STRING,
                 allowNull: false,
             },
             docente_id: {

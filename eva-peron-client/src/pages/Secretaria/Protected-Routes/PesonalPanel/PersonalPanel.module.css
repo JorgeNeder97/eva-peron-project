@@ -1,0 +1,294 @@
+.unloaded {
+    opacity: 0;
+    transition: 1s all;
+}
+
+
+.mainContainer {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20px 80px 20px;
+    opacity: 1;
+    transition: 1s opacity;
+}
+
+.bienvenido {
+    font-family: 'Lato', 'sans-serif';
+    font-size: 5rem;
+    text-align: center;
+    margin: 0;
+}
+
+.tituloPanel {
+    font-family: 'Lato', 'sans-serif';
+    font-size: 3rem;
+    text-align: center;
+    color: #333;
+}
+
+.divider {
+    border-top: .5px solid rgba(0, 0, 0, .3);
+    width: 97%;
+    margin: 0 auto;
+}
+
+
+/* Contenedor grid */
+
+.opcionesContainer {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 400px 400px;
+    gap: 10px;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+.opcionContainer {
+    position: relative;   
+    border-radius: 5px;
+    min-width: 400px;
+    height: 400px;
+    box-shadow: 0px 0px 5px #777;
+}
+
+.opcionImagen {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.opcionTitulo {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 4rem;
+    font-family: 'Lusitana', 'sans-serif';
+    text-align: center;
+    color: #FFF;
+    max-width: 400px;
+}
+
+.opcionDescripcion {
+    position: absolute;
+    bottom: 45%;
+    left: 0;
+    right: 0;
+    font-family: 'Lato', 'sans-serif';
+    font-size: 1rem;
+    color: #FFF;
+    margin: auto;
+    padding: 0 30px;
+    text-align: center;
+}
+
+
+@media (min-width: 992px) {
+
+    
+    .opcionesContainer {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 80px;
+        align-items: center;
+        justify-items: center;
+        box-sizing: border-box;
+        padding: 70px 100px 0 100px;
+    }
+
+    .opcionContainer {
+        position: relative;
+    }
+    
+    
+    .opcionContainer:hover .opcionImagen{
+        filter:brightness(0.4);
+        transition: filter 1s;
+    }
+
+    .opcionContainer:not(:hover) .opcionImagen {
+        filter: brightness(1);
+        transition: filter 1s;
+    }
+
+    .opcionTitulo {
+        position: absolute;
+        top: 40%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        font-size: 3rem;
+        font-family: 'Lusitana', 'sans-serif';
+        text-align: center;
+        color: #DDD;
+        transition: color .3s;
+    }
+
+    .opcionContainer:hover .opcionTitulo {
+        color: #FFF;
+        transition: color .3s;
+    }
+    
+    .opcionDescripcion {
+        opacity: 0;
+        transform: translateY(70%);
+        transition: .5s ease-in all;
+    }
+
+    .opcionContainer:hover .opcionDescripcion {
+        opacity: 1;
+        transform: translateY(0);
+        transition: .5s ease-in all;
+    }
+
+
+
+
+
+
+    /* -- Hover Transition Border -- */
+
+    .opcionContainer span {
+        position: absolute;
+        display: block;
+        background: #FFF;
+        z-index: 10;
+    }
+
+    .opcionContainer span:nth-child(1) {
+        left: 5%;
+        top: 5%;
+        width: 50.5%;
+        height: 1.5px;
+        transform-origin: left;
+        transform: scaleX(0);
+        transition: transform ease-in-out .5s;
+    }
+
+    .opcionContainer:hover span:nth-child(1) {
+        transform: scaleX(1);
+        transform-origin: right;
+    }
+
+
+
+
+    .opcionContainer span:nth-child(2) {
+        right: 5%;
+        top: 5%;
+        width: 50.5%;
+        height: 1.5px;
+        transform-origin: left;
+        transform: scaleX(0);
+        transition: transform ease-in-out .5s;
+    }
+
+    .opcionContainer:hover span:nth-child(2) {
+        transform: scaleX(1);
+        transform-origin: right;
+    }
+
+
+
+
+    .opcionContainer span:nth-child(3) {
+        right: 5%;
+        top: 5%;
+        width: 1.5px;
+        height: 90%;
+        transform-origin: top;
+        transform: scaleY(0);
+        transition: transform ease-in-out .5s;
+    }
+
+    .opcionContainer:hover span:nth-child(3) {
+        transform: scaleY(1);
+        transform-origin: bottom;
+    }
+
+
+
+
+    .opcionContainer span:nth-child(4) {
+        left: 5%;
+        top: 5%;
+        width: 2px;
+        height: 90%;
+        transform-origin: bottom;
+        transform: scaleY(0);
+        transition: transform ease-in-out .5s;
+    }
+
+    .opcionContainer:hover span:nth-child(4) {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+
+
+
+
+    .opcionContainer span:nth-child(5) {
+        left: 5%;
+        bottom: 5%;
+        width: 50.5%;
+        height: 2px;
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform ease-in-out .5s;
+    }
+
+    .opcionContainer:hover span:nth-child(5) {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+
+
+
+    .opcionContainer span:nth-child(6) {
+        right: 5%;
+        bottom: 5%;
+        width: 50.5%;
+        height: 2px;
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform ease-in-out .5s;
+    }
+
+    .opcionContainer:hover span:nth-child(6) {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+
+
+
+    /* -- Hover Transition Border -- */
+
+    
+    .opcionImagen {
+        max-width: 600px;
+    }
+    
+    .opcionDescripcion {
+        position: absolute;
+        bottom: 30%;
+        left: 0;
+        right: 0;
+        font-family: 'Lato', 'sans-serif';
+        font-size: 1rem;
+        color: #FFF;
+        margin: auto;
+        padding: 0 30px;
+        text-align: center;
+    }
+
+}
