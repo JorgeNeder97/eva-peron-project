@@ -66,7 +66,7 @@ export const SolicitarLicencia = () => {
     const normalizarFecha = (fechaStr) => {
         const [year, month, day] = fechaStr.split('-');
         return new Date(year, month - 1, day); // Los meses en JS son de 0 a 11
-      };
+    };
 
     const onSubmit = handleSubmit((data) => {
         solicitarLicencia(data);
@@ -76,6 +76,8 @@ export const SolicitarLicencia = () => {
     const handleAceptar = (e) => {
         setRedirigir(true);
     }
+
+    console.log(new Date().getUTCDate());
 
     if (redirigir) return <Navigate to={creado ? urlToNavigate : "/secretaria/personalDocente"} />;
 
@@ -132,6 +134,7 @@ export const SolicitarLicencia = () => {
                                             const fechaIngresada = normalizarFecha(value);
                                             const fechaActual = new Date();
                                             fechaActual.setHours(0, 0, 0, 0); // normaliza la fecha actual
+                                            const diaSolicitado = fechaIngresada.getUTCDate();
                                             const mesSolicitado = fechaIngresada.getUTCMonth() + 1; // Los meses en JS son de 0 a 11
                                             const añoSolicitado = fechaIngresada.getUTCFullYear();
                                             const articulo = watch("licencia");
@@ -144,6 +147,7 @@ export const SolicitarLicencia = () => {
                                                     let fecha = new Date(licencia.fecha);
                                                     let mesLicencia = fecha.getUTCMonth() + 1;
                                                     let añoLicencia = fecha.getUTCFullYear();
+                                                    let diaLicencia = fecha.getUTCDate();
 
                                                     if (mesLicencia === mesSolicitado && articuloLicencia === articulo) {
                                                         cantidadMesSolicitado++;

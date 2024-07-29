@@ -1,6 +1,9 @@
+:root {
+    --opacity: 1;
+}
+
 .mainInvisible {
     opacity: 0;
-    --opacity: 1;
     transition: opacity 1s ease-in;
 }
 

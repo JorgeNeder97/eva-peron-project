@@ -63,7 +63,7 @@ export const GestionDocentes = () => {
                         </div>
                     </Link>
 
-                    <Link to="eliminarUsuarios" onClick={handleLinkClick}>
+                    <Link to="licencias" onClick={handleLinkClick}>
                         <div className={styles.gestionDocentesContainer}>
                             <span></span>
                             <span></span>

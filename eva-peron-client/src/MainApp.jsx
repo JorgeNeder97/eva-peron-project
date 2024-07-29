@@ -49,6 +49,8 @@ import { PersonalPanel } from './pages/Secretaria/Protected-Routes/PesonalPanel/
 import { SolicitarLicencia } from './pages/Secretaria/Protected-Routes/PesonalPanel/SolicitarLicencia/SolicitarLicencia';
 import { MostrarLicencia } from './pages/Secretaria/Protected-Routes/PesonalPanel/MostrarLicencia/MostrarLicencia';
 import { MostrarDatos } from './pages/Secretaria/Protected-Routes/PesonalPanel/MostrarDatos/MostrarDatos';
+import { Licencias } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Docentes/Licencias/Licencias';
+import { HistorialLicencias } from './pages/Secretaria/Protected-Routes/SecretariaPanel/Docentes/Licencias/HistorialLicencias/HistorialLicencias';
 
 
 
@@ -111,6 +113,8 @@ export const MainApp = () => {
                                     <Route path="gestionDocentes/modificarDocente" element={<ModificarDocente />} />
                                     <Route path="gestionDocentes/modificarDocente/:id" element={<ModificarDocenteForm />} />
                                     <Route path="gestionDocentes/bajaDocente" element={<EliminarDocente />} />
+                                    <Route path="gestionDocentes/licencias" element={<Licencias />} />
+                                    <Route path="gestionDocentes/licencias/historialLicencias/:id" element={<HistorialLicencias />} />
 
                                     <Route path="personalDocente" element={<PersonalPanel />} />
                                     <Route path="personalDocente/solicitarLicencia" element={<SolicitarLicencia />} />

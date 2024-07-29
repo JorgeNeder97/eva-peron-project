@@ -4,6 +4,7 @@ import { datosDocenteRequest } from '../../../../../api/docentesCRUD';
 import { VolverAtrasButton } from '../../../../../components/VolverAtrasButton/VolverAtrasButton';
 import { SecretariaNavBar } from '../../SecretariaPanel/SecretariaNavBar/SecretariaNavBar';
 import { useSecretariaAuth } from '../../../../../context/SecretariaContext/SecretariaContext';
+import { TablaLicencias } from '../../../../../components/TablaLicencias/TablaLicencias';
 
 
 
@@ -46,10 +47,8 @@ export const MostrarDatos = () => {
         return fechaCompleta;
     }
 
-
-    console.log(docente);
     console.log(licencias);
-
+    
     if (loading) return (<div className={isLoaded ? styles.mainContainer : styles.unloaded}>Cargando...</div>);
     else {
         return (
@@ -61,138 +60,149 @@ export const MostrarDatos = () => {
                         <VolverAtrasButton url="/secretaria/personalDocente" />
                     </div>
                     <div className={styles.datosContainer}>
-                        <div className={styles.datosPersonales}>
+                        <div className={styles.datosPersonalesContainer}>
+                            <h3 className={styles.tituloPequeño}>Datos Personales</h3>
+                            <div className={styles.datosPersonales}>
 
-                            {/* Nombre y Apellido */}
-                            <div className={styles.dPersCampo}>
-                                <h4>Nombre y Apellido: </h4>
-                                <p>{docente.nombre} {docente.apellido}</p>
+                                {/* Nombre y Apellido */}
+                                <div className={styles.dPersCampo}>
+                                    <h4>Nombre y Apellido </h4>
+                                    <p>{docente.nombre} {docente.apellido}</p>
+                                </div>
+
+                                {/* Dni */}
+                                <div className={styles.dPersCampo}>
+                                    <h4>DNI </h4>
+                                    <p>{docente.dni}</p>
+                                </div>
+
+                                {/* Cuil */}
+                                <div className={styles.dPersCampo}>
+                                    <h4>CUIL </h4>
+                                    <p>{docente.cuil}</p>
+                                </div>
+
+                                {/* Edad */}
+                                <div className={styles.dPersCampo}>
+                                    <h4>Edad </h4>
+                                    <p>{docente.edad}</p>
+                                </div>
+
+                                {/* Sexo */}
+                                <div className={styles.dPersCampo}>
+                                    <h4>Sexo </h4>
+                                    <p>{docente.sexo_docente.nombre}</p>
+                                </div>
+
+                                {/* Domicilio */}
+                                <div className={styles.dPersCampo}>
+                                    <h4>Domicilio </h4>
+                                    <p>{docente.domicilio}</p>
+                                </div>
+
+                                {/* Email */}
+                                <div className={styles.dPersCampo}>
+                                    <h4>Email </h4>
+                                    <p>{docente.email}</p>
+                                </div>
                             </div>
-
-                            {/* Dni */}
-                            <div className={styles.dPersCampo}>
-                                <h4>DNI: </h4>
-                                <p>{docente.dni}</p>
-                            </div>
-
-                            {/* Cuil */}
-                            <div className={styles.dPersCampo}>
-                                <h4>CUIL: </h4>
-                                <p>{docente.cuil}</p>
-                            </div>
-
-                            {/* Edad */}
-                            <div className={styles.dPersCampo}>
-                                <h4>Edad: </h4>
-                                <p>{docente.edad}</p>
-                            </div>
-
-                            {/* Sexo */}
-                            <div className={styles.dPersCampo}>
-                                <h4>Sexo: </h4>
-                                <p>{docente.sexo_docente.nombre}</p>
-                            </div>
-
-                            {/* Domicilio */}
-                            <div className={styles.dPersCampo}>
-                                <h4>Domicilio: </h4>
-                                <p>{docente.domicilio}</p>
-                            </div>
-
-                            {/* Email */}
-                            <div className={styles.dPersCampo}>
-                                <h4>Email: </h4>
-                                <p>{docente.email}</p>
-                            </div>
-
                         </div>
 
-                        <div className={styles.datosProfesionales}>
+                        <div className={styles.datosProfesionalesContainer}>
+                            <h3 className={styles.tituloPequeño}>Datos Profesionales</h3>
+                            <div className={styles.datosProfesionales}>
 
-                            {/* Titulo */}
-                            <div className={styles.dProfCampo}>
-                                <h4>Título: </h4>
-                                <p>{docente.titulo}</p>
+                                {/* Titulo */}
+                                <div className={styles.dProfCampo}>
+                                    <h4>Título </h4>
+                                    <p>{docente.titulo}</p>
+                                </div>
+
+                                {/* Fecha Prom Inc Doce */}
+                                <div className={styles.dProfCampo}>
+                                    <h4>Fecha prom. inicio docente </h4>
+                                    <p>{formatearFecha(docente.fecha_prom_inc_doce)}</p>
+                                </div>
+
+                                {/* Cargo */}
+                                <div className={styles.dProfCampo}>
+                                    <h4>Cargo </h4>
+                                    <p>{docente.docente_cargo.nombre}</p>
+                                </div>
+
+                                {/* Situacion Revista */}
+                                <div className={styles.dProfCampo}>
+                                    <h4>Situación Revista </h4>
+                                    <p>{docente.situacion_revista}</p>
+                                </div>
+
+                                {/* Fecha Inc Cargo Actual */}
+                                <div className={styles.dProfCampo}>
+                                    <h4>Fecha inicio cargo actual </h4>
+                                    <p>{formatearFecha(docente.fecha_inc_cargo_actual)}</p>
+                                </div>
+
+                                {/* Alta Expte */}
+                                <div className={styles.dProfCampo}>
+                                    <h4>Alta Expediente </h4>
+                                    <p>{docente.alta_expte}</p>
+                                </div>
                             </div>
+                        </div>
 
-                            {/* Fecha Prom Inc Doce */}
-                            <div className={styles.dProfCampo}>
-                                <h4>Fecha prom. inicio docente: </h4>
-                                <p>{formatearFecha(docente.fecha_prom_inc_doce)}</p>
-                            </div>
+                        <div className={styles.cupofsAsignaturasContainer}>
+                            <h3 className={styles.tituloPequeño}>Cupofs Y Asignaturas</h3>
+                            <div className={styles.cupofsAsignaturas}>
+                                <div className={styles.cupofs}>
+                                    {/* Cupofs */}
+                                    {docente.cupof_docente.map(cupof => {
+                                        return (
+                                            <div className={styles.smallContainer} key={cupof.id}>
+                                                <div className={styles.dProfCampo}>
+                                                    <h4>Cupof </h4>
+                                                    <p>{cupof.nombre}</p>
+                                                </div>
 
-                            {/* Cargo */}
-                            <div className={styles.dProfCampo}>
-                                <h4>Cargo: </h4>
-                                <p>{docente.docente_cargo.nombre}</p>
-                            </div>
-
-                            {/* Situacion Revista */}
-                            <div className={styles.dProfCampo}>
-                                <h4>Situación Revista: </h4>
-                                <p>{docente.situacion_revista}</p>
-                            </div>
-
-                            {/* Fecha Inc Cargo Actual */}
-                            <div className={styles.dProfCampo}>
-                                <h4>Fecha inicio cargo actual: </h4>
-                                <p>{formatearFecha(docente.fecha_inc_cargo_actual)}</p>
-                            </div>
-
-                            {/* Alta Expte */}
-                            <div className={styles.dProfCampo}>
-                                <h4>Alta Expediente: </h4>
-                                <p>{docente.alta_expte}</p>
-                            </div>
-
-                            {/* Cupofs */}
-                            {docente.cupof_docente.map(cupof => {
-                                return (
-                                    <>
-                                        <div className={styles.smallContainer}>
-                                            <div className={styles.dProfCampo}>
-                                                <h4>Cupof: </h4>
-                                                <p>{cupof.nombre}</p>
+                                                <div className={styles.dProfCampo}>
+                                                    <h4>Situación Revista</h4>
+                                                    <p>{cupof.situacion_revista}</p>
+                                                </div>
                                             </div>
+                                        );
+                                    })}
+                                </div>
 
-                                            <div className={styles.dProfCampo}>
-                                                <h4>Situación Revista:</h4>
-                                                <p>{cupof.situacion_revista}</p>
+                                <div className={styles.asignaturas}>
+                                    {/* Asignaturas */}
+                                    {docente.asignatura_docente.map(asignatura => {
+                                        return (
+                                            <div className={styles.smallContainer} key={asignatura.id}>
+                                                <div className={styles.dProfCampo}>
+                                                    <h4>Asignatura </h4>
+                                                    <p>{asignatura.asignatura}</p>
+                                                </div>
+
+                                                <div className={styles.dProfCampo}>
+                                                    <h4>Curso </h4>
+                                                    <p>{asignatura.asignatura_curso.año_academico} "{asignatura.asignatura_curso.nombre}"</p>
+                                                </div>
+
+                                                <div className={styles.dProfCampo}>
+                                                    <h4>Horas </h4>
+                                                    <p>{asignatura.horas} hs</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </>
-                                );
-                            })}
-                            
-                            {/* Asignaturas */}
-                            {docente.asignatura_docente.map(asignatura => {
-                                return (
-                                    <>
-                                    <div className={styles.smallContainer}>
-                                        <div className={styles.dProfCampo}>
-                                            <h4>Asignatura: </h4>
-                                            <p>{asignatura.asignatura}</p>
-                                        </div>
+                                        );
+                                    })}
+                                </div>
 
-                                        <div className={styles.dProfCampo}>
-                                            <h4>Curso: </h4>
-                                            <p>{asignatura.asignatura_curso.año_academico} "{asignatura.asignatura_curso.nombre}"</p>
-                                        </div>
-
-                                        <div className={styles.dProfCampo}>
-                                            <h4>Horas: </h4>
-                                            <p>{asignatura.horas} hs</p>
-                                        </div>
-                                    </div>
-                                    </>
-                                );
-                            })}
-
+                            </div>
                         </div>
                     </div>
 
                     <div className={styles.licenciasContainer}>
-                        
+                        <h2 className={styles.tituloLicencia}>HISTORIAL DE LICENCIAS</h2>
+                        <TablaLicencias licencias={licencias} />
                     </div>
 
                 </div>

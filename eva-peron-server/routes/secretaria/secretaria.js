@@ -45,6 +45,8 @@ router.get('/docentes/datosLicencia/:id', secretariaController.datosLicencia);
 
 router.get('/docentes/traerLicencias/:id', secretariaController.traerLicencias);
 
+router.get('/docentes/listarLicencias', secretariaController.listarLicencias);
+
 
 
 

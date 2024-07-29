@@ -1,3 +1,11 @@
+:root {
+    --font-size-small: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-subheading: 1.25rem;
+    --font-size-heading: 1.5rem;
+    --font-size-large-heading: 2rem;
+}
+
 .unloaded {
     opacity: 0;
     transition: 1s all;
@@ -57,7 +65,7 @@
         gap: 10px;
 
         label {
-            font-size: 1rem;
+            font-size: var(--font-size-base);
             padding-left: 5px;
             color: #333;
         }
@@ -65,11 +73,11 @@
         input {
             width: 100%;
             height: 35px;
-            border: 1px solid #ddd;
+            border: 1px solid #DDD;
             border-radius: 3px;
             outline: none;
             padding-left: 10px;
-            font-size: 1rem;
+            font-size: var(--font-size-base);
             cursor: pointer;
         }
 
@@ -225,7 +233,7 @@
 
     .tituloPagina {
         font-family: 'Lato', 'sans-serif';
-        font-size: 2.5rem;
+        font-size: var(--font-size-large-heading);
         font-weight: bold;
         text-align: left;
         margin: 0;
@@ -307,7 +315,7 @@
             gap: 10px;
 
             label {
-                font-size: 1rem;
+                font-size: var(--font-size-base);
                 padding-left: 5px;
                 color: #333;
             }
@@ -315,18 +323,18 @@
             input {
                 width: 100%;
                 height: 35px;
-                border: 1px solid #ddd;
+                border: 1px solid #BBB;
                 border-radius: 3px;
                 outline: none;
                 padding-left: 10px;
-                font-size: 1rem;
+                font-size: var(--font-size-base);
                 cursor: pointer;
             }
 
             select {
                 width: 100%;
                 height: 35px;
-                border: 1px solid #ddd;
+                border: 1px solid #BBB;
                 border-radius: 3px;
                 padding: 0 5px 0 5px;
                 outline: none;

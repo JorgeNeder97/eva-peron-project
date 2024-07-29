@@ -1,4 +1,10 @@
-/* Movile & Tablet Version */
+:root {
+    --font-size-small: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-subheading: 1.25rem;
+    --font-size-heading: 1.5rem;
+    --font-size-large-heading: 2rem;
+}
 
 /* Imagen no cargada */
 .imageUnloaded {
@@ -91,7 +97,7 @@
 
 .title {
     font-family: 'Libre Baskerville', 'sans-serif';
-    font-size: 3rem;
+    font-size: var(--font-size-large-heading);
     color: #FFF;
     text-align: center;
     margin: 0;
@@ -242,7 +248,7 @@
 
     .title {
         font-family: 'Libre Baskerville', 'sans-serif';
-        font-size: 3rem;
+        font-size: var(--font-size-large-heading);
         color: #FFF;
         text-align: center;
         margin: 0;

@@ -1,0 +1,16 @@
+.iconoEditar {
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 5px;
+    text-decoration: none;
+    transition: all ease .3s;
+}
+
+.iconoEditar:hover {
+    color: #14ca9d;
+}

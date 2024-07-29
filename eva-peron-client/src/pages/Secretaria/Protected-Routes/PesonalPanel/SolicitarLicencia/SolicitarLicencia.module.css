@@ -1,3 +1,11 @@
+:root {
+    --font-size-small: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-subheading: 1.25rem;
+    --font-size-heading: 1.5rem;
+    --font-size-large-heading: 2rem;
+}
+
 .unloaded {
     opacity: 0;
     transition: 1s all;
@@ -31,28 +39,34 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 50px;
 }
 
 .licencia,
 .fecha {
     width: 100%;
+    height: 110px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     gap: 10px;
 }
 
 .licencia select {
     width: 50%;
     height: 45px;
-    border: 1px solid #CCC;
+    border: 1px solid #BBB;
     border-radius: 3px;
     outline: none;
     padding-left: 10px;
-    font-size: 1rem;
+    font-size: var(--font-size-base);
 
+}
+
+.licencia {
+    margin-top: 12px;
 }
 
 .enviar {
@@ -86,7 +100,7 @@
 
     .tituloPagina {
         font-family: 'Lato', 'sans-serif';
-        font-size: 2.5rem;
+        font-size: var(--font-size-large-heading);
         font-weight: bold;
         text-align: left;
         margin: 0;
@@ -144,18 +158,18 @@
                 padding-bottom: 10px;
 
                 label {
-                    font-size: 1rem;
+                    font-size: var(--font-size-base);
                     color: #333;
                 }
 
                 input {
                     width: 80%;
                     height: 45px;
-                    border: 1px solid #CCC;
+                    border: 1px solid #BBB;
                     border-radius: 3px;
                     outline: none;
                     padding-left: 10px;
-                    font-size: 1rem;
+                    font-size: var(--font-size-base);
                 }
 
                 input:focus {

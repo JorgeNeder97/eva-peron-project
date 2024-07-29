@@ -76,3 +76,7 @@ export const datosLicenciaRequest = async (id) => {
 export const traerLicenciasRequest = async (id) => {
     return await axios.get(`/secretaria/docentes/traerLicencias/${id}`);
 }
+
+export const listarLicenciasRequest = async () => {
+    return await axios.get('/secretaria/docentes/listarLicencias');
+}

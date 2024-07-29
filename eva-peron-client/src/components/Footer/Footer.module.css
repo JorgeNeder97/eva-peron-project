@@ -3,6 +3,11 @@
     --color-amarillo-logo: #C8BE39;
     --color-amarillo: #ffc107;
     --color-verde-fuente: #0b3b32;
+    --font-size-small: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-subheading: 1.25rem;
+    --font-size-heading: 1.5rem;
+    --font-size-large-heading: 2rem;
 }
 
 .unloaded {
@@ -45,7 +50,7 @@
     grid-template-rows: repeat(2, 1fr);
     gap: 5px;
     justify-content: center;
-    font-size: 1.1rem;
+    font-size: var(--font-size-base);
     margin-top: 20px;
 }
 
@@ -77,7 +82,7 @@
 }
 
 .redesContainer p {
-    font-size: 1.3rem;
+    font-size: var(--font-size-subheading);
 }
 
 .redes {
@@ -112,7 +117,7 @@
 
 
 .developedBy {
-    font-size: 1.1rem;
+    font-size: var(--font-size-base);
     margin: 0;
     padding-top: 5px;
 }
@@ -190,7 +195,7 @@
     
     
     .developedBy {
-        font-size: 1.1rem;
+        font-size: var(--font-size-base);
         margin: 0;
         padding-top: 5px;
     }

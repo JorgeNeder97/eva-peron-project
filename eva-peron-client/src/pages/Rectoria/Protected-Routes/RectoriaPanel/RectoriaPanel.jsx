@@ -34,7 +34,7 @@ export const RectoriaPanel = () => {
               <span></span>
               <span></span>
               <span></span>
-              <img className={styles.gestionUsuariosImagen} src="/gestionUsuarios.jpg" alt="Gestión de Usuarios" />
+              <img className={styles.gestionUsuariosImagen} src="/opcionFondo.png" alt="Gestión de Usuarios" />
               <h2 className={styles.gestionUsuariosTitulo}>GESTIONAR USUARIOS</h2>
               <p className={styles.gestionUsuariosDescripcion}>Crear, modificar o eliminar un usuario</p>
             </Link>
@@ -48,7 +48,7 @@ export const RectoriaPanel = () => {
               <span></span>
               <span></span>
               <span></span>
-              <img className={styles.plantaFuncionalImagen} src="/plantaFuncional.jpg" alt="Planta Funcional" />
+              <img className={styles.plantaFuncionalImagen} src="/opcionFondo.png" alt="Planta Funcional" />
               <h2 className={styles.plantaFuncionalTitulo}>PLANTA FUNCIONAL</h2>
               <p className={styles.plantaFuncionalDescripcion}>Exportar la planta funcional al dia de la fecha</p>
             </Link>

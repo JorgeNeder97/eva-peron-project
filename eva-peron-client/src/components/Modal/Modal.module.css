@@ -1,3 +1,11 @@
+:root {
+    --font-size-small: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-subheading: 1.25rem;
+    --font-size-heading: 1.5rem;
+    --font-size-large-heading: 2rem;
+}
+
 body {
     box-sizing: border-box;
 }
@@ -46,7 +54,7 @@ body {
 
 .tituloEncabezado {
     color: #FFF;
-    font-size: 1.2rem;
+    font-size: var(--font-size-subheading);
     font-family: 'Lato', 'sans-serif';
 }
 
@@ -82,7 +90,7 @@ body {
 }
 
 .contenedorChildren h2 {
-    font-size: 2.3rem;
+    font-size: var(--font-size-large-heading);
 }
 
 .contenedorChildren button {

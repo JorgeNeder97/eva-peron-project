@@ -42,11 +42,9 @@ const secretariaController = {
                     );
 
                     if (!contraseñaCorrecta) {
-                        return res
-                            .status(400)
-                            .json({
-                                message: "Credencial Invalida contraseña",
-                            });
+                        return res.status(400).json({
+                            message: "Credencial Invalida contraseña",
+                        });
                     }
 
                     const personalToken = await createAccessToken({
@@ -373,7 +371,11 @@ const secretariaController = {
                     },
                     { association: "cupof_docente" },
                     { association: "docente_cargo" },
-                    { association: "licencia_docente" },
+                    {
+                        association: "licencia_docente",
+                        separate: true,
+                        order: [["fecha", "DESC"]],
+                    },
                     { association: "sexo_docente" },
                 ],
             });
@@ -577,6 +579,7 @@ const secretariaController = {
                     { association: "asignatura_docente" },
                     { association: "cupof_docente" },
                     { association: "docente_cargo" },
+                    { association: "licencia_docente" },
                 ],
             });
             res.json({
@@ -587,6 +590,42 @@ const secretariaController = {
                 },
                 data: docentes,
             });
+        } catch (error) {
+            res.status(500).json({ message: error.message });
+        }
+    },
+
+    listarLicencias: async (req, res) => {
+        try {
+            let fecha = new Date();
+            let dia = fecha.getUTCDate(); // Día del mes (1-31)
+            let mes = fecha.getUTCMonth() + 1; // Mes (0-11, por lo que sumamos 1)
+            let año = fecha.getUTCFullYear();
+
+            // Asegúrate de que el mes y el día tengan siempre dos dígitos
+            let mesFormateado = mes.toString().padStart(2, "0");
+            let diaFormateado = dia.toString().padStart(2, "0");
+
+            let fechaCompleta = `${año}-${mesFormateado}-${diaFormateado}T00:00:00.000Z`;
+
+            const response = await db.Licencia.findAll({
+                include: [
+                    {
+                        association: "licencia_docente",
+                        include: [
+                            {
+                                association: "asignatura_docente",
+                                include: [{ association: "asignatura_curso" }],
+                            },
+                        ],
+                    },
+                ],
+                where: { fecha: { [Op.like]: `${fechaCompleta}` } },
+            });
+            const licencias = response.map((licencia) => {
+                return licencia.dataValues;
+            });
+            res.json({ licencias });
         } catch (error) {
             res.status(500).json({ message: error.message });
         }
