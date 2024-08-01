@@ -4,6 +4,7 @@
   "description": "Sitio Web Escuela Eva Peron",
   "main": "app.js",
   "scripts": {
+    "start": "cd eva-peron-server && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
