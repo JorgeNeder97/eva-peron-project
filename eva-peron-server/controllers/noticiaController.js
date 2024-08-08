@@ -5,19 +5,14 @@ const path = require("path");
 
 const noticiaController = {
     list: async (req, res) => {
-        const noticias = await db.Noticia.findAll({
+        const todasLasNoticias = await db.Noticia.findAll({
             include: [{ association: "noticia_imagen" }],
             order: [["createdAt", "DESC"]],
         });
-
-        res.json({
-            meta: {
-                status: 200,
-                length: noticias.length,
-                url: "/api/noticias/list",
-            },
-            data: noticias,
-        });
+        const noticias = todasLasNoticias.map(noticia => {
+            return noticia.dataValues;
+        })
+        res.json({ noticias });
     },
 
     listOne: async (req, res) => {
@@ -34,20 +29,15 @@ const noticiaController = {
     },
 
     lastestList: async (req, res) => {
-        const noticias = await db.Noticia.findAll({
+        const ultimasNoticias = await db.Noticia.findAll({
             order: [["createdAt", "DESC"]],
             limit: 6,
             include: [{ association: "noticia_imagen" }],
         });
-
-        res.json({
-            meta: {
-                status: 200,
-                length: noticias.length,
-                url: "/api/noticias/list",
-            },
-            data: noticias,
+        const noticias = ultimasNoticias.map(noticia => {
+            return noticia.dataValues;
         });
+        res.json({ noticias });
     },
 
     create: async (req, res) => {

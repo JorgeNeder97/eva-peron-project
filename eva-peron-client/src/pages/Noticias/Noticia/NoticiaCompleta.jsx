@@ -40,7 +40,7 @@ export const NoticiaCompleta = () => {
     } else {
         
         const nombreImagen = noticia.noticia_imagen[0].nombre;
-        const imagenUrl = `http://localhost:3000/images/${nombreImagen}`;
+        const imagenUrl = `https://server.escuelaevaperon.com/images/${nombreImagen}`;
         
         return (
             <>

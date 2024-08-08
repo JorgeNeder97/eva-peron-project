@@ -2,7 +2,7 @@ import axios from "./axios";
 
 export const verificarDniRequest = async (dni) => {
     try {
-        const response = await axios.get("secretaria/docentes/verificarDni", {
+        const response = await axios.get("/api/secretaria/docentes/verificarDni", {
             params: { dni },
         });
         return response.data.exists; // Suponiendo que el API devuelve un objeto { exists: true/false }
@@ -14,7 +14,7 @@ export const verificarDniRequest = async (dni) => {
 
 export const verificarCuilRequest = async (cuil) => {
     try {
-        const response = await axios.get("secretaria/docentes/verificarCuil", {
+        const response = await axios.get("/api/secretaria/docentes/verificarCuil", {
             params: { cuil },
         });
         return response.data.exists;
@@ -25,16 +25,16 @@ export const verificarCuilRequest = async (cuil) => {
 };
 
 export const listarDocentesRequest = async () => {
-    return await axios.get("secretaria/docentes/listarDocentes");
+    return await axios.get("/api/secretaria/docentes/listarDocentes");
 };
 
 // Este request se usa en el formulario de alta de docentes
 export const listarCursosRequest = async () => {
-    return await axios.get("secretaria/cursos/listarCursos");
+    return await axios.get("/api/secretaria/cursos/listarCursos");
 };
 
 export const altaDocenteRequest = async (docente) => {
-    return await axios.post("/secretaria/docentes/altaDocente", docente, {
+    return await axios.post("/api/secretaria/docentes/altaDocente", docente, {
         headers: {
             "Content-Type": "application/json",
         },
@@ -42,12 +42,12 @@ export const altaDocenteRequest = async (docente) => {
 };
 
 export const datosDocenteRequest = async (id) => {
-    return await axios.get(`/secretaria/docentes/datosDocente/${id}`);
+    return await axios.get(`/api/secretaria/docentes/datosDocente/${id}`);
 };
 
 export const modificarDocenteRequest = async (docente, id) => {
     return await axios.patch(
-        `/secretaria/docentes/modificarDocente/${id}`,
+        `/api/secretaria/docentes/modificarDocente/${id}`,
         docente,
         {
             headers: {
@@ -58,11 +58,11 @@ export const modificarDocenteRequest = async (docente, id) => {
 };
 
 export const eliminarDocenteRequest = async (data) => {
-    return await axios.delete(`/secretaria/docentes/bajaDocente/${data.id}`);
+    return await axios.delete(`/api/secretaria/docentes/bajaDocente/${data.id}`);
 };
 
 export const solicitarLicenciaRequest = async (data) => {
-    return await axios.post('/secretaria/docentes/solicitarLicencia', data, {
+    return await axios.post('/api/secretaria/docentes/solicitarLicencia', data, {
         headers: {
             "Content-Type": "application/json",
         }
@@ -70,13 +70,13 @@ export const solicitarLicenciaRequest = async (data) => {
 };
 
 export const datosLicenciaRequest = async (id) => {
-    return await axios.get(`/secretaria/docentes/datosLicencia/${id}`);
+    return await axios.get(`/api/secretaria/docentes/datosLicencia/${id}`);
 };
 
 export const traerLicenciasRequest = async (id) => {
-    return await axios.get(`/secretaria/docentes/traerLicencias/${id}`);
+    return await axios.get(`/api/secretaria/docentes/traerLicencias/${id}`);
 }
 
 export const listarLicenciasRequest = async () => {
-    return await axios.get('/secretaria/docentes/listarLicencias');
+    return await axios.get('/api/secretaria/docentes/listarLicencias');
 }

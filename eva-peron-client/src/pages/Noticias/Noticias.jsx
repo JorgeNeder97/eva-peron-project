@@ -1,16 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Noticias.module.css';
 import { NavBar } from '../../components/NavBar/NavBar';
 import { Noticia } from '../../components/News/Noticia';
-import { useSlowLoad } from '../../hooks/useSlowLoad';
-import { useFetch } from '../../hooks/useFetch';
+import { listarNoticiasRequest } from '../../api/noticiasCRUD';
 
 
 export const Noticias = () => {
 
-    const { isLoaded } = useSlowLoad();
 
-    const { data, isLoading, errors } = useFetch('http://localhost:3000/api/noticias/list');
+    const [isLoaded, setIsLoaded] = (false);
+    const [isLoading, setIsLoading] = useState(true);
+    const [noticias, setNoticias] = useState(null);
+
+    useEffect(() => {
+        const listarNoticias = async () => {
+            try {
+                const res = await listarNoticiasRequest();
+                setNoticias(res.data.noticias);
+                setIsLoading(false);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        listarNoticias();
+
+        const timer = setTimeout(() => {
+            setIsLoaded(true);
+        }, 50);
+
+        // Limpieza del timer cuando el componente se desmonta
+        return () => clearTimeout(timer);
+    }, []);
 
 
     return (
@@ -19,9 +40,9 @@ export const Noticias = () => {
             <div className={isLoaded ? styles.mainContainer : styles.unloaded}>
                 <h2 className={styles.tituloPagina}>NOTICIAS</h2>
                 <div className={styles.divider}></div>
-                {isLoading ? <h2>Cargando...</h2> : errors ? <h2>Ha ocurrido un error: {errors}</h2> :
+                {isLoading ? <h2>Cargando...</h2> :
                     <div className={styles.noticiasContainer}>
-                        {data.data.map(noticia => {
+                        {noticias.map(noticia => {
                             return (
                                 <Noticia
                                     key={noticia.id}

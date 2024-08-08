@@ -4,7 +4,7 @@ import axios from './axios';
 //      ---------------GENERAL---------------
 
 export const verifyTokenRequest = async () => {
-    return await axios.get('/usuarios/verify');
+    return await axios.get('/api/usuarios/verify');
 }
 
 //      -------------------------------------
@@ -15,7 +15,7 @@ export const verifyTokenRequest = async () => {
 //      ---------------RECTORÍA---------------
 
 export const rectoriaLoginRequest = async (usuario) => {
-    return await axios.post('/rectoria/login', usuario, {
+    return await axios.post('/api/rectoria/login', usuario, {
         headers: {
             'Content-Type': 'application/json',
         }
@@ -26,7 +26,7 @@ export const rectoriaLoginRequest = async (usuario) => {
 
 
 export const logoutRectoriaRequest = async () => {
-    return await axios.post('/usuarios/logout');
+    return await axios.post('/api/usuarios/logout');
 }
 
 //      --------------------------------------
@@ -37,7 +37,7 @@ export const logoutRectoriaRequest = async () => {
 //      --------------SECRETARÍA--------------
 
 export const secretariaLoginRequest = async (usuario) => {
-    return await axios.post('/secretaria/login', usuario, {
+    return await axios.post('/api/secretaria/login', usuario, {
         headers: {
             'Content-Type': 'application/json',
         }
@@ -46,12 +46,12 @@ export const secretariaLoginRequest = async (usuario) => {
 
 
 export const verifySecretariaTokenRequest = async () => {
-    return await axios.get('/secretaria/verify');
+    return await axios.get('/api/secretaria/verify');
 }
 
 
 export const logoutSecretariaRequest = async () => {
-    return await axios.post('/secretaria/logout');
+    return await axios.post('/api/secretaria/logout');
 }
 
 //      ----------------------------------------
@@ -63,7 +63,7 @@ export const logoutSecretariaRequest = async () => {
 
 
 export const seccionAlumnosLoginRequest = async (usuario) => {
-    return await axios.post('/seccionAlumnos/login', usuario, {
+    return await axios.post('/api/seccionAlumnos/login', usuario, {
         headers: {
             'Content-Type': 'application/json',
         }
@@ -72,7 +72,7 @@ export const seccionAlumnosLoginRequest = async (usuario) => {
 
 
 export const logoutSeccionAlumnosRequest = async () => {
-    return await axios.post('/seccionAlumnos/logout');
+    return await axios.post('/api/seccionAlumnos/logout');
 }
 
 //      ----------------------------------------
@@ -83,7 +83,7 @@ export const logoutSeccionAlumnosRequest = async () => {
 //      -----------ASESORÍA PEDAGÓGICA-----------
 
 export const asesoriaPedagogicaLoginRequest = async (usuario) => {
-    return await axios.post('/asesoriaPedagogica/login', usuario, {
+    return await axios.post('/api/asesoriaPedagogica/login', usuario, {
         headers: {
             'Content-Type': 'application/json',
         }
@@ -92,7 +92,7 @@ export const asesoriaPedagogicaLoginRequest = async (usuario) => {
 
 
 export const logoutAsesoriaPedagogicaRequest = async () => {
-    return await axios.post('/asesoriaPedagogica/logout');
+    return await axios.post('/api/asesoriaPedagogica/logout');
 }
 
 //      -----------------------------------------

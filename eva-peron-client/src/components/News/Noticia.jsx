@@ -3,7 +3,7 @@ import styles from './Noticia.module.css'
 import { Link } from 'react-router-dom'
 export const Noticia = ({ id, titulo, adelanto, cuerpo, imagen }) => {
 
-    const imagenUrl = `http://localhost:3000/images/${imagen}`;
+    const imagenUrl = `https://server.escuelaevaperon.com/images/${imagen}`;
 
     return (
         <>

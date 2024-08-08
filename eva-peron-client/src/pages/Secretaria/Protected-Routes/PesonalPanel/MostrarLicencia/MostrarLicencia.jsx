@@ -60,6 +60,8 @@ export const MostrarLicencia = () => {
     
         const diasSemana = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
         const diaSemana = diasSemana[fechaFormateada.getUTCDay()];
+
+        const mesAño = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
     
         const nombreCompleto = `${apellido} ${nombre}`
         const diaCompleto = `${diaSemana} ${dia}`;
@@ -76,13 +78,13 @@ export const MostrarLicencia = () => {
                     <div className={styles.divider}></div>
                     <div className={styles.opcionesContainer}>
 
-                        <PDFDownloadLink document={datos && datos.licencia == "Articulo N° 17" ? <Art17 nombre={nombreCompleto} cargo={cargo} dia={diaCompleto} mes={mes} año={año} fechaCompleta={fechaCompleta} /> : <Art30 nombre={nombreCompleto} cargo={cargo} dia={diaCompleto} mes={mes} año={año} fechaCompleta={fechaCompleta} />} fileName="solicitudLicencia.pdf">
+                        <PDFDownloadLink document={datos && datos.licencia == "Articulo N° 17" ? <Art17 nombre={nombreCompleto} cargo={cargo} dia={diaCompleto} mes={mesAño[mes]} año={año} fechaCompleta={fechaCompleta} /> : <Art30 nombre={nombreCompleto} cargo={cargo} dia={diaCompleto} mes={mes} año={año} fechaCompleta={fechaCompleta} />} fileName="solicitudLicencia.pdf">
                             {({ loading }) => loading ? <button className={styles.downloadButton} disabled >Cargando...</button> : <button className={styles.downloadButton}>Descargar PDF</button>}
                         </PDFDownloadLink>
 
                         <PDFViewer className={styles.pdfViewer}>
-                            {datos && datos.licencia == "Articulo N° 17" && <Art17 nombre={nombreCompleto} cargo={cargo} dia={diaCompleto} mes={mes} año={año} fechaCompleta={fechaCompleta} />}
-                            {datos && datos.licencia == "Articulo N° 30" && <Art30 nombre={nombreCompleto} cargo={cargo} dia={diaCompleto} mes={mes} año={año} fechaCompleta={fechaCompleta} />}
+                            {datos && datos.licencia == "Articulo N° 17" && <Art17 nombre={nombreCompleto} cargo={cargo} dia={diaCompleto} mes={mesAño[mes]} año={año} fechaCompleta={fechaCompleta} />}
+                            {datos && datos.licencia == "Articulo N° 30" && <Art30 nombre={nombreCompleto} cargo={cargo} dia={diaCompleto} mes={mesAño[mes]} año={año} fechaCompleta={fechaCompleta} />}
                         </PDFViewer>
 
                     </div>

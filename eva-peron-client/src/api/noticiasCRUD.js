@@ -2,7 +2,7 @@ import axios from './axios';
 
 
 export const crearNoticiaRequest = async (noticia) => {
-    return await axios.post('/noticias/crearNoticia', noticia, {
+    return await axios.post('/api/noticias/crearNoticia', noticia, {
         headers: {
             'Content-Type': 'multipart/form-data'
         }
@@ -10,19 +10,23 @@ export const crearNoticiaRequest = async (noticia) => {
 }
 
 export const listarNoticiasRequest = async () => {
-    return await axios.get('/noticias/list');
+    return await axios.get('/api/noticias/list');
 }
 
 export const listarNoticiaRequest = async (id) => {
-    return await axios.get(`/noticias/list/${id}`);
+    return await axios.get(`/api/noticias/list/${id}`);
+}
+
+export const lastestListRequest = async () => {
+    return await axios.get('/api/noticias/lastestList')
 }
 
 export const noticiaParaModificarRequest = async (id) => {
-    return await axios.get(`/noticias/noticiaParaModificar/${id}`);
+    return await axios.get(`/api/noticias/noticiaParaModificar/${id}`);
 }
 
 export const modifiyRequest = async (noticia, id) => {
-    return await axios.patch(`/noticias/modify/${id}`, noticia, {
+    return await axios.patch(`/api/noticias/modify/${id}`, noticia, {
         headers: {
             'Content-Type': 'multipart/form-data',
         }
@@ -30,5 +34,5 @@ export const modifiyRequest = async (noticia, id) => {
 }
 
 export const deleteRequest = async (data) => {
-    return await axios.delete(`/noticias/delete/${data.id}`);
+    return await axios.delete(`/api/noticias/delete/${data.id}`);
 }

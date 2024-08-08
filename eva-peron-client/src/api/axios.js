@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'http://localhost:3000/api',
+    baseURL: 'https://server.escuelaevaperon.com',
     withCredentials: true,
     headers: {
-        'Content-Type': 'multipart/form-data'
+        'Content-Type': 'multipart/form-data',
     }
 });
 
