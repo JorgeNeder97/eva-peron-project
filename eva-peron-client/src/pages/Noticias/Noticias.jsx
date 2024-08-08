@@ -8,7 +8,7 @@ import { listarNoticiasRequest } from '../../api/noticiasCRUD';
 export const Noticias = () => {
 
 
-    const [isLoaded, setIsLoaded] = (false);
+    const [isLoaded, setIsLoaded] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [noticias, setNoticias] = useState(null);
 
